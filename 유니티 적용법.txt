@@ -1,0 +1,4 @@
+유니티 허브로 들어가서 Add를 눌러 위의 "Project" 폴더를 추가한다.
+
+아래의 링크에 사용법이 잘 설명되어 있어 가져왔음...
+https://jjuke-brain.tistory.com/entry/Github%EB%A1%9C-Unity-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0#2)_Clone_Repository_(Local_Repository_%EC%83%9D%EC%84%B1)
