@@ -16,9 +16,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Dash")]
+    public KeyCode DashKey;
     public float dashAmount;
     public float dashC; // 재사용시간
     private float currentDashT; // 재사용 시간 계산용 변수
+    [SerializeField]
+    Transform lineRenderer;
 
 
     [Space]
@@ -40,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       
         float X = Input.GetAxisRaw("Horizontal");
         float Y = Input.GetAxisRaw("Vertical");
 
@@ -51,7 +56,14 @@ public class PlayerMovement : MonoBehaviour
         float targetS = maxSpeed;
 
         if (Mathf.Abs(X) + Mathf.Abs(Y) > 1)
-            targetS = targetS / 4;
+            targetS = targetS / Mathf.Sqrt(2);
+
+        if (currentDashT > 0)
+        {
+            currentDashT -= Time.deltaTime;
+            if(currentDashT < dashC/2)
+                lineRenderer.gameObject.SetActive(false);
+        }
 
 
 
@@ -66,7 +78,18 @@ public class PlayerMovement : MonoBehaviour
 
         //rb.AddForce(moveDir * currentSpeed);
         transform.Translate(moveDir * currentSpeed);
+
+
+        if (Input.GetKeyDown(DashKey) && currentDashT <= 0)
+        {
+            lineRenderer.gameObject.SetActive(true);
+            currentDashT = dashC;
+
+            transform.Translate(moveDir * dashAmount);
+
+        }
         
+
 
     }
 }
