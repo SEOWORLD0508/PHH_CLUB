@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         float Y = Input.GetAxisRaw("Vertical");
 
 
-        print(X);
+      
         moveDir = new Vector2(X, Y);
 
 
