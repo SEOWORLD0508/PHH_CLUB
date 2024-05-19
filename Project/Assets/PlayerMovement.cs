@@ -56,12 +56,11 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateStatus()
     {
-        damage = 20 + Vamp;
-        damage += weaponDamage;
-
         for (int i=0; i<Vamp; i++) {
-            maxHP = 100 * hpIncrease
+            maxHP = maxHP * hpIncrease;
+            damage = damage * hpIncrease;
         }
+        damage += weaponDamage;
     }
 
     // Update is called once per frame
