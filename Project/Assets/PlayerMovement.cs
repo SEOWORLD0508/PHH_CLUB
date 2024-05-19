@@ -6,15 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Basic Status")]
     public float currentHp,maxHp; // 현재 체력 / 최대 체력
+    public double hpIncrease = 1.02; // 체력 증가량 102%
     public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
-    //public float BasicAttack,BasicDefense; // 기본 공격력 / 기본 방어력
-    public float damage,defense; // 공격력 / 방어력
+    //public float BasicAttack // 기본 공격력
+    public float damage; // 공격력
     public float attackC; // 공격 쿨타임
     public float Vamp; // 뱀파이어 진행도
+    public float weaponDamage; // 무기 공격력
     [Header("Basic Movement")]
     public float maxSpeed; // 이동속도로 봐도 될듯 
     public float accel; // 가속량
-  
 
     float currentSpeed;
 
@@ -43,20 +44,24 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vamp=0;
+        Vamp = 0;
         maxHP = 100;
         maxStamina = 100;
         currentHp = maxHp;
         currentStamina = maxStamina;
         Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
         Debug.Log(damage + "/" + defense);
-        UpdateStatus();
+        UpdateStatus(); //스텟 정의 함수
     }
 
     void UpdateStatus()
     {
-        damage = ;
-        defense = (Vamp + 1) * 10;
+        damage = 20 + Vamp;
+        damage += weaponDamage;
+
+        for (int i=0; i<Vamp; i++) {
+            maxHP = 100 * hpIncrease
+        }
     }
 
     // Update is called once per frame
