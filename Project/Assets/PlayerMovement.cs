@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Basic Status")]
     public float currentHp,maxHp; // 현재 체력 / 최대 체력
-    public double hpIncrease = 1.02; // 체력 증가량 102%
+    public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
     //public float BasicAttack // 기본 공격력
     public float damage; // 공격력
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float Vamp; // 뱀파이어 진행도
     public float weaponDamage; // 무기 공격력
     [Header("Basic Movement")]
-    public float maxSpeed; // 이동속도로 봐도 될듯 
+    public float maxSpeed; // 이동속도로 봐도 될듯
     public float accel; // 가속량
 
     float currentSpeed;
@@ -47,18 +47,21 @@ public class PlayerMovement : MonoBehaviour
         Vamp = 0;
         maxHP = 100;
         maxStamina = 100;
+        damage = 20;
         currentHp = maxHp;
         currentStamina = maxStamina;
         Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
         Debug.Log(damage + "/" + defense);
-        UpdateStatus(); //스텟 정의 함수
+        UpdateStatus(); //스텟 재정의 함수
     }
 
     void UpdateStatus()
     {
+        maxHP = 100;
+        damage = 20;
         for (int i=0; i<Vamp; i++) {
-            maxHP = maxHP * hpIncrease;
-            damage = damage * hpIncrease;
+            maxHP = maxHP * statIncrease; // 최대 체력 약 724
+            damage = damage * statIncrease; // 최대 공격력 약 144
         }
         damage += weaponDamage;
     }
