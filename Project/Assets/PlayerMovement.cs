@@ -44,16 +44,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Vamp=0;
-        UpdateStatus();
+        maxHP = 100;
+        maxStamina = 100;
         currentHp = maxHp;
         currentStamina = maxStamina;
         Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
         Debug.Log(damage + "/" + defense);
+        UpdateStatus();
     }
 
     void UpdateStatus()
     {
-        damage = (Vamp + 1) * 10;
+        damage = ;
         defense = (Vamp + 1) * 10;
     }
 
