@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     {
         maxHP = 100;
         damage = 20;
-        maxStamina = 100 + Vamp * 4
+        maxStamina = 100 + Vamp * 1.5
         for (int i=0; i<Vamp; i++) {
             maxHP = maxHP * statIncrease; // 최대 체력 약 724
             damage = damage * statIncrease; // 최대 공격력 약 144
