@@ -11,6 +11,7 @@ public class PlayerStatus : MonoBehaviour
     public float Vamp; // 뱀파이어 진행도
     public float weaponDamage; // 무기 공격력
     public float damage; // 기본 공격력
+    public float statime; // 스텟 회복 시간
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,6 @@ public class PlayerStatus : MonoBehaviour
         currentHp = maxHp;
         currentStamina = maxStamina;
         Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
-        Debug.Log(damage + "/" + defense);
         UpdateStatus(); //스텟 재정의 함수
     }
 
@@ -40,6 +40,20 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(“timerCoroutine”);
+    }
 
+    IEnumerator testCoroutine() 
+    {
+        While(true)
+        {
+            currentStamina += 50f
+            if (currentStamina > maxStamina)
+            {
+                currentStamina = maxStamina;
+            }
+            yield return new WaitForSeconts(1f);
+        }
+        yield return null;
     }
 }
