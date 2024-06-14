@@ -41,6 +41,10 @@ public class PlayerStatus : MonoBehaviour
     void Update()
     {
         StartCoroutine(timerCoroutine());
+        if (currentHp > maxHp)
+        {
+            currentHp = maxHp;
+        }
     }
 
     IEnumerator timerCoroutine() 
@@ -52,7 +56,6 @@ public class PlayerStatus : MonoBehaviour
             {
                 currentStamina = maxStamina;
             }
-
 
             yield return new WaitForSeconds(1f);
         }
