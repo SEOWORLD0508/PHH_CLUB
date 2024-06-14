@@ -40,14 +40,14 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(“timerCoroutine”);
+        StartCoroutine(timerCoroutine());
     }
 
-    IEnumerator testCoroutine() 
+    IEnumerator timerCoroutine() 
     {
-        While(true)
+        while(true)
         {
-            currentStamina += 50f
+            currentStamina += 50f;
             if (currentStamina > maxStamina)
             {
                 currentStamina = maxStamina;
