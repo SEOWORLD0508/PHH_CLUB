@@ -8,7 +8,6 @@ public class PlayerStatus : MonoBehaviour
     public float currentHp,maxHp; // 현재 체력 / 최대 체력
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
-    public float attackC; // 공격 쿨타임
     public float Vamp; // 뱀파이어 진행도
     public float weaponDamage; // 무기 공격력
 
