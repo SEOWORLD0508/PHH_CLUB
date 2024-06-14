@@ -10,7 +10,7 @@ public class PlayerStatus : MonoBehaviour
     public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
     public float Vamp; // 뱀파이어 진행도
     public float weaponDamage; // 무기 공격력
-    public float damage;
+    public float damage; // 기본 공격력
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,6 @@ public class PlayerStatus : MonoBehaviour
             maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
             damage = damage * (float)statIncrease; // 최대 공격력 약 144
         }
-        damage += weaponDamage;
     }
 
     // Update is called once per frame
