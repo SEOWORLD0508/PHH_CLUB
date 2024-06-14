@@ -12,6 +12,8 @@ public class PlayerStatus : MonoBehaviour
     public float weaponDamage; // 무기 공격력
     public float damage; // 기본 공격력
     public float statime; // 스텟 회복 시간
+    public float delaytime1,delaytime2; // 선딜 딜레이 / 후딜 딜레이
+    public bool attack = true; // 공격 가능 여부
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +47,17 @@ public class PlayerStatus : MonoBehaviour
         {
             currentHp = maxHp;
         }
+        if(Input.GetKeyDown(KeyCode.A) && attack)
+        {
+            StartCoroutine(Attack());
+        }
+    }
+    IEnumerator Attack()
+    {
+        attack = false;
+        yield return new WaitForSeconds(delaytime1);
+        Debug.Log("Attack");
+        yield return new WaitForSeconds(delaytime2);
     }
 
     IEnumerator timerCoroutine() 
