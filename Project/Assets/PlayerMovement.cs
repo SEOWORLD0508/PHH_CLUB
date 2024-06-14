@@ -4,24 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Basic Status")]
-    public float currentHp,maxHp; // 현재 체력 / 최대 체력
-    public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
-    public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
-    //public float BasicAttack // 기본 공격력
-    public float damage; // 공격력
-    public float attackC; // 공격 쿨타임
-    public float Vamp; // 뱀파이어 진행도
-    public float weaponDamage; // 무기 공격력
-    public float defense;
-    [Header("Basic Movement")]
-    public float maxSpeed; // 이동속도로 봐도 될듯
-    public float accel; // 가속량
-
     float currentSpeed;
 
     [Space]
-
 
     [Header("Dash")]
     public KeyCode DashKey;
@@ -30,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     private float currentDashT; // 재사용 시간 계산용 변수
     [SerializeField]
     Transform lineRenderer;
-
 
     [Space]
 
@@ -45,27 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vamp = 0;
-        maxHp = 100;
-        maxStamina = 100;
-        damage = 20;
-        currentHp = maxHp;
-        currentStamina = maxStamina;
-        Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
-        Debug.Log(damage + "/" + defense);
-        UpdateStatus(); //스텟 재정의 함수
-    }
 
-    void UpdateStatus()
-    {
-        maxHp = 100;
-        damage = 20;
-        maxStamina = 100 + Vamp * 1.5f;
-        for (int i=0; i<Vamp; i++) {
-            maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
-            damage = damage * (float)statIncrease; // 최대 공격력 약 144
-        }
-        damage += weaponDamage;
     }
 
     // Update is called once per frame
@@ -114,8 +78,4 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(moveDir * dashAmount);
 
         }
-        
-
-
-    }
 }
