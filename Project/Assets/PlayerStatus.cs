@@ -57,6 +57,10 @@ public class PlayerStatus : MonoBehaviour
         attack = false;
         yield return new WaitForSeconds(delaytime1);
         Debug.Log("Attack");
+
+
+
+
         yield return new WaitForSeconds(delaytime2);
         attack = true;
     }
