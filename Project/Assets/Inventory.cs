@@ -25,8 +25,22 @@ public class Inventory : MonoBehaviour
     {
         if(_item.itemType == ItemType.Weapon)
         {
+            weapons.Add(_item); // s
+        } else if(_item.itemType == ItemType.Equipment)
+        {
+            weapons.Add(_item);
+        }
+    }
 
-
+    public void RemoveItem(Item _item)
+    {
+        if (_item.itemType == ItemType.Weapon)
+        {
+            weapons.Remove(_item); // s
+        }
+        else if (_item.itemType == ItemType.Equipment)
+        {
+            weapons.Remove(_item);
         }
     }
 

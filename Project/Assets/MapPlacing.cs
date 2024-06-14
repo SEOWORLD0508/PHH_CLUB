@@ -5,7 +5,7 @@ public class MapPlacing : MonoBehaviour
 {
     private void Start()
     {
-        System.Random num = new Random();
+        System.Random num = new System.Random();
         string result = " ";
         int [,] MapArr = new int[6,6];
         int i;
