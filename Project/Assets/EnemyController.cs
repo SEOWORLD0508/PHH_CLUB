@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, wallLayer);
+
         playerInSight  = hit2d.collider == null ? true : false;
     
         if (currentAttackT > 0) currentAttackT -= Time.deltaTime;
@@ -62,4 +63,8 @@ public class EnemyController : MonoBehaviour
         nextAttackDelay = attackPatterns[i].val[1];
         currentAttackT = nextAttackDelay;
     }
+
+
+
+    // movement parameter ->  [(x,y), (x,y), 1]  1 for plyer, 2 for obstacle
 }
