@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
         if (currentAttackT > 0) currentAttackT -= Time.deltaTime;
 
         canAttack = playerInSight; 
-        Debug.Log("will add more conditions");
+        //Debug.Log("will add more conditions");
 
         if(canAttack && currentAttackT <= 0)
         {

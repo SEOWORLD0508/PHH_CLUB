@@ -58,6 +58,7 @@ public class PlayerStatus : MonoBehaviour
         yield return new WaitForSeconds(delaytime1);
         Debug.Log("Attack");
         yield return new WaitForSeconds(delaytime2);
+        attack = true;
     }
 
     IEnumerator timerCoroutine() 
@@ -72,6 +73,6 @@ public class PlayerStatus : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
         }
-        yield return null;
+       
     }
 }

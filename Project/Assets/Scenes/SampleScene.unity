@@ -1501,6 +1501,8 @@ GameObject:
   - component: {fileID: 1546483074}
   - component: {fileID: 1546483073}
   - component: {fileID: 1546483072}
+  - component: {fileID: 1546483076}
+  - component: {fileID: 1546483077}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1520,16 +1522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1b3aeaea6374f47a5d5c3678a0e64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
-  maxHp: 0
-  currentStamina: 0
-  maxStamina: 0
-  damage: 0
-  defense: 0
-  attackC: 0
-  Vamp: 0
   maxSpeed: 0.01
-  accel: 0.2
+  accel: 0.05
   DashKey: 32
   dashAmount: 1
   dashC: 0.3
@@ -1625,6 +1619,42 @@ Transform:
   - {fileID: 1895910565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1546483076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546483071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22450db131f2bc41bfca146f5a8835b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1546483077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546483071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb47855fb6d59d4099f60cdbd91537e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 0
+  maxHp: 0
+  statIncrease: 1.02
+  currentStamina: 0
+  maxStamina: 0
+  Vamp: 0
+  weaponDamage: 0
+  damage: 0
+  statime: 0
+  delaytime1: 0
+  delaytime2: 0
+  attack: 1
 --- !u!1 &1650084015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,8 +2087,8 @@ MonoBehaviour:
   attackPatterns:
   - Name: Default
     val:
-    - 10
-    - 5
+    - 0
+    - 0
 --- !u!114 &1902185866
 MonoBehaviour:
   m_ObjectHideFlags: 0

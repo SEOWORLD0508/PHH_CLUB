@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+
+    [Header("Movement")]
     float currentSpeed;
     public float maxSpeed;
-    float accel;
+    public float accel;
     [Space]
 
     [Header("Dash")]

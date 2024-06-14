@@ -28,9 +28,11 @@ public class MapPlacing : MonoBehaviour
         for(i=0; i<6; i++){
             for(j=0; j<5; j++){
                 result = result + MapArr[i,j] + "  ";
+                Debug.Log(MapArr[i, j]);
             }
             result = result + "\n ";
         }
-        Console.WriteLine(result);
+        //Console.WriteLine(result);
+      //  Debug.Log(result);
     }
 }
