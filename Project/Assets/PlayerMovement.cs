@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     float currentSpeed;
-
+    public float maxSpeed;
+    float accel;
     [Space]
 
     [Header("Dash")]
@@ -39,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         float Y = Input.GetAxisRaw("Vertical");
 
 
-      
+
         moveDir = new Vector2(X, Y);
 
 
@@ -51,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentDashT > 0)
         {
             currentDashT -= Time.deltaTime;
-            if(currentDashT < dashC/2)
+            if (currentDashT < dashC / 2)
                 lineRenderer.gameObject.SetActive(false);
         }
 
@@ -78,4 +79,6 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(moveDir * dashAmount);
 
         }
+    }
+
 }
