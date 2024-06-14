@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float attackC; // 공격 쿨타임
     public float Vamp; // 뱀파이어 진행도
     public float weaponDamage; // 무기 공격력
+    public float defense;
     [Header("Basic Movement")]
     public float maxSpeed; // 이동속도로 봐도 될듯
     public float accel; // 가속량
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Vamp = 0;
-        maxHP = 100;
+        maxHp = 100;
         maxStamina = 100;
         damage = 20;
         currentHp = maxHp;
@@ -57,12 +58,12 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateStatus()
     {
-        maxHP = 100;
+        maxHp = 100;
         damage = 20;
-        maxStamina = 100 + Vamp * 1.5
+        maxStamina = 100 + Vamp * 1.5f;
         for (int i=0; i<Vamp; i++) {
-            maxHP = maxHP * statIncrease; // 최대 체력 약 724
-            damage = damage * statIncrease; // 최대 공격력 약 144
+            maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
+            damage = damage * (float)statIncrease; // 최대 공격력 약 144
         }
         damage += weaponDamage;
     }
