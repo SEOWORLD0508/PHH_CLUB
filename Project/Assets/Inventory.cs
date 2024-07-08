@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Unity.VisualScripting;
+using static UnityEditor.Progress;
 
 public enum ItemType
 {
@@ -17,10 +20,14 @@ public class Inventory : MonoBehaviour
 
     public List<Item> equipments = new List<Item>();
 
+    [SerializeField]
+    int itemLayer;
+    [SerializeField]
+    TMP_Text popUpText;
 
-
-
-
+    [SerializeField]
+    float itemAcquireDistance;
+   
     public void AddItem(Item _item)
     {
         if(_item.itemType == ItemType.Weapon)
@@ -44,15 +51,94 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
+    void Setup()
+    {
+       
+    }
     // Start is called before the first frame update
     void Start()
     {
-        
+        Setup();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         
+        ItemPrefab[] temp = FindObjectsOfType<ItemPrefab>();
+
+        if (temp.Length > 0)
+        {
+            ItemPrefab closest = null;
+            float dis = 9999;
+            foreach (ItemPrefab item in temp)
+            {
+                if (Vector2.Distance(item.transform.position, transform.position) < itemAcquireDistance)
+                {
+                    if (dis > Vector2.Distance(item.transform.position, transform.position))
+                    {
+                        dis = Vector2.Distance(item.transform.position, transform.position);
+                        closest = item;
+                    }
+
+                }
+            }
+
+            if (closest)
+            {
+                popUpText.text = "Press <color=yellow>E</color> to collect <color=yellow>" + closest.item.ItemName;
+                popUpText.transform.position =Camera.main.WorldToScreenPoint( closest.transform.position + Vector3.down * 1);
+                popUpText.gameObject.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    closest.DecreaseAmount(1);
+                    switch(closest.item.itemType)
+                    {
+                        case ItemType.Equipment:
+                            equipments.Add(closest.item);
+                            break;
+                        case ItemType.Weapon:
+                            if (weapons.Count == 2)
+                                weapons.RemoveAt(0);
+                            weapons.Add(closest.item);
+                            break;
+                    }
+                }
+
+            }
+            else
+            {
+                popUpText.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            popUpText.gameObject.SetActive(false);
+        }
     }
+
+
+
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    print(other.gameObject);
+    //    if(other.gameObject.layer == itemLayer)
+    //    {
+    //        popUpText.text = "Press <color=yellow>E</color> to collect <color=yellow>" + other.gameObject.name;
+    //        popUpText.gameObject.SetActive(true);
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.layer == itemLayer)
+    //    {
+    //        popUpText.gameObject.SetActive(false);
+    //    }
+    //}
+
 }

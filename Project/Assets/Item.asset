@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   ItemName: "\uC9C1\uAC80"
-  damage: 100
-  preDelay: 0.5
-  lateDelay: 0
+  values: []
+  itemType: 0
+  prefab: {fileID: 0}

@@ -26,7 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     Rigidbody2D rb;
-   
+
+    [SerializeField]
+    PlayerStatus status;
     
 
 
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lineRenderer.gameObject.SetActive(true);
             currentDashT = dashC;
-
+            //status.currentStamina -= 10;
             transform.Translate(moveDir * dashAmount);
 
         }
