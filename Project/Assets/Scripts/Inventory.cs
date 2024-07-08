@@ -9,7 +9,7 @@ using static UnityEditor.Progress;
 public enum ItemType
 {
     Weapon,
-    Equipment
+    Etc
 }
 
 
@@ -27,13 +27,21 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     float itemAcquireDistance;
-   
+
+    [SerializeField]
+    public Transform inventoryBase;
+    [SerializeField]
+    Slot[] slots;
+
+
+    float a = 0.5f;
+
     public void AddItem(Item _item)
     {
         if(_item.itemType == ItemType.Weapon)
         {
             weapons.Add(_item); // s
-        } else if(_item.itemType == ItemType.Equipment)
+        } else if(_item.itemType == ItemType.Etc)
         {
             weapons.Add(_item);
         }
@@ -45,7 +53,7 @@ public class Inventory : MonoBehaviour
         {
             weapons.Remove(_item); // s
         }
-        else if (_item.itemType == ItemType.Equipment)
+        else if (_item.itemType == ItemType.Etc)
         {
             weapons.Remove(_item);
         }
@@ -66,7 +74,28 @@ public class Inventory : MonoBehaviour
     void Update()
     {
 
-        
+
+        if (GameManager.Instance.InventoryBool)
+        {
+            inventoryBase.gameObject.SetActive(true);
+            
+            foreach (Slot item in slots)
+            {
+                if (item.count == 0)
+                    item.countBase.gameObject.SetActive(false);
+                else
+                {
+                    item.countBase.gameObject.SetActive(true) ;
+                    item.countText.text = item.count.ToString();
+                }
+            }
+
+        } else
+        {
+            inventoryBase.gameObject.SetActive(false);
+        }
+
+
         ItemPrefab[] temp = FindObjectsOfType<ItemPrefab>();
 
         if (temp.Length > 0)
@@ -97,7 +126,7 @@ public class Inventory : MonoBehaviour
                     closest.DecreaseAmount(1);
                     switch(closest.item.itemType)
                     {
-                        case ItemType.Equipment:
+                        case ItemType.Etc:
                             equipments.Add(closest.item);
                             break;
                         case ItemType.Weapon:

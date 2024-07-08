@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
     [Header("Pause")]
     public bool Pause;
     public KeyCode PauseKey = KeyCode.Escape;
-
+    [Header("Inventory")]
+    public bool InventoryBool;
+    public KeyCode InventoryKey = KeyCode.Tab;
 
     private static GameManager _instance;
     // 인스턴스에 접근하기 위한 프로퍼티
@@ -50,6 +52,11 @@ public class GameManager : MonoBehaviour
         {
             Pause = !Pause;
             Time.timeScale  = Pause?0:1;
-        }   
+        }
+
+        if (Input.GetKeyDown(InventoryKey))
+        {
+            InventoryBool = !InventoryBool;
+        }
     }
 }
