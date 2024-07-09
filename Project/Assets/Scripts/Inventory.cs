@@ -47,11 +47,15 @@ public class Inventory : MonoBehaviour
 
     void Setup()
     {
-
-        List<ItemHolder> temp = equipments;
+        //if (equipments.Count == 0) return;
+        List<ItemHolder> temp = new List<ItemHolder>(); /// 이렇게 안했었는데 직접적으로 수정하니까 작동은 하는데 에러도 같이 나더라고...
+        foreach (ItemHolder item in equipments)
+        {
+            if(item.count <= 0)  temp.Add(item);
+        }
         foreach (ItemHolder item in temp)
         {
-            if(item.count <= 0)  equipments.Remove(item);
+            equipments.Remove(item);
         }
 
         if (GameManager.Instance.InventoryBool)
@@ -117,11 +121,14 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Setup();
-
 
         if (Input.GetKeyDown(KeyCode.K))
+        {
+            if(equipments.Count > 0)
             equipments[0].count = 0;
+
+        }
+            Setup();
 
         ItemPrefab[] temp = FindObjectsOfType<ItemPrefab>();
 
