@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 using static UnityEditor.Progress;
 
 public enum ItemType
@@ -11,14 +10,20 @@ public enum ItemType
     Weapon,
     Etc
 }
+[System.Serializable]
+public class ItemHolder
+{
+    public Item item;
+    public int count;
+}
 
 
 public class Inventory : MonoBehaviour
 {
 
-    public List<Item> weapons = new List<Item>();
+    public List<ItemHolder> weapons = new List<ItemHolder>();
 
-    public List<Item> equipments = new List<Item>();
+    public List<ItemHolder> equipments = new List<ItemHolder>();
 
     [SerializeField]
     int itemLayer;
@@ -36,28 +41,6 @@ public class Inventory : MonoBehaviour
 
     float a = 0.5f;
 
-    public void AddItem(Item _item)
-    {
-        if(_item.itemType == ItemType.Weapon)
-        {
-            weapons.Add(_item); // s
-        } else if(_item.itemType == ItemType.Etc)
-        {
-            weapons.Add(_item);
-        }
-    }
-
-    public void RemoveItem(Item _item)
-    {
-        if (_item.itemType == ItemType.Weapon)
-        {
-            weapons.Remove(_item); // s
-        }
-        else if (_item.itemType == ItemType.Etc)
-        {
-            weapons.Remove(_item);
-        }
-    }
 
 
     void Setup()
@@ -70,6 +53,23 @@ public class Inventory : MonoBehaviour
         Setup();
     }
 
+    void AddItem(List<ItemHolder> _itemHolder, Item _target)
+    {
+        bool t = false;
+        foreach (ItemHolder item in _itemHolder)
+        {
+            if(item.item == _target)
+            {
+                item.count++;
+                t = true;
+            }    
+        }
+
+        ItemHolder it = new ItemHolder();
+        it.item = _target;
+        it.count = 1;
+        if (!t) _itemHolder.Add(it);
+    }   
     // Update is called once per frame
     void Update()
     {
@@ -78,17 +78,26 @@ public class Inventory : MonoBehaviour
         if (GameManager.Instance.InventoryBool)
         {
             inventoryBase.gameObject.SetActive(true);
-            
-            foreach (Slot item in slots)
+
+
+
+            for (int i = 0; i < slots.Length; i++)
             {
-                if (item.count == 0)
-                    item.countBase.gameObject.SetActive(false);
+
+                if (i < equipments.Count)
+                {
+                    slots[i].item = equipments[i].item;
+                    slots[i].count = equipments[i].count;
+                }
+                if (slots[i].count == 0)
+                    slots[i].countBase.gameObject.SetActive(false);
                 else
                 {
-                    item.countBase.gameObject.SetActive(true) ;
-                    item.countText.text = item.count.ToString();
+                    slots[i].countBase.gameObject.SetActive(true);
+                    slots[i].countText.text = slots[i].count.ToString();
                 }
             }
+
 
         } else
         {
@@ -127,12 +136,12 @@ public class Inventory : MonoBehaviour
                     switch(closest.item.itemType)
                     {
                         case ItemType.Etc:
-                            equipments.Add(closest.item);
+                            AddItem(equipments, closest.item);
                             break;
                         case ItemType.Weapon:
                             if (weapons.Count == 2)
                                 weapons.RemoveAt(0);
-                            weapons.Add(closest.item);
+                            AddItem(weapons, closest.item);
                             break;
                     }
                 }
