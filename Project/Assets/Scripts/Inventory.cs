@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static UnityEditor.Progress;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 
 public enum ItemType
 {
@@ -45,7 +47,47 @@ public class Inventory : MonoBehaviour
 
     void Setup()
     {
-       
+
+        List<ItemHolder> temp = equipments;
+        foreach (ItemHolder item in temp)
+        {
+            if(item.count <= 0)  equipments.Remove(item);
+        }
+
+        if (GameManager.Instance.InventoryBool)
+        {
+            inventoryBase.gameObject.SetActive(true);
+
+
+
+            for (int i = 0; i < slots.Length; i++)
+            {
+
+                if (i < equipments.Count)
+                {
+                    slots[i].item = equipments[i].item;
+                    slots[i].count = equipments[i].count;
+                }
+                else
+                {
+                    slots[i].item = null;
+                    slots[i].count = 0;
+                }
+                if (slots[i].count == 0)
+                    slots[i].countBase.gameObject.SetActive(false);
+                else
+                {
+                    slots[i].countBase.gameObject.SetActive(true);
+                    slots[i].countText.text = slots[i].count.ToString();
+                }
+            }
+
+
+        }
+        else
+        {
+            inventoryBase.gameObject.SetActive(false);
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -70,40 +112,16 @@ public class Inventory : MonoBehaviour
         it.count = 1;
         if (!t) _itemHolder.Add(it);
     }   
+
+
     // Update is called once per frame
     void Update()
     {
+        Setup();
 
 
-        if (GameManager.Instance.InventoryBool)
-        {
-            inventoryBase.gameObject.SetActive(true);
-
-
-
-            for (int i = 0; i < slots.Length; i++)
-            {
-
-                if (i < equipments.Count)
-                {
-                    slots[i].item = equipments[i].item;
-                    slots[i].count = equipments[i].count;
-                }
-                if (slots[i].count == 0)
-                    slots[i].countBase.gameObject.SetActive(false);
-                else
-                {
-                    slots[i].countBase.gameObject.SetActive(true);
-                    slots[i].countText.text = slots[i].count.ToString();
-                }
-            }
-
-
-        } else
-        {
-            inventoryBase.gameObject.SetActive(false);
-        }
-
+        if (Input.GetKeyDown(KeyCode.K))
+            equipments[0].count = 0;
 
         ItemPrefab[] temp = FindObjectsOfType<ItemPrefab>();
 
