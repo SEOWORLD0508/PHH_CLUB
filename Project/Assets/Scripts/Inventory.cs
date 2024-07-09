@@ -183,25 +183,4 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
-
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    print(other.gameObject);
-    //    if(other.gameObject.layer == itemLayer)
-    //    {
-    //        popUpText.text = "Press <color=yellow>E</color> to collect <color=yellow>" + other.gameObject.name;
-    //        popUpText.gameObject.SetActive(true);
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.gameObject.layer == itemLayer)
-    //    {
-    //        popUpText.gameObject.SetActive(false);
-    //    }
-    //}
-
 }
