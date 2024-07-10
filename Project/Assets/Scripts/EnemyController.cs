@@ -66,7 +66,8 @@ public class EnemyController : MonoBehaviour
     
         if (currentAttackT > 0) currentAttackT -= Time.deltaTime;
 
-        canAttack = playerInSight; 
+        canAttack = playerInSight ? true : false;
+        
         //Debug.Log("will add more conditions");
 
         if(canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
@@ -81,7 +82,10 @@ public class EnemyController : MonoBehaviour
             if (!useUnityPathfinding)
                 transform.Translate(pathF.Main(obs, player.position, transform.position, speed) * speed * Time.deltaTime);
             else
+            {
+                //print("!");
                 navmesh.SetDestination(player.position);
+            }
         }
 
     }

@@ -40,10 +40,14 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     Slot[] slots;
 
+    [SerializeField]
+    float mouseSlotDis;
+
 
     float a = 0.5f;
 
-
+    [SerializeField]
+    Canvas canvas;
 
     void Setup()
     {
@@ -101,7 +105,7 @@ public class Inventory : MonoBehaviour
 
     void AddItem(List<ItemHolder> _itemHolder, Item _target)
     {
-        bool t = false;
+        bool t = false; //이미 해당 아이템이 인벤토리에 있으면 count만 늘리고, 없으면 새로 하나 만듬
         foreach (ItemHolder item in _itemHolder)
         {
             if(item.item == _target)
@@ -117,6 +121,22 @@ public class Inventory : MonoBehaviour
         if (!t) _itemHolder.Add(it);
     }   
 
+    void RemoveItem(List<ItemHolder> _itemHolder, Item _target, int amount)
+    {
+        
+        foreach (ItemHolder item in _itemHolder)
+        {
+            if (item.item == _target) {
+                item.count -= amount;
+                break;
+                
+            }
+        }
+
+        
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -124,9 +144,15 @@ public class Inventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            if(equipments.Count > 0)
-            equipments[0].count = 0;
-
+            if (equipments.Count > 0)
+            {
+                Slot closest = GetClosestHolder();
+                if(closest.item != null){
+                    print(GetClosestHolder());
+                    Instantiate(GetClosestHolder().item.prefab, transform.position, Quaternion.identity);
+                    RemoveItem(equipments, GetClosestHolder().item, 1);
+                }
+            }
         }
             Setup();
 
@@ -181,6 +207,34 @@ public class Inventory : MonoBehaviour
         {
             popUpText.gameObject.SetActive(false);
         }
+    }
+
+
+
+    Slot GetClosestHolder()
+    {
+       Vector2 mousePos = Input.mousePosition;
+        
+        //mousePos = Input.mousePosition / canvas.scaleFactor;
+        //mousePosImg.anchoredPosition = startPos;
+
+        Slot result = null;
+        float dis = mouseSlotDis;
+
+       
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if(dis >= Vector3.Distance(slots[i].transform.position, mousePos))
+            {
+                result = slots[i];
+                dis = Vector3.Distance(slots[i].transform.position, mousePos);
+            }
+
+        }
+
+        return result;
+
+
     }
 
 }
