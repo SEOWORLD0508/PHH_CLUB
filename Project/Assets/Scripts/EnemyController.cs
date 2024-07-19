@@ -18,7 +18,7 @@ public class AttackPattern
 public class EnemyController : MonoBehaviour
 {
 
-
+    public float health;
     float nextAttackDelay; 
     float currentAttackT;
     public float attackRange;
