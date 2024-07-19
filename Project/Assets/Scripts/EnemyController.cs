@@ -10,9 +10,9 @@ public class AttackPattern
     public string Name = "Default";
     public float[] val = new float[2];
     public bool moveTowardTarget = false;
-    /*0¹ø µ¥¹ÌÁö, 1¹ø °ø°İ ÀÌÈÄ µô·¹ÀÌ.(ÆĞÅÏ Áö¼Ó½Ã°£Àº µô·¹ÀÌ½Ã°£¿¡ ´õÇØ¼­ °ª³Ö¾îµµ µÉµí... ¿¡´Ï¸ŞÀÌÅÍ·Î ±¸ÇöÇÏ¸é ÄÚµå ¸¹ÀÌ ÁÙÀÏ¼ö ÀÖÀ½)
-     * ¾Ö´Ï¸ŞÀÌÅÍ¿¡¼­ event »ç¿ëÇØ¼­ ÇÔ¼ö È£Ãâ½ÃÅ°°í, ±×¶§ °ø°İ °Å¸® ¾È¿¡ ÀÖ´ÂÁö ´Ù½Ã È®ÀÎÇØ¼­ ¤¡¤¡
-     ÀÏ¹İÀûÀº ÆĞÅÏ 1°³(±âº»°ø°İ)¸¸ ÀÖÀ¸¸é µÇ°í º¸½º´Â ÆĞÅÏ ¿©·¯°³ »ç¿ëÇÒ¿¹Á¤ */
+    /*0ë²ˆ ë°ë¯¸ì§€, 1ë²ˆ ê³µê²© ì´í›„ ë”œë ˆì´.(íŒ¨í„´ ì§€ì†ì‹œê°„ì€ ë”œë ˆì´ì‹œê°„ì— ë”í•´ì„œ ê°’ë„£ì–´ë„ ë ë“¯... ì• ë‹ˆë©”ì´í„°ë¡œ êµ¬í˜„í•˜ë©´ ì½”ë“œ ë§ì´ ì¤„ì¼ìˆ˜ ìˆìŒ)
+     * ì• ë‹ˆë©”ì´í„°ì—ì„œ event ì‚¬ìš©í•´ì„œ í•¨ìˆ˜ í˜¸ì¶œì‹œí‚¤ê³ , ê·¸ë•Œ ê³µê²© ê±°ë¦¬ ì•ˆì— ìˆëŠ”ì§€ ë‹¤ì‹œ í™•ì¸í•´ì„œ ã„±ã„±
+     ì¼ë°˜ì ì€ íŒ¨í„´ 1ê°œ(ê¸°ë³¸ê³µê²©)ë§Œ ìˆìœ¼ë©´ ë˜ê³  ë³´ìŠ¤ëŠ” íŒ¨í„´ ì—¬ëŸ¬ê°œ ì‚¬ìš©í• ì˜ˆì • */
 
 }
 public class EnemyController : MonoBehaviour
@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
     E_PathFinding pathF;
 
 
-    public AttackPattern[] attackPatterns = new AttackPattern[1]; // ÀÎ½ºÆåÅÍ»ó¿¡¼­ °ª ³Ö°í, ÄÚµå·Î °ªÀº ¾È¹Ù²Üµí
+    public AttackPattern[] attackPatterns = new AttackPattern[1]; // ì¸ìŠ¤í™í„°ìƒì—ì„œ ê°’ ë„£ê³ , ì½”ë“œë¡œ ê°’ì€ ì•ˆë°”ê¿€ë“¯
 
     bool playerInSight;
     bool canAttack;
