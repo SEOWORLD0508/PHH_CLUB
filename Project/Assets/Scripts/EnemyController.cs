@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
 {
 
     public float health;
+    public float E_damage;
     float nextAttackDelay; 
     float currentAttackT;
     public float attackRange;
