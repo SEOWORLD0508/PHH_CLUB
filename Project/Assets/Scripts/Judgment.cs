@@ -2,7 +2,7 @@
 // 플레이어랑 몬스터 데미지 판정 구현
 bool P_attacked;
 bool E_attacked;
-if P_attacked == true
+if (P_attacked == true)
 {
   currentHp - 
 }
