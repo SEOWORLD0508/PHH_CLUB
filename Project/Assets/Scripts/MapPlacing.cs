@@ -10,6 +10,13 @@ struct RoomStr
     public int EnemyAmount; //몬스터 수
 }
 
+public struct RoomPer
+{
+    public double Room1;
+    public double Room2;
+    public double Room3;
+}
+
 public class MapPlacing : MonoBehaviour
 {
     [SerializeField]
@@ -23,19 +30,15 @@ public class MapPlacing : MonoBehaviour
 
     private void Start()
     {
-        System.Random num = new System.Random();
         string result = "";
         int[,] MapArr = new int[6, 6];
         int i;
         int j;
-        for (i = 0; i < 6; i++)
-        {
-            for (j = 0; j < 5; j++)
-            {
-                MapArr[i, j] = num.Next(3);
-            }
-        }
-        for (i = 0; i < 6; i++)
+        RoomPer roomPer;
+        roomPer.Room1 = 0.3;
+        roomPer.Room2 = 0.4;
+        roomPer.Room3 = 0.3;
+        for (i = 0; i < 5; i++)
         {
             MapArr[i, 3] = 4;
             MapArr[i, 1] = 4;
@@ -43,10 +46,29 @@ public class MapPlacing : MonoBehaviour
         for (i = 0; i < 6; i++)
         {
             MapArr[4, i] = 4;
+            MapArr[5, i] = 4;
         }
-        MapArr[3, 2] = 4; //5는 방 인식 안됨 why?
-        MapArr[5, 2] = 4;
-        MapArr[5, 0] = 3; 
+        //MapArr[3, 2] = 4; //5는 방 인식 안됨 why?
+        int[] RanArr = new int[30];
+        RanArr = CreateMapRandArr(5, 6, roomPer);
+        int k = 0;
+        Debug.Log(RanArr.Length);
+        for (i = 0; i < 6; i++)
+        {
+            for (j = 0; j < 5; j++)
+            {
+                if (MapArr[i, j] != 4)
+                {
+                    if (k == 12)
+                    {
+                        break;
+                    }
+                    MapArr[i, j] = RanArr[k];
+                    k++;
+                }
+            }
+        }
+        MapArr[5, 0] = 3; //체크 포인트
         for (i = 0; i < 6; i++)
         {
             for (j = 0; j < 5; j++)
@@ -59,6 +81,42 @@ public class MapPlacing : MonoBehaviour
         }
         Debug.Log(result);
     }
+
+    public static int[] CreateMapRandArr(int width, int height, RoomPer percent)
+    {
+        string result = "";
+        int i;
+        int[] ErrorResult = new int[1];
+        ErrorResult[0] = -1;
+        if (width % 2 != 1)
+        { //짝수라면 맵 생성이 불편
+            return ErrorResult;
+        }
+        if (percent.Room1 + percent.Room2 + percent.Room3 != 1)
+        { //확률 다 더하면 1되어야 함
+            return ErrorResult;
+        }
+        int len = ((height / 2) + 1) * (width - 2);
+        int[] MapFirst = new int[len];
+        for (i = 0; i < len; i++)
+        {
+            if (i <= len * percent.Room1)
+            {
+                MapFirst[i] = 0;
+            }
+            else if (i <= len * (percent.Room1 + percent.Room2))
+            {
+                MapFirst[i] = 1;
+            }
+            else if (i <= len * (percent.Room1 + percent.Room2 + percent.Room3))
+            {
+                MapFirst[i] = 2;
+            }
+        }
+        MapFirst = ShuffleArray(MapFirst);
+        return MapFirst;
+    }
+
     public static int[,] FirstToSec(string ArrNum, int width, int height)
     {
         int i;
@@ -91,5 +149,21 @@ public class MapPlacing : MonoBehaviour
             }
         }
         return result;
+    }
+
+    public static int[] ShuffleArray(int[] array)
+    {
+        int random1, random2;
+        int k;
+        System.Random num = new System.Random();
+        for (int i = 0; i < array.Length; ++i)
+        {
+            random1 = num.Next(array.Length);
+            random2 = num.Next(array.Length);
+            k = array[random1];
+            array[random1] = array[random2];
+            array[random2] = k;
+        }
+        return array;
     }
 }
