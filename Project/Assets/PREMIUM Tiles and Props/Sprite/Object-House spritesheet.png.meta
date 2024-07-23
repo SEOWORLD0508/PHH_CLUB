@@ -1,0 +1,3665 @@
+fileFormatVersion: 2
+guid: 7cf2324a869c84179b1d4273fef7690d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Globe
+  - first:
+      213: 21300002
+    second: Jar1
+  - first:
+      213: 21300004
+    second: Jar2
+  - first:
+      213: 21300006
+    second: Jar3
+  - first:
+      213: 21300008
+    second: Lamp
+  - first:
+      213: 21300010
+    second: Tree-pot
+  - first:
+      213: 21300012
+    second: Tree
+  - first:
+      213: 21300014
+    second: Map
+  - first:
+      213: 21300016
+    second: Book1
+  - first:
+      213: 21300018
+    second: Book2
+  - first:
+      213: 21300020
+    second: Book3
+  - first:
+      213: 21300022
+    second: Book4
+  - first:
+      213: 21300024
+    second: Book5
+  - first:
+      213: 21300026
+    second: Scroll1
+  - first:
+      213: 21300028
+    second: Scroll2
+  - first:
+      213: 21300030
+    second: Scroll3
+  - first:
+      213: 21300032
+    second: Teapot
+  - first:
+      213: 21300034
+    second: Bag
+  - first:
+      213: 21300036
+    second: Broom
+  - first:
+      213: 21300038
+    second: Wall-hanger1
+  - first:
+      213: 21300040
+    second: Wall-hanger2
+  - first:
+      213: 21300042
+    second: Wall-hanger3
+  - first:
+      213: 21300044
+    second: Meat-hanger3
+  - first:
+      213: 21300046
+    second: Shadow
+  - first:
+      213: 21300048
+    second: Chopping-block
+  - first:
+      213: 21300050
+    second: Sack1
+  - first:
+      213: 21300052
+    second: Sack2
+  - first:
+      213: 21300054
+    second: Basket1
+  - first:
+      213: 21300056
+    second: Basket2
+  - first:
+      213: 21300058
+    second: Bottle1
+  - first:
+      213: 21300060
+    second: Bottle2
+  - first:
+      213: 21300062
+    second: Mug
+  - first:
+      213: 21300064
+    second: Candle1
+  - first:
+      213: 21300066
+    second: Candle2
+  - first:
+      213: 21300068
+    second: Candle3
+  - first:
+      213: 21300070
+    second: Candle4
+  - first:
+      213: 21300072
+    second: Candle5
+  - first:
+      213: 21300074
+    second: Dish
+  - first:
+      213: 21300076
+    second: Table1
+  - first:
+      213: 21300078
+    second: Meat-hanger1
+  - first:
+      213: 21300080
+    second: Meat-hanger2
+  - first:
+      213: 21300082
+    second: Cloth-hanger
+  - first:
+      213: 21300084
+    second: Cloth
+  - first:
+      213: 21300086
+    second: Pillow1
+  - first:
+      213: 21300088
+    second: Pillow2
+  - first:
+      213: 21300090
+    second: Pillow3
+  - first:
+      213: 21300092
+    second: Chair2
+  - first:
+      213: 21300094
+    second: Chair3
+  - first:
+      213: 21300096
+    second: Poop-box
+  - first:
+      213: 21300098
+    second: Cup
+  - first:
+      213: 21300100
+    second: Water-bucket
+  - first:
+      213: 21300102
+    second: Meat1
+  - first:
+      213: 21300104
+    second: Meat3
+  - first:
+      213: 21300106
+    second: Meat2
+  - first:
+      213: 21300108
+    second: Bed4
+  - first:
+      213: 21300110
+    second: Bedsheet1
+  - first:
+      213: 21300112
+    second: Table8
+  - first:
+      213: 21300114
+    second: Jar4
+  - first:
+      213: 21300116
+    second: Table2
+  - first:
+      213: 21300118
+    second: Bed3
+  - first:
+      213: 21300120
+    second: Mat1
+  - first:
+      213: 21300122
+    second: Beam
+  - first:
+      213: 21300124
+    second: Poop-hole-cover
+  - first:
+      213: 21300126
+    second: Bed1
+  - first:
+      213: 21300128
+    second: Bed2
+  - first:
+      213: 21300130
+    second: Poop-hole
+  - first:
+      213: 21300132
+    second: Table3
+  - first:
+      213: 21300134
+    second: Chair1
+  - first:
+      213: 21300136
+    second: Bedsheet2
+  - first:
+      213: 21300138
+    second: Mat2
+  - first:
+      213: 21300140
+    second: Sword
+  - first:
+      213: 21300142
+    second: Table4
+  - first:
+      213: 21300144
+    second: Table5
+  - first:
+      213: 21300146
+    second: Table6
+  - first:
+      213: 21300148
+    second: Table7
+  - first:
+      213: 21300150
+    second: Wall-bottom-corner-out
+  - first:
+      213: 21300152
+    second: Object-House spritesheet_76
+  - first:
+      213: 21300154
+    second: Object-House spritesheet_77
+  - first:
+      213: 21300156
+    second: Object-House spritesheet_78
+  - first:
+      213: 21300158
+    second: Object-House spritesheet_79
+  - first:
+      213: 21300160
+    second: Wall-column
+  - first:
+      213: 21300162
+    second: Object-House spritesheet_81
+  - first:
+      213: 21300164
+    second: Object-House spritesheet_82
+  - first:
+      213: 21300166
+    second: Object-House spritesheet_83
+  - first:
+      213: 21300168
+    second: Object-House spritesheet_84
+  - first:
+      213: 21300170
+    second: Object-House spritesheet_85
+  - first:
+      213: 21300172
+    second: Object-House spritesheet_86
+  - first:
+      213: 21300174
+    second: Bar4-middle
+  - first:
+      213: 21300176
+    second: Bar4-side
+  - first:
+      213: 21300178
+    second: Object-House spritesheet_89
+  - first:
+      213: 21300180
+    second: Shelf-slot1
+  - first:
+      213: 21300182
+    second: Shelf-slot2
+  - first:
+      213: 21300184
+    second: Shelf-slot3
+  - first:
+      213: 21300186
+    second: Shelf-slot4
+  - first:
+      213: 21300188
+    second: Shelf-slot5
+  - first:
+      213: 21300190
+    second: Shelf-slot6
+  - first:
+      213: 21300192
+    second: Bar5-middle
+  - first:
+      213: 21300194
+    second: Bar5-side
+  - first:
+      213: 21300196
+    second: Round-shelf
+  - first:
+      213: 21300198
+    second: Bar1-side
+  - first:
+      213: 21300200
+    second: Object-House spritesheet_100
+  - first:
+      213: 21300202
+    second: Fence-middle
+  - first:
+      213: 21300204
+    second: Fence-side
+  - first:
+      213: 21300206
+    second: Wall-shelf1
+  - first:
+      213: 21300208
+    second: Wall-hanger4
+  - first:
+      213: 21300210
+    second: Bar1-middle
+  - first:
+      213: 21300212
+    second: Bar2-side
+  - first:
+      213: 21300214
+    second: Bar2-middle
+  - first:
+      213: 21300216
+    second: Bar-round-corner
+  - first:
+      213: 21300218
+    second: Wall-shelf2
+  - first:
+      213: 21300220
+    second: Door1
+  - first:
+      213: 21300222
+    second: Fireplace1
+  - first:
+      213: 21300224
+    second: Fireplace2
+  - first:
+      213: 21300226
+    second: Windows1
+  - first:
+      213: 21300228
+    second: Windows2
+  - first:
+      213: 21300230
+    second: Windows3
+  - first:
+      213: 21300232
+    second: Windows4
+  - first:
+      213: 21300234
+    second: Windows5
+  - first:
+      213: 21300236
+    second: Bar-cover
+  - first:
+      213: 21300238
+    second: Shelf2-side
+  - first:
+      213: 21300240
+    second: Shelf2-middle
+  - first:
+      213: 21300242
+    second: Shelf2-round-side
+  - first:
+      213: 21300244
+    second: Shelf2-round-middle
+  - first:
+      213: 21300246
+    second: Shelf
+  - first:
+      213: 21300248
+    second: Rack1
+  - first:
+      213: 21300250
+    second: Doors
+  - first:
+      213: 21300252
+    second: Rack2
+  - first:
+      213: 21300254
+    second: Shelf4-big-side
+  - first:
+      213: 21300256
+    second: Shelf4-big-middle
+  - first:
+      213: 21300258
+    second: Shelf4-big-round-side
+  - first:
+      213: 21300260
+    second: Shelf4-big-round-middle
+  - first:
+      213: 21300262
+    second: Shelf3-side
+  - first:
+      213: 21300264
+    second: Shelf3-middle
+  - first:
+      213: 21300266
+    second: Shelf3-round-side
+  - first:
+      213: 21300268
+    second: Shelf3-round-middle
+  - first:
+      213: 21300270
+    second: Shelf4-side
+  - first:
+      213: 21300272
+    second: Shelf4-middle
+  - first:
+      213: 21300274
+    second: Shelf4-round-side
+  - first:
+      213: 21300276
+    second: Shelf4-round-middle
+  - first:
+      213: 21300278
+    second: Wall-bottom
+  - first:
+      213: 21300280
+    second: Wall-top-corner-in
+  - first:
+      213: 21300282
+    second: Wall-side
+  - first:
+      213: 21300284
+    second: Wall-bottom-corner-in
+  - first:
+      213: 21300286
+    second: Wall-top
+  - first:
+      213: 21300288
+    second: Wall-top-corner-out
+  - first:
+      213: 21300290
+    second: Base-wall-wood
+  - first:
+      213: 21300292
+    second: Base-wall-plaster1
+  - first:
+      213: 21300294
+    second: Base-wall-plaster2
+  - first:
+      213: 21300296
+    second: Base-wall-stone
+  - first:
+      213: 21300298
+    second: Floor1
+  - first:
+      213: 21300300
+    second: Floor2
+  - first:
+      213: 21300302
+    second: Floor3
+  - first:
+      213: 21300304
+    second: Floor-crack
+  - first:
+      213: 21300306
+    second: Floor4
+  - first:
+      213: 21300308
+    second: Floor5
+  - first:
+      213: 21300310
+    second: Floor6
+  - first:
+      213: 21300312
+    second: Floor7
+  - first:
+      213: 21300314
+    second: Floor8
+  - first:
+      213: 21300316
+    second: Stairs
+  - first:
+      213: 21300318
+    second: Floor-lift
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Object-House spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 923
+        width: 63
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9740904e1da3dbb4185055f9fca516d6
+      internalID: 75461486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 956
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e08a3fb0093f2e4594ad198097a748d
+      internalID: 765504968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 956
+        width: 43
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6bacef7af061aa4ba39ec44c131f48e
+      internalID: -277520310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 956
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88db8f0f1d466af479943961a7b3e038
+      internalID: 383294000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 955
+        width: 45
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2b6a11cd64ec0419562a579efa4bfb
+      internalID: 2051034752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 953
+        width: 56
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d0e7058fc3e2544941716877f4e6cb
+      internalID: -1272983303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 937
+        width: 73
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565b776dc24955a40ada0e79d000e946
+      internalID: 152262648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 970
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820fe7ae748400d4f8e81632afd20352
+      internalID: -1701778074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 976
+        width: 69
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dc2b472c5013f84ba6f9455360b66b8
+      internalID: 1781173753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 972
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35b0926c8fd43341a71ef7a90a7ede2
+      internalID: 768570615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 979
+        width: 49
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9f270e55f888b4ba812031d33c7875
+      internalID: -794643998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 974
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4cef0f9c8898c4183455198b8b48b9
+      internalID: -1955819342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 972
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43af9db82d96ff46bfc78e9ec32d83f
+      internalID: 2073260401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 970
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733bd4f240b2b0249beb75137273b0af
+      internalID: -1026703403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 976
+        width: 25
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8238707c56c1f0a4b98ac388a43ed970
+      internalID: 1970500384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 973
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ad7cca2f60682d4fb707046d09b0e7c
+      internalID: 1048304498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 962
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342708bf3b737d940becb15f19987ad9
+      internalID: 1766558197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 960
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88335055c4c094142bb3ed3716b3adf1
+      internalID: -1814166577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 902
+        width: 47
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1eb9afe3a2860b4f85684175f9226f4
+      internalID: 1813914514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 922
+        width: 108
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabe44ffba14dc6489c3c444a829c479
+      internalID: 381285242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 920
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3be6c42ee455542a4449ec8e9ce81d
+      internalID: 575201995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 927
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff438ad4f8437524e8c4eda209ee3af3
+      internalID: 90314186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 923
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1718062bc2ec0242be460c13b0ce9b2
+      internalID: 3281848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 927
+        width: 41
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c416eaad16121a41b8a7cbb8505bc7c
+      internalID: -640817960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 873
+        width: 50
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243f87213b4500844882d85af2a17dfc
+      internalID: -630687694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 912
+        width: 45
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f82a8b3a278fa42a809888cae85acf
+      internalID: 787994964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 912
+        width: 49
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58662d554b43f3b42aa4f5fa2d78baeb
+      internalID: -2008460699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 912
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceacb0b8ab1c90f49b9f6011a8adbed0
+      internalID: -1260040511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 912
+        width: 59
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e9e872327c1f945bd36592909d0ab6
+      internalID: 473932796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 924
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe0bee68799039f42b716530a3c37631
+      internalID: -1267591644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 924
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33a1dc8194d3cdf40a2ad1f78ffdd522
+      internalID: 1110814422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 924
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcd881b5e92f3445833db1b7ade02d4
+      internalID: -1173190147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 921
+        width: 49
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b388da857e9e95c4bbebf89887f6e987
+      internalID: 545486047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 925
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e9df04bf07fa24c826666ae287eadf
+      internalID: 907649251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 925
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacfdb0689f6c0b44882fff3fb753dc2
+      internalID: -1391605695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 929
+        width: 30
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1172369e356a14a986528fb96955f5
+      internalID: 59093392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 924
+        width: 43
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f15fffe56da9865418d2ffc4ea40d70b
+      internalID: 1967455662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 925
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d196fcc29e8c2247836a1b6a45870f7
+      internalID: 1382099312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 847
+        width: 116
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7297bb02c0553d49b044d430679dcb6
+      internalID: -1938312882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 799
+        width: 50
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14d1675c707c4745a1552403ed47b03
+      internalID: 402686253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 878
+        width: 120
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145684701c868004bb045589badb2b91
+      internalID: -1743067440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 846
+        width: 36
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7734e94ee81cd247bbce41f2bd37e95
+      internalID: -932281829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 851
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51065f3c79323374aa06df9dff40ae00
+      internalID: -646458005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 868
+        width: 71
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1762a2b407f21c418461fc29addbefe
+      internalID: 292423030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 864
+        width: 64
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fc467475905f54da9050b438335feb
+      internalID: -2028362130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 863
+        width: 75
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06998eaec295ad54cb1e7848582f0eff
+      internalID: 1736074981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 857
+        width: 47
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9c72ee78e9b1b943b06ea4a0dec003e
+      internalID: -930593460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 860
+        width: 47
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53a8d40448329c4eb17c62b50ea3b8d
+      internalID: -1236984130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 844
+        width: 122
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2d5ab283ae207241a5a085dcb965974
+      internalID: -1570408960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 886
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d95a4388a786647be2c60d933ed280
+      internalID: -88380662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 842
+        width: 48
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd3af28761f12c4d9d516797a1265be
+      internalID: 1097565411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 818
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 167183ab98438ed44aaad8e58f73a507
+      internalID: 207574408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 813
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50f99f0bf41d6a840878073f8e7500c4
+      internalID: 972128726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 823
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3bd00214179431438b3b5fac00b5af7
+      internalID: -388536300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 124
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a14a75479e4bd54c99ec1334f3e31b9
+      internalID: 1146323621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 774
+        width: 108
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b7af875db88484da4d7e596c29b4e6
+      internalID: 1195146216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 772
+        width: 82
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4328fc06d9bea944a85807d4c8872ef
+      internalID: -1845132817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 852
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2195fe70053e50340bfd95aa1faf941a
+      internalID: 609639979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 716
+        width: 122
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fd3bc842c9521e498abf67ea8e9d070
+      internalID: 441030065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 663
+        width: 107
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00b93c09c85c6f14198aa464a6362507
+      internalID: 162652867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 776
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c3b56adcae58a4d981176f53085520
+      internalID: -1295537603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 700
+        width: 70
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423f8b4a6d006f7428f304e186b1c695
+      internalID: -1022582064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 807
+        width: 45
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3848828dff0fc3c40ad98993343aaa0c
+      internalID: 742328123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 668
+        width: 113
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a22e64435fd9ba43a5084c35f8979ba
+      internalID: -1171212143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 676
+        width: 90
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8fd8f4d48469b4eb31eb52f65fdbdb
+      internalID: 1225043918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 776
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2df32fc0e90e4b4b87eaf76439d2f68
+      internalID: -1670944164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 586
+        width: 63
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8006abc3425784d4885da630472eb8b1
+      internalID: 2091534128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 671
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf043959c454da949915a7c9714c2d54
+      internalID: -1410828590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 678
+        width: 125
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7ddfa587b03bd45b05199e302aea9d
+      internalID: 1245467699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 668
+        width: 115
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e71321f904c9a49ad5ae22163a8eec
+      internalID: 1445256970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 691
+        width: 29
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4147e38273b9eb04db3e5672da217d40
+      internalID: -1043035889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 550
+        width: 128
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a524eaa1dcd661429c473fefbf5370d
+      internalID: 1076248483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 550
+        width: 127
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41da259986e7e4489b6a27bf887ae11
+      internalID: 1923957009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 550
+        width: 127
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f89abe5b90a90468e800f706f248f0
+      internalID: -1115899065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 550
+        width: 127
+        height: 99
+      alignment: 9
+      pivot: {x: -12.111048, y: 0.4358872}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4403a99e485f052468886581725ac0aa
+      internalID: 1324242713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 598
+        width: 53
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d5f468f674c5b4f956e580dd910abb
+      internalID: 792161491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 640
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8248df80996bcc243a51d01b6772c8a7
+      internalID: -337398000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 598
+        width: 53
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf832c2a38deff428c6f589671faaf4
+      internalID: 1593433933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 597
+        width: 45
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ced2e1ee141dcd4bb017c66d27e7690
+      internalID: 1633966763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 598
+        width: 69
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6443f4ee63687f442aafc430c26c4c3a
+      internalID: -76114274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 444
+        width: 61
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04ffd872e104cf458e3f6e248b43580
+      internalID: 1727615000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 598
+        width: 15
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487bb320f828967448544a13e7f4dec0
+      internalID: 1301337409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 555
+        width: 62
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5078e513164854c814a0fef82dfba5
+      internalID: -630068195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 555
+        width: 32
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ff8ea25f5a9e5d4893bf2b5a79530f0
+      internalID: -1130901557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 555
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb70159e71187c94cb8e4e64ed6b337a
+      internalID: 1553001363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 555
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48c09da86210264184abfaa8f6f99a3
+      internalID: -499827100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 555
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd966b1bf86280b43bbf332e4b94ff8e
+      internalID: -22206819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 449
+        width: 61
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49694b5d02cccea43838a858c38c75df
+      internalID: 1982443351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 449
+        width: 59
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af48fae3b6dc5ab4ebb80d502d44aeef
+      internalID: 749966509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 240
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f1b930d6fe2444a9354c5b42df111d
+      internalID: -909397675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 518
+        width: 61
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96014a7e5f2785d47a29d10750873a77
+      internalID: -1533302306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 519
+        width: 60
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a770b3c7c956faa42866a7e6973d82f1
+      internalID: 930631997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 519
+        width: 60
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31fd54a9463a6da45becb67eb349e843
+      internalID: 633006817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 519
+        width: 60
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01e07038241aae54986465ff33990eab
+      internalID: 1738464820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 519
+        width: 60
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1031dd5d5a3f7164fa2df301d604eb26
+      internalID: 2108577174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 519
+        width: 60
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033cb93c549b7714aa27ba0c2cbc16b2
+      internalID: 581555101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 449
+        width: 61
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7579e70a223041f46aa7be0ee969525d
+      internalID: -395310359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 449
+        width: 59
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9a60f0e3ec8a24a80c3c2bd2017b11
+      internalID: 1987300629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 371
+        width: 63
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df068a5b0eab0840b997b9655433272
+      internalID: -1690720596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 384
+        width: 62
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299280d28581c0f4fb8ff4faaf18b2b6
+      internalID: -1971471413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 488
+        width: 60
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1729c13e7ccca2498241760ad9c2fe3
+      internalID: -934144400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 472
+        width: 60
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02bc496ff6e6c56448cb469452d0c2c5
+      internalID: 1604898174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 470
+        width: 61
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dc51f54c6132c842b54fb1646ada32b
+      internalID: 1339476698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 472
+        width: 120
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98842ae462df0b54e83501371a4dbe7c
+      internalID: -248427836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 473
+        width: 62
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef23f9fa50e846f46abb76357e0f40fe
+      internalID: -159579318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 384
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d70404158ee154aacf12bc17f743f2
+      internalID: 340326316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 384
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57be262f091056145bd19bfe62943895
+      internalID: 1124262238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_107
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 384
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b7a5bdb48909942b8abbdfdaba5b5e
+      internalID: 1258483526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_108
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 384
+        width: 61
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6963360f84e789842b68be3b0a9fc536
+      internalID: -1274883620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_109
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 401
+        width: 100
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eee280b2cf4d374abef349b048ca4e4
+      internalID: -1612455724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_110
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 318
+        width: 92
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7aae8421534e1746bb5cde799e07050
+      internalID: 711520697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_111
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 177
+        width: 103
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48dd7420fdcec146911fda856746ea2
+      internalID: 1254520585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_112
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 177
+        width: 103
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6105859eb3b6243aad8f6d0c677cc5
+      internalID: 480839000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_113
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 277
+        width: 86
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721108abeca46f74c8bd2ebb02bebad0
+      internalID: -696776263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_114
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 277
+        width: 86
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ee7a9d37645864f9ca7f985abaf5c5
+      internalID: -2028884855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_115
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 276
+        width: 72
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0113de14a4cc460438294209bc4d2fdd
+      internalID: -1295139242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_116
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 278
+        width: 72
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d63fe73a3089545970b47df56ae529
+      internalID: -1416934095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_117
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 319
+        width: 68
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c879c24edf789274f88f31bb0546b119
+      internalID: 1300705962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_118
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 327
+        width: 48
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cdf3c48b39b8ea4da32c4b3de4ef412
+      internalID: -57820793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_119
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 155
+        width: 61
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2710f2a89e7714cb23a0bb629ce34f
+      internalID: 1763380167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_120
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 155
+        width: 60
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ade99678eabfb4cbd1d7a82b903167
+      internalID: -1547168716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_121
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 155
+        width: 62
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a3b1f921527314e9aa1385704a30b3
+      internalID: 592098111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_122
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 155
+        width: 60
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ef96bff1991c94dac95435675272af
+      internalID: -897118231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_123
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 161
+        width: 62
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 790136db078827b4abacfbbc7f519764
+      internalID: 1510714646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_124
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 239
+        width: 120
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01fbbc055b349d94398a96902ea24bc3
+      internalID: 1681466216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_125
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 187
+        width: 97
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2df183415a27bb41b5c377d6759e657
+      internalID: -1266099581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_126
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 161
+        width: 122
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117b59469852eb442ab5cb3192c47c0f
+      internalID: -1194256121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_127
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 0
+        width: 61
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fe2566a0e73cb40a5fdceb58cc332b
+      internalID: -1266869310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_128
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 0
+        width: 60
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca92de80d285f8c41bbc53bdc30dc932
+      internalID: 169035584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_129
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 0
+        width: 62
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe0c0abf8b762264d8896c818deecb91
+      internalID: 1260558322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_130
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 0
+        width: 60
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a41ce41fc2b638c4ab2676ee0601b0a3
+      internalID: 193324508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_131
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 0
+        width: 61
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18138a12e29f45847a9da8582868e98e
+      internalID: 1967275234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_132
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 0
+        width: 60
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f361372f7840e045854042e1e17aada
+      internalID: -48110708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_133
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 0
+        width: 62
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37006a2eb20e1464990da4afb0a82c32
+      internalID: 1436661338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_134
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 0
+        width: 60
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb07f27e103d3f8478beb48e0380c1ef
+      internalID: 776460057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_135
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 0
+        width: 61
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428dfe73db4fbfd4ea2bb94bb681a2cf
+      internalID: -1928753708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_136
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 1
+        width: 60
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48660964d68210f4c9a7f04bca6696bb
+      internalID: 287162473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_137
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 61
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3995177b0afb9964981b1655a7d87fa5
+      internalID: 1318181504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Object-House spritesheet_138
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 0
+        width: 60
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3026a88d4c7b8c43a1c4655a641ee45
+      internalID: -1942555951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a9e8139b194ac0e4d9e5aa23cffa7ffb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Object-House spritesheet_0: 75461486
+      Object-House spritesheet_1: 765504968
+      Object-House spritesheet_10: -794643998
+      Object-House spritesheet_100: -934144400
+      Object-House spritesheet_101: 1604898174
+      Object-House spritesheet_102: 1339476698
+      Object-House spritesheet_103: -248427836
+      Object-House spritesheet_104: -159579318
+      Object-House spritesheet_105: 340326316
+      Object-House spritesheet_106: 1124262238
+      Object-House spritesheet_107: 1258483526
+      Object-House spritesheet_108: -1274883620
+      Object-House spritesheet_109: -1612455724
+      Object-House spritesheet_11: -1955819342
+      Object-House spritesheet_110: 711520697
+      Object-House spritesheet_111: 1254520585
+      Object-House spritesheet_112: 480839000
+      Object-House spritesheet_113: -696776263
+      Object-House spritesheet_114: -2028884855
+      Object-House spritesheet_115: -1295139242
+      Object-House spritesheet_116: -1416934095
+      Object-House spritesheet_117: 1300705962
+      Object-House spritesheet_118: -57820793
+      Object-House spritesheet_119: 1763380167
+      Object-House spritesheet_12: 2073260401
+      Object-House spritesheet_120: -1547168716
+      Object-House spritesheet_121: 592098111
+      Object-House spritesheet_122: -897118231
+      Object-House spritesheet_123: 1510714646
+      Object-House spritesheet_124: 1681466216
+      Object-House spritesheet_125: -1266099581
+      Object-House spritesheet_126: -1194256121
+      Object-House spritesheet_127: -1266869310
+      Object-House spritesheet_128: 169035584
+      Object-House spritesheet_129: 1260558322
+      Object-House spritesheet_13: -1026703403
+      Object-House spritesheet_130: 193324508
+      Object-House spritesheet_131: 1967275234
+      Object-House spritesheet_132: -48110708
+      Object-House spritesheet_133: 1436661338
+      Object-House spritesheet_134: 776460057
+      Object-House spritesheet_135: -1928753708
+      Object-House spritesheet_136: 287162473
+      Object-House spritesheet_137: 1318181504
+      Object-House spritesheet_138: -1942555951
+      Object-House spritesheet_14: 1970500384
+      Object-House spritesheet_15: 1048304498
+      Object-House spritesheet_16: 1766558197
+      Object-House spritesheet_17: -1814166577
+      Object-House spritesheet_18: 1813914514
+      Object-House spritesheet_19: 381285242
+      Object-House spritesheet_2: -277520310
+      Object-House spritesheet_20: 575201995
+      Object-House spritesheet_21: 90314186
+      Object-House spritesheet_22: 3281848
+      Object-House spritesheet_23: -640817960
+      Object-House spritesheet_24: -630687694
+      Object-House spritesheet_25: 787994964
+      Object-House spritesheet_26: -2008460699
+      Object-House spritesheet_27: -1260040511
+      Object-House spritesheet_28: 473932796
+      Object-House spritesheet_29: -1267591644
+      Object-House spritesheet_3: 383294000
+      Object-House spritesheet_30: 1110814422
+      Object-House spritesheet_31: -1173190147
+      Object-House spritesheet_32: 545486047
+      Object-House spritesheet_33: 907649251
+      Object-House spritesheet_34: -1391605695
+      Object-House spritesheet_35: 59093392
+      Object-House spritesheet_36: 1967455662
+      Object-House spritesheet_37: 1382099312
+      Object-House spritesheet_38: -1938312882
+      Object-House spritesheet_39: 402686253
+      Object-House spritesheet_4: 2051034752
+      Object-House spritesheet_40: -1743067440
+      Object-House spritesheet_41: -932281829
+      Object-House spritesheet_42: -646458005
+      Object-House spritesheet_43: 292423030
+      Object-House spritesheet_44: -2028362130
+      Object-House spritesheet_45: 1736074981
+      Object-House spritesheet_46: -930593460
+      Object-House spritesheet_47: -1236984130
+      Object-House spritesheet_48: -1570408960
+      Object-House spritesheet_49: -88380662
+      Object-House spritesheet_5: -1272983303
+      Object-House spritesheet_50: 1097565411
+      Object-House spritesheet_51: 207574408
+      Object-House spritesheet_52: 972128726
+      Object-House spritesheet_53: -388536300
+      Object-House spritesheet_54: 1146323621
+      Object-House spritesheet_55: 1195146216
+      Object-House spritesheet_56: -1845132817
+      Object-House spritesheet_57: 609639979
+      Object-House spritesheet_58: 441030065
+      Object-House spritesheet_59: 162652867
+      Object-House spritesheet_6: 152262648
+      Object-House spritesheet_60: -1295537603
+      Object-House spritesheet_61: -1022582064
+      Object-House spritesheet_62: 742328123
+      Object-House spritesheet_63: -1171212143
+      Object-House spritesheet_64: 1225043918
+      Object-House spritesheet_65: -1670944164
+      Object-House spritesheet_66: 2091534128
+      Object-House spritesheet_67: -1410828590
+      Object-House spritesheet_68: 1245467699
+      Object-House spritesheet_69: 1445256970
+      Object-House spritesheet_7: -1701778074
+      Object-House spritesheet_70: -1043035889
+      Object-House spritesheet_71: 1076248483
+      Object-House spritesheet_72: 1923957009
+      Object-House spritesheet_73: -1115899065
+      Object-House spritesheet_74: 1324242713
+      Object-House spritesheet_75: 792161491
+      Object-House spritesheet_76: -337398000
+      Object-House spritesheet_77: 1593433933
+      Object-House spritesheet_78: 1633966763
+      Object-House spritesheet_79: -76114274
+      Object-House spritesheet_8: 1781173753
+      Object-House spritesheet_80: 1727615000
+      Object-House spritesheet_81: 1301337409
+      Object-House spritesheet_82: -630068195
+      Object-House spritesheet_83: -1130901557
+      Object-House spritesheet_84: 1553001363
+      Object-House spritesheet_85: -499827100
+      Object-House spritesheet_86: -22206819
+      Object-House spritesheet_87: 1982443351
+      Object-House spritesheet_88: 749966509
+      Object-House spritesheet_89: -909397675
+      Object-House spritesheet_9: 768570615
+      Object-House spritesheet_90: -1533302306
+      Object-House spritesheet_91: 930631997
+      Object-House spritesheet_92: 633006817
+      Object-House spritesheet_93: 1738464820
+      Object-House spritesheet_94: 2108577174
+      Object-House spritesheet_95: 581555101
+      Object-House spritesheet_96: -395310359
+      Object-House spritesheet_97: 1987300629
+      Object-House spritesheet_98: -1690720596
+      Object-House spritesheet_99: -1971471413
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
