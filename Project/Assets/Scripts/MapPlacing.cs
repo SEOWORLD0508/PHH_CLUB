@@ -32,8 +32,7 @@ public class MapPlacing : MonoBehaviour
     {
         string result = "";
         int[,] MapArr = new int[6, 6];
-        int i;
-        int j;
+        int i, j;
         RoomPer roomPer;
         roomPer.Room1 = 0.3;
         roomPer.Room2 = 0.4;
@@ -51,15 +50,21 @@ public class MapPlacing : MonoBehaviour
         //MapArr[3, 2] = 4; //5는 방 인식 안됨 why?
         int[] RanArr = new int[30];
         RanArr = CreateMapRandArr(5, 6, roomPer);
-        int k = 0;
         Debug.Log(RanArr.Length);
+        RoomStr[] roomStr = new RoomStr[RanArr.Length];
+        for(i=0; i<RanArr.Length; i++){
+            roomStr[i].isEntered = false;
+            roomStr[i].RoomKind = RanArr[i];
+            roomStr[i].isCleared = false;
+        }
+        int k = 0;
         for (i = 0; i < 6; i++)
         {
             for (j = 0; j < 5; j++)
             {
                 if (MapArr[i, j] != 4)
                 {
-                    if (k == 12)
+                    if (k == RanArr.Length)
                     {
                         break;
                     }
@@ -119,8 +124,7 @@ public class MapPlacing : MonoBehaviour
 
     public static int[,] FirstToSec(string ArrNum, int width, int height)
     {
-        int i;
-        int j;
+        int i, j;
         int k = 0;
         string[] numbers = ArrNum.Split(" ");
         int len = ArrNum.Length / 2;
@@ -138,8 +142,7 @@ public class MapPlacing : MonoBehaviour
 
     public static string SecToFirst(int[,] SecArr, int width, int height)
     {
-        int i;
-        int j;
+        int i, j;
         string result = "";
         for (i = 0; i < width; i++)
         {
