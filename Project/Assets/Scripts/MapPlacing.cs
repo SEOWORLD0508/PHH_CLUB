@@ -52,7 +52,8 @@ public class MapPlacing : MonoBehaviour
         RanArr = CreateMapRandArr(5, 6, roomPer);
         Debug.Log(RanArr.Length);
         RoomStr[] roomStr = new RoomStr[RanArr.Length];
-        for(i=0; i<RanArr.Length; i++){
+        for (i = 0; i < RanArr.Length; i++)
+        {
             roomStr[i].isEntered = false;
             roomStr[i].RoomKind = RanArr[i];
             roomStr[i].isCleared = false;
