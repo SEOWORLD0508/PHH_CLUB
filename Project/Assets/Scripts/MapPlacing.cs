@@ -35,6 +35,7 @@ public class MapPlacing : MonoBehaviour
     [SerializeField]
     float GridSize;
     //코드에서 유니티에 상호작용 할수 있게 함
+    
     private void Start()
     {
         int i, j;
@@ -101,14 +102,14 @@ public class MapPlacing : MonoBehaviour
 
     public static int[] CreateMapRandArr(int width, int height, RoomPer percent) //비율대로 랜덤 방 생성하는 함수
     {
-        string result = "";
-        int i;
-        int[] ErrorResult = new int[1];
-        ErrorResult[0] = -1;
         if (width % 2 != 1)
         {
+            int[] ErrorResult = new int[1];
+            ErrorResult[0] = -1;
             return ErrorResult;
         }
+        string result = "";
+        int i;
         if (percent.Room1 + percent.Room2 + percent.Room3 != 1)
         {
             return ErrorResult;
@@ -183,10 +184,10 @@ public class MapPlacing : MonoBehaviour
 
     public static int[,] CreateMapBaseArr(int width, int height) //맵 복도 배치하는 함수
     {
-        int[,] ErrorResult = new int[1, 1];
-        ErrorResult[0, 0] = -1;
         if (width % 2 != 1)
         {
+            int[,] ErrorResult = new int[1, 1];
+            ErrorResult[0, 0] = -1;
             return ErrorResult;
         }
         int[,] MapArr = new int[width, height];
