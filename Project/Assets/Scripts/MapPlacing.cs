@@ -35,7 +35,7 @@ public class MapPlacing : MonoBehaviour
     [SerializeField]
     float GridSize;
     //코드에서 유니티에 상호작용 할수 있게 함
-    
+
     private void Start()
     {
         int i, j;
@@ -45,15 +45,8 @@ public class MapPlacing : MonoBehaviour
         int Width = mapSize.width;
         int Height = mapSize.height;
         string result = "";
-        int[,] MapArr = new int[Height, Width];
-        int[,] MapArr_ = CreateMapBaseArr(Width, Height);
-        for (i = 0; i < Height; i++)
-        {
-            for (j = 0; j < Width; j++)
-            {
-                MapArr[i, j] = MapArr_[j, i];
-            }
-        } //복도 생성
+        int[,] MapArr = CreateMapBaseArr(Width, Height);
+        //복도 생성
 
         RoomPer roomPer;
         roomPer.Room1 = 0.3;
@@ -86,7 +79,7 @@ public class MapPlacing : MonoBehaviour
             }
         } //방 비율대로 랜덤 생성/배치
 
-        MapArr[Width, 0] = 3; //체크 포인트
+        MapArr[Height - 1, 0] = 3; //체크 포인트
 
         for (i = 0; i < Height; i++)
         {
@@ -112,6 +105,8 @@ public class MapPlacing : MonoBehaviour
         int i;
         if (percent.Room1 + percent.Room2 + percent.Room3 != 1)
         {
+            int[] ErrorResult = new int[1];
+            ErrorResult[0] = -1;
             return ErrorResult;
         }
         int len = ((height / 2) + 1) * (width - 2);
@@ -190,18 +185,18 @@ public class MapPlacing : MonoBehaviour
             ErrorResult[0, 0] = -1;
             return ErrorResult;
         }
-        int[,] MapArr = new int[width, height];
+        int[,] MapArr = new int[height, width];
         int i, j;
         for (i = 0; i < width; i++)
         {
-            MapArr[i, height - 2] = 4;
-            MapArr[i, height - 1] = 4;
+            MapArr[height - 2, i] = 4;
+            MapArr[height - 1, i] = 4;
         }
-        for (i = 0; i < width; i = i + 2)
+        for (i = 1; i < width; i = i + 2)
         {
             for (j = 0; j < height - 2; j++)
             {
-                MapArr[i, j] = 4;
+                MapArr[j, i] = 4;
             }
         }
         return MapArr;
