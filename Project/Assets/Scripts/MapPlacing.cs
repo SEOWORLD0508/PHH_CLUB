@@ -92,8 +92,7 @@ public class MapPlacing : MonoBehaviour
             for (j = 0; j < Width; j++)
             {
                 result = result + MapArr[i, j] + " ";
-                rooms.Add(Instantiate(roomPrefabs[MapArr[i, j]], new Vector2(j * GridSize,
-                    -1 * i * GridSize), Quaternion.identity));
+                rooms.Add(Instantiate(roomPrefabs[MapArr[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
             }
             result = result + "\n";
         }
