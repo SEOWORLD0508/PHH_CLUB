@@ -1,6 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+//모듈 선언
+
+struct MapSize //맵 크기
+{
+    public int width;
+    public int height;
+}
 
 struct RoomStr
 {
@@ -10,7 +17,7 @@ struct RoomStr
     public int EnemyAmount; //몬스터 수
 }
 
-public struct RoomPer
+public struct RoomPer //맵의 방 수 비율
 {
     public double Room1;
     public double Room2;
@@ -27,29 +34,32 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
-
+    //코드에서 유니티에 상호작용 할수 있게 함
     private void Start()
     {
-        string result = "";
-        int[,] MapArr = new int[6, 6];
         int i, j;
+        MapSize mapSize;
+        mapSize.width = 5; //홀수여야 함
+        mapSize.height = 6;
+        int Width = mapSize.width;
+        int Height = mapSize.height;
+        string result = "";
+        int[,] MapArr = new int[Height, Width];
+        int[,] MapArr_ = CreateMapBaseArr(Width, Height);
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < Width; j++)
+            {
+                MapArr[i, j] = MapArr_[j, i];
+            }
+        } //복도 생성
+
         RoomPer roomPer;
         roomPer.Room1 = 0.3;
         roomPer.Room2 = 0.4;
         roomPer.Room3 = 0.3;
-        for (i = 0; i < 5; i++)
-        {
-            MapArr[i, 3] = 4;
-            MapArr[i, 1] = 4;
-        }
-        for (i = 0; i < 6; i++)
-        {
-            MapArr[4, i] = 4;
-            MapArr[5, i] = 4;
-        }
-        //MapArr[3, 2] = 4; //5는 방 인식 안됨 why?
-        int[] RanArr = new int[30];
-        RanArr = CreateMapRandArr(5, 6, roomPer);
+        int[] RanArr = new int[Width * Height];
+        RanArr = CreateMapRandArr(Width, Height, roomPer);
         Debug.Log(RanArr.Length);
         RoomStr[] roomStr = new RoomStr[RanArr.Length];
         for (i = 0; i < RanArr.Length; i++)
@@ -59,9 +69,9 @@ public class MapPlacing : MonoBehaviour
             roomStr[i].isCleared = false;
         }
         int k = 0;
-        for (i = 0; i < 6; i++)
+        for (i = 0; i < Height; i++)
         {
-            for (j = 0; j < 5; j++)
+            for (j = 0; j < Width; j++)
             {
                 if (MapArr[i, j] != 4)
                 {
@@ -73,11 +83,13 @@ public class MapPlacing : MonoBehaviour
                     k++;
                 }
             }
-        }
-        MapArr[5, 0] = 3; //체크 포인트
-        for (i = 0; i < 6; i++)
+        } //방 비율대로 랜덤 생성/배치
+
+        MapArr[Width, 0] = 3; //체크 포인트
+
+        for (i = 0; i < Height; i++)
         {
-            for (j = 0; j < 5; j++)
+            for (j = 0; j < Width; j++)
             {
                 result = result + MapArr[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[MapArr[i, j]], new Vector2(j * GridSize,
@@ -85,21 +97,21 @@ public class MapPlacing : MonoBehaviour
             }
             result = result + "\n";
         }
-        Debug.Log(result);
+        Debug.Log(result); //출력/유니티에 반영
     }
 
-    public static int[] CreateMapRandArr(int width, int height, RoomPer percent)
+    public static int[] CreateMapRandArr(int width, int height, RoomPer percent) //비율대로 랜덤 방 생성하는 함수
     {
         string result = "";
         int i;
         int[] ErrorResult = new int[1];
         ErrorResult[0] = -1;
         if (width % 2 != 1)
-        { //짝수라면 맵 생성이 불편
+        {
             return ErrorResult;
         }
         if (percent.Room1 + percent.Room2 + percent.Room3 != 1)
-        { //확률 다 더하면 1되어야 함
+        {
             return ErrorResult;
         }
         int len = ((height / 2) + 1) * (width - 2);
@@ -123,7 +135,7 @@ public class MapPlacing : MonoBehaviour
         return MapFirst;
     }
 
-    public static int[,] FirstToSec(string ArrNum, int width, int height)
+    public static int[,] FirstToSec(string ArrNum, int width, int height) //방구조를 일차원배열에서 이차원배열로 변환하는 함수
     {
         int i, j;
         int k = 0;
@@ -141,7 +153,7 @@ public class MapPlacing : MonoBehaviour
         return ResultMapArr;
     }
 
-    public static string SecToFirst(int[,] SecArr, int width, int height)
+    public static string SecToFirst(int[,] SecArr, int width, int height) //방구조를 이차원배열에서 일차원배열로 변환하는 함수
     {
         int i, j;
         string result = "";
@@ -155,10 +167,9 @@ public class MapPlacing : MonoBehaviour
         return result;
     }
 
-    public static int[] ShuffleArray(int[] array)
+    public static int[] ShuffleArray(int[] array) //배열 내부 요소를 랜덤으로 섞는 함수
     {
-        int random1, random2;
-        int k;
+        int random1, random2, k;
         System.Random num = new System.Random();
         for (int i = 0; i < array.Length; ++i)
         {
@@ -169,5 +180,30 @@ public class MapPlacing : MonoBehaviour
             array[random2] = k;
         }
         return array;
+    }
+
+    public static int[,] CreateMapBaseArr(int width, int height) //맵 복도 배치하는 함수
+    {
+        int[,] ErrorResult = new int[1, 1];
+        ErrorResult[0, 0] = -1;
+        if (width % 2 != 1)
+        {
+            return ErrorResult;
+        }
+        int[,] MapArr = new int[width, height];
+        int i, j;
+        for (i = 0; i < width; i++)
+        {
+            MapArr[i, height - 2] = 4;
+            MapArr[i, height - 1] = 4;
+        }
+        for (i = 0; i < width; i = i + 2)
+        {
+            for (j = 0; j < height - 2; j++)
+            {
+                MapArr[i, j] = 4;
+            }
+        }
+        return MapArr;
     }
 }
