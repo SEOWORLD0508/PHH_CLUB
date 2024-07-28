@@ -8,10 +8,10 @@ using UnityEngine.AI;
 public class AttackPattern
 {
     public string Name = "Default";
-    public float[] val = new float[3];
-  
-    /*0번 데미지, 1번 공격 이전 딜레이.2번 공격 이후 딜레이(패턴 지속시간은 딜레이시간에 더해서 값넣어도 될듯... 애니메이터로 구현하면 코드 많이 줄일수 있음)
-     * 
+    public float[] val = new float[2];
+    public bool moveTowardTarget = false;
+    /*0번 데미지, 1번 공격 이후 딜레이.(패턴 지속시간은 딜레이시간에 더해서 값넣어도 될듯... 애니메이터로 구현하면 코드 많이 줄일수 있음)
+     * 애니메이터에서 event 사용해서 함수 호출시키고, 그때 공격 거리 안에 있는지 다시 확인해서 ㄱㄱ
      일반적은 패턴 1개(기본공격)만 있으면 되고 보스는 패턴 여러개 사용할예정 */
 
 }
@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
     public float health;
     public float E_damage;
-
+    float nextAttackDelay; 
     float currentAttackT;
     public float attackRange;
     public LayerMask collideLayer;
@@ -42,9 +42,6 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent navmesh;
     [SerializeField]
     bool useUnityPathfinding;
-
-    [SerializeField]
-    Transform Warning;
 
     bool dashing;
 
@@ -74,8 +71,6 @@ public class EnemyController : MonoBehaviour
         
         //Debug.Log("will add more conditions");
 
-      
-
         if(canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             Attack();
@@ -102,23 +97,22 @@ public class EnemyController : MonoBehaviour
     {
         int i = Random.Range(0, attackPatterns.Length);
         Debug.Log("Attacked... Pattern -> " + i);
-        
-        currentAttackT = attackPatterns[i].val[1] + attackPatterns[i].val[2];
-        
-        StartCoroutine(DCoroutine(attackPatterns[i].val[1], attackPatterns[i].val[2]));
-        
+        nextAttackDelay = attackPatterns[i].val[1];
+        currentAttackT = nextAttackDelay;
+        if (attackPatterns[i].moveTowardTarget)
+        {
+            StartCoroutine(DCoroutine(currentAttackT));
+        }
     }
 
-    public IEnumerator DCoroutine(float _t1,float _t2)
+    public IEnumerator DCoroutine(float T)
     {
-       
-        //navmesh.speed = Vector3.Distance(transform.position, player.position) / T;
-        //navmesh.SetDestination(player.position);
-        yield return new WaitForSeconds(_t1);
-
-        yield return new WaitForSeconds(_t2);
-        //navmesh.speed = speed;
-      
+        dashing = true;
+        navmesh.speed = Vector3.Distance(transform.position, player.position) / T;
+        navmesh.SetDestination(player.position);
+        yield return new WaitForSeconds(T);
+        navmesh.speed = speed;
+        dashing = false;
     }
 
 
