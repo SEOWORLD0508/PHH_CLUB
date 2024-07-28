@@ -8,7 +8,7 @@ struct MapSize //맵 크기
     public int width;
     public int height;
 }
-
+/*
 struct RoomStr
 {
     public bool isEntered; //플레이어가 있는지 없는지지
@@ -16,7 +16,7 @@ struct RoomStr
     public bool isCleared; //깼는지 안깼는지
     public int EnemyAmount; //몬스터 수
 }
-
+*/
 public struct RoomPer //맵의 방 수 비율
 {
     public double Room1;
@@ -35,33 +35,53 @@ public class MapPlacing : MonoBehaviour
     [SerializeField]
     float GridSize;
     //코드에서 유니티에 상호작용 할수 있게 함
-
     private void Start()
     {
+        /*방 종류
+        0~2 : 랜덤으로 배치되는 방(상자방, 몬스터 방 etc..)
+        3 : 체크 포인트
+        4 : 복도(플레이어가 이동하는 곳)
+        */
         int i, j;
+        string result = "";
         MapSize mapSize;
         mapSize.width = 5; //홀수여야 함
         mapSize.height = 6;
         int Width = mapSize.width;
         int Height = mapSize.height;
-        string result = "";
-        int[,] MapArr = CreateMapBaseArr(Width, Height);
-        //복도 생성
-
         RoomPer roomPer;
         roomPer.Room1 = 0.3;
         roomPer.Room2 = 0.4;
         roomPer.Room3 = 0.3;
+        int[,] Map = CreateMap(Width, Height, roomPer);
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < Width; j++)
+            {
+                result = result + Map[i, j] + " ";
+                rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
+            }
+            result = result + "\n";
+        }
+        Debug.Log(result); //출력/유니티에 반영
+    }
+    
+    public static int[,] CreateMap(int Width, int Height, RoomPer roomPer)
+    {
+        int i, j;
+        int[,] MapArr = CreateMapBaseArr(Width, Height);
+        //복도 생성
         int[] RanArr = new int[Width * Height];
         RanArr = CreateMapRandArr(Width, Height, roomPer);
         Debug.Log(RanArr.Length);
+        /*
         RoomStr[] roomStr = new RoomStr[RanArr.Length];
         for (i = 0; i < RanArr.Length; i++)
         {
             roomStr[i].isEntered = false;
             roomStr[i].RoomKind = RanArr[i];
             roomStr[i].isCleared = false;
-        }
+        }*/
         int k = 0;
         for (i = 0; i < Height; i++)
         {
@@ -78,19 +98,8 @@ public class MapPlacing : MonoBehaviour
                 }
             }
         } //방 비율대로 랜덤 생성/배치
-
         MapArr[Height - 1, 0] = 3; //체크 포인트
-
-        for (i = 0; i < Height; i++)
-        {
-            for (j = 0; j < Width; j++)
-            {
-                result = result + MapArr[i, j] + " ";
-                rooms.Add(Instantiate(roomPrefabs[MapArr[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
-            }
-            result = result + "\n";
-        }
-        Debug.Log(result); //출력/유니티에 반영
+        return MapArr;
     }
 
     public static int[] CreateMapRandArr(int width, int height, RoomPer percent) //비율대로 랜덤 방 생성하는 함수
