@@ -4,7 +4,8 @@
 // 몬스터와 플레이어 모두 피가 닳도록 하는 함수 이름을 통일하여 피해자 클래스의 체력 감소 함수를 불러와 데미지 판정을 구현
 bool p_attacked;
 bool e_attacked;
-if (p_attacked == true)
+public 
+  if (p_attacked == true)
 {
   
 }
