@@ -24,6 +24,12 @@ public struct RoomPer //맵의 방 수 비율
     public double Room3;
 }
 
+public struct RoomNumInfo
+{
+    public int aisle;
+    public int check;
+}
+
 public class MapPlacing : MonoBehaviour
 {
     [SerializeField]
@@ -45,8 +51,11 @@ public class MapPlacing : MonoBehaviour
         int i, j;
         string result = "";
         MapSize mapSize;
+        RoomNumInfo roomNumInfo;
         mapSize.width = 5; //홀수여야 함
         mapSize.height = 6;
+        roomNumInfo.aisle = 4;
+        roomNumInfo.check = 3;
         int Width = mapSize.width;
         int Height = mapSize.height;
         RoomPer roomPer;
@@ -54,7 +63,7 @@ public class MapPlacing : MonoBehaviour
         roomPer.Room2 = 0.4;
         roomPer.Room3 = 0.3;
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
-        int[,] Map = CreateMap(Width, Height, RanArr);
+        int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
         RoomStr[] RoomInfo = CreateMapStr(Width, Height, RanArr);
         for (i = 0; i < Height; i++)
         {
@@ -81,7 +90,7 @@ public class MapPlacing : MonoBehaviour
         return roomStr;
     }
 
-    public static int[,] CreateMap(int Width, int Height, int[] RanArr)
+    public static int[,] CreateMap(int Width, int Height, int[] RanArr, RoomNumInfo roomNumInfo)
     {
         if (isGoodWidth(Width) == false)
         {
@@ -90,7 +99,7 @@ public class MapPlacing : MonoBehaviour
             return ErrorResult;
         }
         int i, j;
-        int[,] MapArr = CreateMapBaseArr(Width, Height);
+        int[,] MapArr = CreateMapBaseArr(Width, Height, roomNumInfo);
         //복도 생성
         Debug.Log(RanArr.Length);
         int k = 0;
@@ -98,7 +107,7 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = 0; j < Width; j++)
             {
-                if (MapArr[i, j] != 4)
+                if (MapArr[i, j] != roomNumInfo.aisle)
                 {
                     if (k == RanArr.Length)
                     {
@@ -109,7 +118,7 @@ public class MapPlacing : MonoBehaviour
                 }
             }
         } //방 비율대로 랜덤 생성/배치
-        MapArr[Height - 1, 0] = 3; //체크 포인트
+        MapArr[Height - 1, 0] = roomNumInfo.check; //체크 포인트
         return MapArr;
     }
 
@@ -197,7 +206,7 @@ public class MapPlacing : MonoBehaviour
         return array;
     }
 
-    public static int[,] CreateMapBaseArr(int width, int height) //맵 복도 배치하는 함수
+    public static int[,] CreateMapBaseArr(int width, int height, RoomNumInfo roomNumInfo) //맵 복도 배치하는 함수
     {
         if (isGoodWidth(width) == false)
         {
@@ -209,14 +218,14 @@ public class MapPlacing : MonoBehaviour
         int i, j;
         for (i = 0; i < width; i++)
         {
-            MapArr[height - 2, i] = 4;
-            MapArr[height - 1, i] = 4;
+            MapArr[height - 2, i] = roomNumInfo.aisle;
+            MapArr[height - 1, i] = roomNumInfo.aisle;
         }
         for (i = 1; i < width; i = i + 2)
         {
             for (j = 0; j < height - 2; j++)
             {
-                MapArr[j, i] = 4;
+                MapArr[j, i] = roomNumInfo.aisle;
             }
         }
         return MapArr;
@@ -224,11 +233,7 @@ public class MapPlacing : MonoBehaviour
 
     public static bool isGoodWidth(int width)
     {
-        if (width % 2 != 1)
-        {
-            return false;
-        }
-        else if (width == 0)
+        if (width % 2 != 1 || width == 0)
         {
             return false;
         }
