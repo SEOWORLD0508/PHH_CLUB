@@ -156,7 +156,7 @@ public class MapPlacing : MonoBehaviour
         int k = 0;
         string[] numbers = ArrNum.Split(" ");
         int len = ArrNum.Length / 2;
-        int[,] ResultMapArr = new int[6, 6];
+        int[,] ResultMapArr = new int[height, width];
         for (i = 0; i < width; i++)
         {
             for (j = 0; j < height; j++)
