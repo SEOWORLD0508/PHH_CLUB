@@ -233,11 +233,7 @@ public class MapPlacing : MonoBehaviour
 
     public static bool isGoodWidth(int width)
     {
-        if (width % 2 != 1 || width == 0)
-        {
-            return false;
-        }
-        else if (width % 2 == 1)
+        if (width % 2 == 1)
         {
             return true;
         }
