@@ -1352,6 +1352,7 @@ MonoBehaviour:
   - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
   - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
   - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
+  rooms: []
   GridSize: 20.5
 --- !u!1001 &687830465
 PrefabInstance:
@@ -4757,6 +4758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2cb9b8952009545af1e2548332ecf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  E_damage: 0
   attackRange: 0.5
   collideLayer:
     serializedVersion: 2
@@ -4768,11 +4771,12 @@ MonoBehaviour:
     val:
     - 0
     - 10
-    moveTowardTarget: 0
+    - 10
   obs:
   - {x: -1.930022, y: -1}
   navmesh: {fileID: 1902185870}
   useUnityPathfinding: 1
+  Warning: {fileID: 0}
 --- !u!114 &1902185866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4785,6 +4789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2feb738a1f21f46a6062ad0a9db9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  E_damage: 0
   attackRange: 10
   collideLayer:
     serializedVersion: 2
@@ -4796,10 +4802,10 @@ MonoBehaviour:
     val:
     - 10
     - 5
-    moveTowardTarget: 0
   obs: []
   navmesh: {fileID: 0}
   useUnityPathfinding: 0
+  Warning: {fileID: 0}
   bossBar_Prefab: {fileID: 0}
 --- !u!114 &1902185867
 MonoBehaviour:
