@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 
 [System.Serializable]
@@ -63,20 +64,20 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
-    
 
 
-        playerInSight  = hit2d.transform.gameObject.layer != 7 ? true : false;
-    
+
+        playerInSight = hit2d.transform.gameObject.layer != 7 ? true : false;
+
         if (currentAttackT > 0) currentAttackT -= Time.deltaTime;
 
         canAttack = playerInSight ? true : false;
-        
+
         //Debug.Log("will add more conditions");
 
-      
 
-        if(canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
+
+        if (canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             Attack();
         }
@@ -98,23 +99,36 @@ public class EnemyController : MonoBehaviour
 
 
 
+
     public virtual void Attack() 
     {
         int i = Random.Range(0, attackPatterns.Length);
         Debug.Log("Attacked... Pattern -> " + i);
         
         currentAttackT = attackPatterns[i].val[1] + attackPatterns[i].val[2];
-        
+
+       
         StartCoroutine(DCoroutine(attackPatterns[i].val[1], attackPatterns[i].val[2]));
         
     }
 
+    
+
     public IEnumerator DCoroutine(float _t1,float _t2)
     {
-       
+
         //navmesh.speed = Vector3.Distance(transform.position, player.position) / T;
         //navmesh.SetDestination(player.position);
+        Warning.gameObject.SetActive(true);
+        Warning.gameObject.transform.position = transform.position;
+        navmesh.speed = 0;
+       
+
         yield return new WaitForSeconds(_t1);
+
+        Warning.gameObject.SetActive(false);
+        navmesh.speed = speed;
+
 
         yield return new WaitForSeconds(_t2);
         //navmesh.speed = speed;
