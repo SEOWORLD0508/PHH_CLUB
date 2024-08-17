@@ -94,7 +94,7 @@ TextureImporter:
     second: Jar-abandoned
   - first:
       213: 21300060
-    second: Lig-bundle1
+    second: Log-bundle1
   - first:
       213: 21300062
     second: Log-bundle2
@@ -199,7 +199,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -212,7 +212,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
@@ -225,7 +225,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -860,7 +860,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lig-bundle1
+      name: Log-bundle1
       rect:
         serializedVersion: 2
         x: 308
@@ -1057,7 +1057,7 @@ TextureImporter:
       Jar-abandoned: 21300058
       Jar-break1: 21300066
       Jar-break2: 21300068
-      Lig-bundle1: 21300060
+      Log-bundle1: 21300060
       Log-bundle2: 21300062
       Long-box: 21300020
       Long-box-opened: 21300022
