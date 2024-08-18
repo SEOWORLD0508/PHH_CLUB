@@ -2222,7 +2222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4348073876357642783}
   m_Layer: 0
-  m_Name: Room
+  m_Name: Backroom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
