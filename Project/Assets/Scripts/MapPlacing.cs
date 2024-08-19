@@ -185,7 +185,7 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = 0; j < height; j++)
             {
-                result = result + SecArr[i, j] + " ";
+                result = result + SecArr[j, i] + " ";
             }
         }
         return result;
