@@ -11,9 +11,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    public float range; // 무기 사거리 불러오면 될 듯
+    public float range; // Enemy 불러오면 될 듯
     public bool Attack(Victim Enemy)
     {
         float distance = Vector3.Distance(transform.position, victim.transform.position);
@@ -21,14 +21,14 @@ public class Player : MonoBehaviour
         return distance <= range;
     }
 }
-public class Enemy : MonoBehaviour
+public class Player : MonoBehaviour
 {
     // 이거 위치만 어떻게 해줘
 }
 ublic class AttackEvent : MonoBehaviour
 {
-    public Player Attacker;
-    public Enemy Victim;
+    public Enemy Attacker;
+    public Player  Victim;
 
     void Start()
     {
