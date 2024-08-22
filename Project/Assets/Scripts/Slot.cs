@@ -5,9 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerEnterHandler
 {
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //do stuff
+    }
    
     public Image image;
     
