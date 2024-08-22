@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour , IPointerEnterHandler
 {
+    public Inventory inven;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
           Debug.Log("Mouse exit");
