@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
     void Setup()
     {
         //if (equipments.Count == 0) return;
-        List<ItemHolder> temp = new List<ItemHolder>(); /// ÀÌ·¸°Ô ¾ÈÇß¾ú´Âµ¥ Á÷Á¢ÀûÀ¸·Î ¼öÁ¤ÇÏ´Ï±î ÀÛµ¿Àº ÇÏ´Âµ¥ ¿¡·¯µµ °°ÀÌ ³ª´õ¶ó°í...
+        List<ItemHolder> temp = new List<ItemHolder>(); /// ì´ë ‡ê²Œ ì•ˆí–ˆì—ˆëŠ”ë° ì§ì ‘ì ìœ¼ë¡œ ìˆ˜ì •í•˜ë‹ˆê¹Œ ì‘ë™ì€ í•˜ëŠ”ë° ì—ëŸ¬ë„ ê°™ì´ ë‚˜ë”ë¼ê³ ...
         foreach (ItemHolder item in equipments)
         {
             if(item.count <= 0)  temp.Add(item);
@@ -70,7 +70,7 @@ public class Inventory : MonoBehaviour
 
             for (int i = 0; i < slots.Length; i++)
             {
-
+                slots[i].inven = this;
                 if (i < equipments.Count)
                 {
                     slots[i].item = equipments[i].item;
@@ -105,7 +105,7 @@ public class Inventory : MonoBehaviour
 
     void AddItem(List<ItemHolder> _itemHolder, Item _target)
     {
-        bool t = false; //ÀÌ¹Ì ÇØ´ç ¾ÆÀÌÅÛÀÌ ÀÎº¥Åä¸®¿¡ ÀÖÀ¸¸é count¸¸ ´Ã¸®°í, ¾øÀ¸¸é »õ·Î ÇÏ³ª ¸¸µë
+        bool t = false; //ì´ë¯¸ í•´ë‹¹ ì•„ì´í…œì´ ì¸ë²¤í† ë¦¬ì— ìˆìœ¼ë©´ countë§Œ ëŠ˜ë¦¬ê³ , ì—†ìœ¼ë©´ ìƒˆë¡œ í•˜ë‚˜ ë§Œë“¬
         foreach (ItemHolder item in _itemHolder)
         {
             if(item.item == _target)
