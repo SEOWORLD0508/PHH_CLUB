@@ -1,29 +1,33 @@
+//모듈 선언
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-//모듈 선언
 
-struct MapSize //맵 크기
+//맵 크기
+struct MapSize
 {
     public int width;
     public int height;
 }
 
+//방 정보
 public struct RoomStr
 {
-    public bool isEntered; //플레이어가 있는지 없는지지
+    public bool isEntered; //플레이어가 있는지 없는지
     public int RoomKind;  //방 종류
     public bool isCleared; //깼는지 안깼는지
     public int EnemyAmount; //몬스터 수
 }
 
-public struct RoomPer //맵의 방 수 비율
+//맵의 방 수 비율
+public struct RoomPer
 {
     public double Room1;
     public double Room2;
     public double Room3;
 }
 
+//방 종류 정수로 표현
 public struct RoomNumInfo
 {
     public int aisle;
@@ -32,6 +36,7 @@ public struct RoomNumInfo
 
 public class MapPlacing : MonoBehaviour
 {
+    //코드에서 유니티에 상호작용 할수 있게 함
     [SerializeField]
     Transform[] roomPrefabs;
 
@@ -40,7 +45,6 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
-    //코드에서 유니티에 상호작용 할수 있게 함
     private void Start()
     {
         /*방 종류
@@ -50,21 +54,27 @@ public class MapPlacing : MonoBehaviour
         */
         int i, j;
         string result = "";
+
         MapSize mapSize;
-        RoomNumInfo roomNumInfo;
         mapSize.width = 5; //홀수여야 함
         mapSize.height = 6;
-        roomNumInfo.aisle = 4;
-        roomNumInfo.check = 3;
         int Width = mapSize.width;
         int Height = mapSize.height;
+        
+        RoomNumInfo roomNumInfo;
+        roomNumInfo.aisle = 4;
+        roomNumInfo.check = 3;
+        
         RoomPer roomPer;
         roomPer.Room1 = 0.3;
         roomPer.Room2 = 0.4;
         roomPer.Room3 = 0.3;
+
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
         int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
         RoomStr[] RoomInfo = CreateMapStr(Width, Height, RanArr);
+
+        //출력 / 유니티에 반영
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
@@ -74,9 +84,10 @@ public class MapPlacing : MonoBehaviour
             }
             result = result + "\n";
         }
-        Debug.Log(result); //출력/유니티에 반영
+        Debug.Log(result);
     }
 
+    //방 정보 배열 생성 함수
     public RoomStr[] CreateMapStr(int Width, int Height, int[] RanArr)
     {
         RoomStr[] roomStr = new RoomStr[RanArr.Length];
@@ -86,10 +97,12 @@ public class MapPlacing : MonoBehaviour
             roomStr[i].isEntered = false;
             roomStr[i].RoomKind = RanArr[i];
             roomStr[i].isCleared = false;
+            roomStr[i].EnemyAmount = 0;
         }
         return roomStr;
     }
 
+    //이차원 배열 맵 생성 함수
     public static int[,] CreateMap(int Width, int Height, int[] RanArr, RoomNumInfo roomNumInfo)
     {
         if (isGoodWidth(Width) == false)
@@ -122,7 +135,8 @@ public class MapPlacing : MonoBehaviour
         return MapArr;
     }
 
-    public static int[] CreateMapRandArr(int width, int height, RoomPer percent) //비율대로 랜덤 방 생성하는 함수
+    //비율대로 랜덤 방 생성하는 함수
+    public static int[] CreateMapRandArr(int width, int height, RoomPer percent) 
     {
         if (isGoodWidth(width) == false)
         {
@@ -159,7 +173,8 @@ public class MapPlacing : MonoBehaviour
         return MapFirst;
     }
 
-    public static int[,] FirstToSec(string ArrNum, int width, int height) //방구조를 일차원배열에서 이차원배열로 변환하는 함수
+    //방구조를 일차원배열에서 이차원배열로 변환하는 함수
+    public static int[,] FirstToSec(string ArrNum, int width, int height)
     {
         int i, j;
         int k = 0;
@@ -177,7 +192,8 @@ public class MapPlacing : MonoBehaviour
         return ResultMapArr;
     }
 
-    public static string SecToFirst(int[,] SecArr, int width, int height) //방구조를 이차원배열에서 일차원배열로 변환하는 함수
+    //방구조를 이차원배열에서 일차원배열로 변환하는 함수
+    public static string SecToFirst(int[,] SecArr, int width, int height)
     {
         int i, j;
         string result = "";
@@ -191,7 +207,8 @@ public class MapPlacing : MonoBehaviour
         return result;
     }
 
-    public static int[] ShuffleArray(int[] array) //배열 내부 요소를 랜덤으로 섞는 함수
+    //배열 내부 요소를 랜덤으로 섞는 함수
+    public static int[] ShuffleArray(int[] array)
     {
         int random1, random2, k;
         System.Random num = new System.Random();
@@ -206,7 +223,8 @@ public class MapPlacing : MonoBehaviour
         return array;
     }
 
-    public static int[,] CreateMapBaseArr(int width, int height, RoomNumInfo roomNumInfo) //맵 복도 배치하는 함수
+    //맵 복도 배치하는 함수
+    public static int[,] CreateMapBaseArr(int width, int height, RoomNumInfo roomNumInfo)
     {
         if (isGoodWidth(width) == false)
         {
@@ -231,6 +249,7 @@ public class MapPlacing : MonoBehaviour
         return MapArr;
     }
 
+    //맵 가로가 홀수인지 확인하는 함수
     public static bool isGoodWidth(int width)
     {
         if (width % 2 == 1)
