@@ -193,15 +193,17 @@ public class MapPlacing : MonoBehaviour
     }
 
     //방구조를 이차원배열에서 일차원배열로 변환하는 함수
-    public static string SecToFirst(int[,] SecArr, int width, int height)
+    public static int[] SecToFirst(int[,] SecArr, int width, int height)
     {
-        int i, j;
-        string result = "";
+        int i, j, k;
+        k = 0;
+        int[] result = new int[width * height];
         for (i = 0; i < width; i++)
         {
             for (j = 0; j < height; j++)
             {
-                result = result + SecArr[j, i] + " ";
+                result[k] = SecArr[j, i];
+                k++;
             }
         }
         return result;
