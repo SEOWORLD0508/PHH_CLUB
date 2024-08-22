@@ -39,7 +39,11 @@ public class Inventory : MonoBehaviour
     public Transform inventoryBase;
     [SerializeField]
     Slot[] slots;
-
+    [SerializeField]
+    bool useType1;
+    [HideInInspector]
+    Slot targetSlot;
+    
     [SerializeField]
     float mouseSlotDis;
 
@@ -48,7 +52,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     Canvas canvas;
-
+    
     void Setup()
     {
         //if (equipments.Count == 0) return;
@@ -231,7 +235,8 @@ public class Inventory : MonoBehaviour
             }
 
         }
-
+        if(useType1)
+            result = targetSlot;
         return result;
 
 
