@@ -170,7 +170,7 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = 0; j < height; j++)
             {
-                ResultMapArr[i, j] = Int32.Parse(numbers[k]);
+                ResultMapArr[j, i] = Int32.Parse(numbers[k]);
                 k++;
             }
         }
