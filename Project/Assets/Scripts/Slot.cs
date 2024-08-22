@@ -12,11 +12,14 @@ public class Slot : MonoBehaviour , IPointerEnterHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
           Debug.Log("Mouse exit");
+          inven.targetSlot = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("Mouse exit");
+        if(inven.targetSlot == this)
+            inven.targetSlot = null;
     }
    
     public Image image;
