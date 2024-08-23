@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     bool useType1;
     [HideInInspector]
-    Slot targetSlot;
+    public Slot targetSlot;
     
     [SerializeField]
     float mouseSlotDis;

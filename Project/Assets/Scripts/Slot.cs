@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
 
 
-public class Slot : MonoBehaviour , IPointerEnterHandler
+public class Slot : MonoBehaviour, IPointerEnterHandler
 {
     public Inventory inven;
 
@@ -22,7 +24,7 @@ public class Slot : MonoBehaviour , IPointerEnterHandler
             inven.targetSlot = null;
     }
    
-    public Image image;
+    public UnityEngine.UI.Image image;
     
     public TMP_Text countText;
 
