@@ -7,21 +7,21 @@ using UnityEngine.UIElements;
 using UnityEngine.EventSystems;
 
 
-public class Slot : MonoBehaviour, IPointerEnterHandler
+public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public Inventory inven;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-          Debug.Log("Mouse exit");
-          inven.targetSlot = this;
+          //Debug.Log("Mouse exit");
+          inven.closestSlot = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse exit");
-        if(inven.targetSlot == this)
-            inven.targetSlot = null;
+        //Debug.Log("Mouse exit");
+        if(inven.closestSlot == this)
+            inven.closestSlot = null;
     }
    
     public UnityEngine.UI.Image image;

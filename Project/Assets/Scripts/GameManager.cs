@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +11,12 @@ public class GameManager : MonoBehaviour
     public KeyCode PauseKey = KeyCode.Escape;
     [Header("Inventory")]
     public bool InventoryBool;
+    public Transform InventoryBase;
+    public Transform DescriptionBase;
+    public TMP_Text NameText;
+    public TMP_Text DescriptionText;
     public KeyCode InventoryKey = KeyCode.Tab;
-
+    
     private static GameManager _instance;
     // 인스턴스에 접근하기 위한 프로퍼티
     public static GameManager Instance
@@ -59,4 +64,6 @@ public class GameManager : MonoBehaviour
             InventoryBool = !InventoryBool;
         }
     }
+
+
 }
