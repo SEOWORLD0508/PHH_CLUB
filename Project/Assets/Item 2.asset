@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Item 2
   m_EditorClassIdentifier: 
   ItemName: "\uD3EC\uC1583"
+  ItemDescription: "\uB9CE\uC774\uB9CE\uC774 \uD2B9\uBCC4\uD55C\n\uD3EC\uC158\uC774"
+  sprite: {fileID: 0}
   values: []
   itemType: 1
   prefab: {fileID: 8593319640260099905, guid: 107e53e13448cb94da2ba9ebeba5acb9, type: 3}
