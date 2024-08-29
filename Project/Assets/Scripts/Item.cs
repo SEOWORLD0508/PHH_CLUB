@@ -9,12 +9,12 @@ public class Item : ScriptableObject
 {
 
     public string ItemName;
-    [TextArea]// ÀÌ·¸°Ô ÇÏ¸é ÁÙ¹Ù²Þµµ ÀÎ½ÄµÇ´Â ¹®ÀÚ¿­ÀÌ µÊ
+    [TextArea]// ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½Ù¹Ù²Þµï¿½ ï¿½Î½ÄµÇ´ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½
     public string ItemDescription;
     public Sprite sprite;
-    public float[] values; // 0¹ø µ¥¹ÌÁö, 1¹ø ¼±µô, 2¹ø ÈÄµô °íÁ¤. 3¹øÀº »ç°Å¸®/ ÀåÀü¼Óµµ·Î ÇÒµí ¤·¤·
+    public float[] values; // 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, 2ï¿½ï¿½ ï¿½Äµï¿½ ï¿½ï¿½ï¿½ï¿½. 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½/ ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½Òµï¿½ ï¿½ï¿½ï¿½ï¿½
     public ItemType itemType;
     public Transform prefab;
 
-    
+    //TODO : trlst kr --> eng
 }
