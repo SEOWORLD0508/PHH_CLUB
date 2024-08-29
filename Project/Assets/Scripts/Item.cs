@@ -9,12 +9,20 @@ public class Item : ScriptableObject
 {
 
     public string ItemName;
-    [TextArea]// ÀÌ·¸°Ô ÇÏ¸é ÁÙ¹Ù²Þµµ ÀÎ½ÄµÇ´Â ¹®ÀÚ¿­ÀÌ µÊ
+    [TextArea]// ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ ï¿½Ù¹Ù²Þµï¿½ ï¿½Î½ÄµÇ´ï¿½ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½
     public string ItemDescription;
     public Sprite sprite;
-    public float[] values; // 0¹ø µ¥¹ÌÁö, 1¹ø ¼±µô, 2¹ø ÈÄµô °íÁ¤. 3¹øÀº »ç°Å¸®/ ÀåÀü¼Óµµ·Î ÇÒµí ¤·¤·
+    public float[] values; 
     public ItemType itemType;
     public Transform prefab;
+    public bool useAble();
+    public bool specialIndex; // normal = 0,  if has special effect or etc... will be used
 
-    
+    //TODO : trlst kr --> eng
+    /*
+    0 = pre-delay
+    1 = after-delay
+    2~ = index (weapon = damage & range) (potion = amount) (and more)
+
+    */
 }
