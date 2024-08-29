@@ -12,9 +12,17 @@ public class Item : ScriptableObject
     [TextArea]// �̷��� �ϸ� �ٹٲ޵� �νĵǴ� ���ڿ��� ��
     public string ItemDescription;
     public Sprite sprite;
-    public float[] values; // 0�� ������, 1�� ����, 2�� �ĵ� ����. 3���� ��Ÿ�/ �����ӵ��� �ҵ� ����
+    public float[] values; 
     public ItemType itemType;
     public Transform prefab;
+    public bool useAble();
+    public bool specialIndex; // normal = 0,  if has special effect or etc... will be used
 
     //TODO : trlst kr --> eng
+    /*
+    0 = pre-delay
+    1 = after-delay
+    2~ = index (weapon = damage & range) (potion = amount) (and more)
+
+    */
 }
