@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class Creature : MonoBehaviour {
   public float health;
-  public float damage;
+  public float damage; // 무기 데미지 + 기본 데미지 
   public float attackRange;
+  public float weaponDamage;
 }

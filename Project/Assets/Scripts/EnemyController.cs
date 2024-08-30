@@ -16,14 +16,11 @@ public class AttackPattern
      일반적은 패턴 1개(기본공격)만 있으면 되고 보스는 패턴 여러개 사용할예정 */
 
 }
-public class EnemyController : MonoBehaviour
+public class EnemyController : Creature
 {
 
-    public float health;
-    public float E_damage;
 
     float currentAttackT;
-    public float attackRange;
     public LayerMask collideLayer;
     public float sightRange;
     public float speed;
@@ -50,6 +47,10 @@ public class EnemyController : MonoBehaviour
     bool dashing;
     [SerializeField]
     Item item;
+
+    damage = 0;
+    weaponDamage  = item.values[2]; // 무기 데미지 Creature 에 저장
+    attackRange = item.values[3]; // 무기 사거리
     // Start is called before the first frame update
     void Start()
     {
