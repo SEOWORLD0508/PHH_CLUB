@@ -8,4 +8,5 @@ public class Creature : MonoBehaviour {
   public float damage; // 무기 데미지 + 기본 데미지 
   public float attackRange;
   public float weaponDamage;
+  public float angle;
 }

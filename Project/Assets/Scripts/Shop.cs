@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// NPC ÄÚµå
+// NPC ï¿½Úµï¿½
 
 public class Shopping : MonoBehaviour
 {
@@ -29,9 +29,9 @@ public class Shopping : MonoBehaviour
         if (dis < interactionDistance)
         {
 
-            if (Input.GetKeyDown(KeyCode.E)) // ÀÎÅÍ·º¼Ç
+            if (Input.GetKeyDown(KeyCode.E)) // ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½
             {
-                print("interacted");
+                print("interacted"); // ìƒì ì°½ í˜¸ì¶œ ì½”ë“œ
             }
 
 
