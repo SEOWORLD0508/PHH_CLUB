@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManageMent;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     }
     
     public void MoveScene(int _num){
-        SceneManageMent.MoveScene(_num);
+        SceneManager.LoadScene(_num);
 
     }
 
