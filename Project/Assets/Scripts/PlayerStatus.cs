@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStatus : Creature
 {
     [Header("Basic Status")]
-    public float health,maxHp; // 현재 체력 -> Creature / 최대 체력
+    public float maxHp; // 현재 체력 -> Creature / 최대 체력
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
     public float Vamp; // 뱀파이어 진행도
