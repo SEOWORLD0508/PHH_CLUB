@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Creature : MonoBehaviour {
   public float health;
-  public float currentSpeed;
   public float damage;
   public float attackRange;
 }
