@@ -7,4 +7,5 @@ public class Creature_status : MonoBehaviour {
   public float health;
   public float speed;
   public float damage;
+  public float attackRange;
 }
