@@ -48,7 +48,8 @@ public class EnemyController : MonoBehaviour
     Transform Warning;
 
     bool dashing;
-
+    [SerializeField]
+    Item item;
     // Start is called before the first frame update
     void Start()
     {
