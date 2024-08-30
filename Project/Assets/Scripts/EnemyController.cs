@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;
 
-
+        
         yield return new WaitForSeconds(_t2);
         //navmesh.speed = speed;
       
