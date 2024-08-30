@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Creature_status : MonoBehaviour {
+public class Creature : MonoBehaviour {
   public float health;
   public float speed;
   public float damage;
