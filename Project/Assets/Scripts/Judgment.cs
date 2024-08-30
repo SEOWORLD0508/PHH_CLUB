@@ -11,24 +11,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
-{
-    public float range; // Enemy 불러오면 될 듯
-    public bool Attack(Victim Enemy)
-    {
-        float distance = Vector3.Distance(transform.position, victim.transform.position);
-
-        return distance <= range;
-    }
-}
-public class Player : MonoBehaviour
-{
-    // 이거 위치만 어떻게 해줘
-}
-ublic class AttackEvent : MonoBehaviour
+public class AttackedEvent : MonoBehaviour
 {
     public Enemy Attacker;
     public Player  Victim;
+
+    void Start()
+    {
+        bool hit = attacker.Attack(victim);
+        if (hit)
+        {
+            Debug.Log("Hit!");
+        }
+        else
+        {
+            Debug.Log("Miss!");
+        }
+    }
+}
+ublic class AttackEvent : MonoBehaviour
+{
+    public Enemy Victim;
+    public Player  Attacker;
 
     void Start()
     {
