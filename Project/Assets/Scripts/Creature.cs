@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Creature_status : MonoBehaviour {
-  float health;
-  float speed;
-  float damage;
+  public float health;
+  public float speed;
+  public float damage;
 }
