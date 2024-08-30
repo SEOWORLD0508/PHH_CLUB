@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using JetBrains.Annotations;
 using static UnityEditor.Progress;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 
 public enum ItemType
 {
@@ -36,23 +36,24 @@ public class Inventory : MonoBehaviour
     float itemAcquireDistance;
 
     [SerializeField]
-    public Transform inventoryBase;
-    [SerializeField]
     Slot[] slots;
 
-    [SerializeField]
-    float mouseSlotDis;
-
+    public Slot closestSlot;
+    Slot desSlot;
+    
 
     float a = 0.5f;
 
     [SerializeField]
     Canvas canvas;
 
-    void Setup()
+
+    bool DescriptionOn = false;
+
+    void Refresh()
     {
         //if (equipments.Count == 0) return;
-        List<ItemHolder> temp = new List<ItemHolder>(); /// ÀÌ·¸°Ô ¾ÈÇß¾ú´Âµ¥ Á÷Á¢ÀûÀ¸·Î ¼öÁ¤ÇÏ´Ï±î ÀÛµ¿Àº ÇÏ´Âµ¥ ¿¡·¯µµ °°ÀÌ ³ª´õ¶ó°í...
+        List<ItemHolder> temp = new List<ItemHolder>(); /// ì´ë ‡ê²Œ ì•ˆí–ˆì—ˆëŠ”ë° ì§ì ‘ì ìœ¼ë¡œ ìˆ˜ì •í•˜ë‹ˆê¹Œ ì‘ë™ì€ í•˜ëŠ”ë° ì—ëŸ¬ë„ ê°™ì´ ë‚˜ë”ë¼ê³ ...
         foreach (ItemHolder item in equipments)
         {
             if(item.count <= 0)  temp.Add(item);
@@ -64,13 +65,13 @@ public class Inventory : MonoBehaviour
 
         if (GameManager.Instance.InventoryBool)
         {
-            inventoryBase.gameObject.SetActive(true);
-
+            GameManager.Instance.InventoryBase.gameObject.SetActive(true);
+  
 
 
             for (int i = 0; i < slots.Length; i++)
             {
-
+               
                 if (i < equipments.Count)
                 {
                     slots[i].item = equipments[i].item;
@@ -82,7 +83,9 @@ public class Inventory : MonoBehaviour
                     slots[i].count = 0;
                 }
                 if (slots[i].count == 0)
+                {
                     slots[i].countBase.gameObject.SetActive(false);
+                }
                 else
                 {
                     slots[i].countBase.gameObject.SetActive(true);
@@ -94,18 +97,24 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            inventoryBase.gameObject.SetActive(false);
+            GameManager.Instance.InventoryBase.gameObject.SetActive(false);
+            DescriptionOn = false;
+            GameManager.Instance.DescriptionBase.gameObject.SetActive(DescriptionOn);
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        Setup();
+        Refresh();
+        foreach(Slot s  in slots)
+        {
+            s.inven = this;
+        }
     }
 
     void AddItem(List<ItemHolder> _itemHolder, Item _target)
     {
-        bool t = false; //ÀÌ¹Ì ÇØ´ç ¾ÆÀÌÅÛÀÌ ÀÎº¥Åä¸®¿¡ ÀÖÀ¸¸é count¸¸ ´Ã¸®°í, ¾øÀ¸¸é »õ·Î ÇÏ³ª ¸¸µë
+        bool t = false; //ì´ë¯¸ í•´ë‹¹ ì•„ì´í…œì´ ì¸ë²¤í† ë¦¬ì— ìˆìœ¼ë©´ countë§Œ ëŠ˜ë¦¬ê³ , ì—†ìœ¼ë©´ ìƒˆë¡œ í•˜ë‚˜ ë§Œë“¬
         foreach (ItemHolder item in _itemHolder)
         {
             if(item.item == _target)
@@ -121,7 +130,7 @@ public class Inventory : MonoBehaviour
         if (!t) _itemHolder.Add(it);
     }   
 
-    void RemoveItem(List<ItemHolder> _itemHolder, Item _target, int amount)
+    public void RemoveItem(List<ItemHolder> _itemHolder, Item _target, int amount)
     {
         
         foreach (ItemHolder item in _itemHolder)
@@ -142,21 +151,32 @@ public class Inventory : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (equipments.Count > 0)
+            if (equipments.Count > 0 && closestSlot != null)
             {
-                Slot closest = GetClosestHolder();
-                if(closest.item != null){
-                    print(GetClosestHolder());
-                    Instantiate(GetClosestHolder().item.prefab, transform.position, Quaternion.identity);
-                    RemoveItem(equipments, GetClosestHolder().item, 1);
+                if (closestSlot.item != null)
+                {
+
+                    print(closestSlot);
+                    DescriptionOn = true;
+                    desSlot = closestSlot;
+
                 }
+                else
+                    DescriptionOn = false;
             }
+            else
+                DescriptionOn = false;
+           
+            GameManager.Instance.DescriptionBase.gameObject.SetActive(DescriptionOn);
         }
-            Setup();
+     
 
         ItemPrefab[] temp = FindObjectsOfType<ItemPrefab>();
+
+
+
 
         if (temp.Length > 0)
         {
@@ -207,34 +227,43 @@ public class Inventory : MonoBehaviour
         {
             popUpText.gameObject.SetActive(false);
         }
-    }
 
 
 
-    Slot GetClosestHolder()
-    {
-       Vector2 mousePos = Input.mousePosition;
-        
-        //mousePos = Input.mousePosition / canvas.scaleFactor;
-        //mousePosImg.anchoredPosition = startPos;
 
-        Slot result = null;
-        float dis = mouseSlotDis;
-
-       
-        for (int i = 0; i < slots.Length; i++)
+        if (DescriptionOn)
         {
-            if(dis >= Vector3.Distance(slots[i].transform.position, mousePos))
+            if(desSlot == null) return ;
+            if (desSlot.item == null) { DescriptionOn = false; GameManager.Instance.DescriptionBase.gameObject.SetActive(false); return; }
+
+            GameManager.Instance.NameText.text = desSlot.item.ItemName;
+            GameManager.Instance.DescriptionText.text = desSlot.item.ItemDescription;
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                result = slots[i];
-                dis = Vector3.Distance(slots[i].transform.position, mousePos);
+                DropItem(desSlot.item);
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                print(desSlot.item.ItemName + "is Used");
+                RemoveItem(equipments, desSlot.item, 1);
+                
             }
 
         }
-
-        return result;
+        Refresh();
+        
 
 
     }
+
+    public void DropItem(Item _item)
+    {
+        if (_item == null)
+            Instantiate(_item.prefab, transform.position, Quaternion.identity);
+        List<ItemHolder> t = (_item.itemType == ItemType.Etc) ? equipments : weapons;
+        RemoveItem(t, _item, 1);
+
+    }
+
 
 }

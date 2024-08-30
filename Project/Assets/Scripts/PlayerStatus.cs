@@ -26,6 +26,7 @@ public class PlayerStatus : MonoBehaviour
         currentStamina = maxStamina;
         Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
         UpdateStatus(); //스텟 재정의 함수
+        StartCoroutine(timerCoroutine());
     }
 
     void UpdateStatus()
@@ -36,13 +37,14 @@ public class PlayerStatus : MonoBehaviour
         for (int i=0; i<Vamp; i++) {
             maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
             damage = damage * (float)statIncrease; // 최대 공격력 약 144
+
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(timerCoroutine());
+        
         if (currentHp > maxHp)
         {
             currentHp = maxHp;
@@ -55,13 +57,13 @@ public class PlayerStatus : MonoBehaviour
     IEnumerator Attack()
     {
         attack = true;
-        yield return new WaitForSeconds(delaytime1);
+        yield return new WaitForSeconds(delaytime1); // 선딜
         Debug.Log("Attack");
+        
 
 
 
-
-        yield return new WaitForSeconds(delaytime2);
+        yield return new WaitForSeconds(delaytime2); //후딜
         attack = false;
     }
 

@@ -66,9 +66,9 @@ public class EnemyController : MonoBehaviour
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
 
 
-
-        playerInSight = hit2d.transform.gameObject.layer != 7 ? true : false;
-
+        
+        playerInSight = hit2d.transform &&  hit2d.transform.gameObject.layer != 7 ? true : false;
+        
         if (currentAttackT > 0) currentAttackT -= Time.deltaTime;
 
         canAttack = playerInSight ? true : false;
@@ -103,7 +103,7 @@ public class EnemyController : MonoBehaviour
     public virtual void Attack() 
     {
         int i = Random.Range(0, attackPatterns.Length);
-        Debug.Log("Attacked... Pattern -> " + i);
+        //Debug.Log("Attacked... Pattern -> " + i);
         
         currentAttackT = attackPatterns[i].val[1] + attackPatterns[i].val[2];
 
