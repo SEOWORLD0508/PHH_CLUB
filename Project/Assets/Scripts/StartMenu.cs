@@ -18,11 +18,9 @@ public class BtnType : MonoBehaviour
         {
             case ButtonType.StartGame:
                 SceneManager.LoadScene("SampleScene");
-                print("d");
                 break;
             case ButtonType.Options:
                 // 대충 코드
-                Debug.Log("Options Button Clicked");
                 break;
             case ButtonType.Quit:
                 Application.Quit();
