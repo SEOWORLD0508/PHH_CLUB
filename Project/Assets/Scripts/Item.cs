@@ -15,7 +15,7 @@ public class Item : ScriptableObject
     public float[] values; 
     public ItemType itemType;
     public Transform prefab;
-    public bool useAble();
+    public bool useAble;
     public bool specialIndex; // normal = 0,  if has special effect or etc... will be used
 
     //TODO : trlst kr --> eng
