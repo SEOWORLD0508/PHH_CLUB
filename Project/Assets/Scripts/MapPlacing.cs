@@ -46,7 +46,7 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
-    private void start()
+    private void Start()
     {
         /*방 종류
         0~2 : 랜덤으로 배치되는 방(상자방, 몬스터 방 etc..)
