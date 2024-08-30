@@ -17,6 +17,7 @@ public struct RoomStr
     public int RoomKind;  //방 종류
     public bool isCleared; //깼는지 안깼는지
     public int EnemyAmount; //몬스터 수
+    public string DoorDirection; //방문 방향, Right, Left, Both
 }
 
 //맵의 방 수 비율
@@ -45,7 +46,7 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
-    private void Start()
+    private void start()
     {
         /*방 종류
         0~2 : 랜덤으로 배치되는 방(상자방, 몬스터 방 etc..)
@@ -72,7 +73,7 @@ public class MapPlacing : MonoBehaviour
 
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
         int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
-        RoomStr[] RoomInfo = CreateMapStr(Width, Height, RanArr);
+        RoomStr[,] RoomInfo = CreateMapStr(Width, Height, RanArr, roomNumInfo, Map);
 
         //출력 / 유니티에 반영
         for (i = 0; i < Height; i++)
@@ -81,6 +82,10 @@ public class MapPlacing : MonoBehaviour
             {
                 result = result + Map[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
+                if(RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check)
+                {
+                    Debug.Log(RoomInfo[i, j].DoorDirection);
+                }
             }
             result = result + "\n";
         }
@@ -88,16 +93,32 @@ public class MapPlacing : MonoBehaviour
     }
 
     //방 정보 배열 생성 함수
-    public RoomStr[] CreateMapStr(int Width, int Height, int[] RanArr)
+    public static RoomStr[,] CreateMapStr(int Width, int Height, int[] RanArr, RoomNumInfo roomNumInfo, int[,] MapArr)
     {
-        RoomStr[] roomStr = new RoomStr[RanArr.Length];
-        int i;
-        for (i = 0; i < RanArr.Length; i++)
+        RoomStr[,] roomStr = new RoomStr[Height, Width];
+        int i, j;
+        for(i = 0; i < Height; i++)
         {
-            roomStr[i].isEntered = false;
-            roomStr[i].RoomKind = RanArr[i];
-            roomStr[i].isCleared = false;
-            roomStr[i].EnemyAmount = 0;
+            for(j = 0; j < Width; j++)
+            {
+                roomStr[i, j].isEntered = false;
+                roomStr[i, j].RoomKind = MapArr[i, j];
+                roomStr[i, j].isCleared = false;
+                roomStr[i, j].EnemyAmount = 0;
+                if(MapArr[i, j] != roomNumInfo.aisle && MapArr[i, j] != roomNumInfo.check)
+                {
+                    if(j < (Width / 2))
+                    {
+                        roomStr[i, j].DoorDirection = "Right";
+                    }else if (j > (Width / 2))
+                    {
+                        roomStr[i, j].DoorDirection = "Left";
+                    }else if(j == (Width / 2))
+                    {
+                        roomStr[i, j].DoorDirection = "Both";
+                    }
+                }
+            }
         }
         return roomStr;
     }
@@ -174,18 +195,20 @@ public class MapPlacing : MonoBehaviour
     }
 
     //방구조를 일차원배열에서 이차원배열로 변환하는 함수
-    public static int[,] FirstToSec(string ArrNum, int width, int height)
+    public static int[,] FirstToSec(int[] ArrNum, int width, int height)
     {
         int i, j;
         int k = 0;
-        string[] numbers = ArrNum.Split(" ");
-        int len = ArrNum.Length / 2;
         int[,] ResultMapArr = new int[height, width];
         for (i = 0; i < width; i++)
         {
             for (j = 0; j < height; j++)
             {
-                ResultMapArr[j, i] = Int32.Parse(numbers[k]);
+                if (k == ArrNum.Length)
+                {
+                    break;
+                }
+                ResultMapArr[j, i] = ArrNum[k];
                 k++;
             }
         }
