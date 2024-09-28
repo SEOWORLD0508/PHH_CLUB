@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class Btntype : MonoBehaviour
 {
@@ -7,25 +9,44 @@ public class Btntype : MonoBehaviour
     {
         StartGame,
         Options,
-        Quit
+        Quit,
+        SettingQuit
     }
 
     public ButtonType buttonType;
+
+    public GameObject SettingMenu;
+
+    public AudioMixer audioMixer;  // Audio
+    public Slider volumeSlider;    // UI
+    void Start()
+    {
+        SettingMenu.SetActive(false);
+    }
 
     public void OnButtonClick()
     {
         switch (buttonType)
         {
             case ButtonType.StartGame:
-                SceneManager.LoadScene("SampleScene");  // StartGame 버튼이 눌리면 게임 씬을 로드
+                SceneManager.LoadScene("SampleScene");
                 break;
             case ButtonType.Options:
-                // Options 메뉴를 실행하는 코드를 여기에 추가 (예: 옵션 창을 활성화)
-                Debug.Log("Options Button Clicked");
+                SettingMenu.SetActive(true);
+                volumeSlider.onValueChanged.AddListener(SetVolume);
                 break;
             case ButtonType.Quit:
-                Application.Quit();  // Quit 버튼이 눌리면 게임 종료
+                Application.Quit();
+                break;
+            case ButtonType.SettingQuit:
+                SettingMenu.SetActive(false);
                 break;
         }
+    }
+
+    public void SetVolume(float sliderValue)
+    {
+        audioMixer.SetFloat("Master", Mathf.Log10(sliderValue) * 20);
+        Debug.Log(sliderValue);
     }
 }
