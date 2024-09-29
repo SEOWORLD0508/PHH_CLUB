@@ -33,7 +33,7 @@ public class Btntype : MonoBehaviour
                 break;
             case ButtonType.Options:
                 SettingMenu.SetActive(true);
-                volumeSlider.onValueChanged.AddListener(SetVolume);
+                // volumeSlider.onValueChanged.AddListener(SetVolume);
                 break;
             case ButtonType.Quit:
                 Application.Quit();
