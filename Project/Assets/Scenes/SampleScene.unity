@@ -1824,11 +1824,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
-  - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
-  - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
-  - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
-  - {fileID: 4348073876357642783, guid: eade5bb723448624aacfde1ff1afc9a4, type: 3}
+  - {fileID: 4348073876357642783, guid: de82feb29daaee44a95d34f2ba50205d, type: 3}
+  - {fileID: 4348073876357642783, guid: ac92fafafc4b5d149ba55146acf07588, type: 3}
+  - {fileID: 4348073876357642783, guid: ae2522391d4fca5488f923246e900943, type: 3}
+  - {fileID: 4348073876357642783, guid: 242f24fab521a7d47b378e1426a6876d, type: 3}
+  - {fileID: 4348073876357642783, guid: 347e141ad835d2849acc41cd7d963cc8, type: 3}
+  - {fileID: 4348073876357642783, guid: 099bc35fd0afc8b4e8b914bc26f6f557, type: 3}
   rooms: []
   GridSize: 20.5
 --- !u!1001 &687830465
