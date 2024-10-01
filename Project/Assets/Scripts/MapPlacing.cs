@@ -33,10 +33,21 @@ public struct RoomNumInfo
 {
     public int aisle;
     public int check;
+    public int maxEnemyRoom; //적이 있는 방은 0번 부터 시작, 0~maxEnemyRoom번 방에서만 적이 스폰됨
 }
 
 public class MapPlacing : MonoBehaviour
 {
+    public static MapPlacing instance;
+
+    private void Awake()
+    {
+        if (MapPlacing.instance == null)
+        {
+            MapPlacing.instance = this;
+        }
+    }
+
     //코드에서 유니티에 상호작용 할수 있게 함
     [SerializeField]
     Transform[] roomPrefabs;
@@ -46,6 +57,10 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
+    public string result = "";
+    public static int EnemyPerRoom = 5; //방당 스폰될 적 수
+    public int PblcWidth = 5;
+    public int PblcHeight = 6;
     private void Start()
     {
         /*방 종류
@@ -54,23 +69,24 @@ public class MapPlacing : MonoBehaviour
         4 : 복도(플레이어가 이동하는 곳)
         */
         int i, j;
-        string result = "";
+
+
 
         MapSize mapSize;
-        mapSize.width = 5; //홀수여야 함
-        mapSize.height = 6;
+        mapSize.width = PblcWidth; //홀수여야 함
+        mapSize.height = PblcHeight;
         int Width = mapSize.width;
         int Height = mapSize.height;
-        
+
         RoomNumInfo roomNumInfo;
         roomNumInfo.aisle = 4;
         roomNumInfo.check = 3;
-        
+        roomNumInfo.maxEnemyRoom = 2;
+
         RoomPer roomPer;
         roomPer.Room1 = 0.3;
         roomPer.Room2 = 0.4;
         roomPer.Room3 = 0.3;
-
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
         int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
         RoomStr[,] RoomInfo = CreateMapStr(Width, Height, RanArr, roomNumInfo, Map);
@@ -82,41 +98,49 @@ public class MapPlacing : MonoBehaviour
             {
                 result = result + Map[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
-                if(RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check)
+                if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check)
                 {
                     Debug.Log(RoomInfo[i, j].DoorDirection);
                 }
             }
-            result = result + "\n";
+            //result = result + "\n";
         }
         Debug.Log(result);
     }
-
     //방 정보 배열 생성 함수
     public static RoomStr[,] CreateMapStr(int Width, int Height, int[] RanArr, RoomNumInfo roomNumInfo, int[,] MapArr)
     {
         RoomStr[,] roomStr = new RoomStr[Height, Width];
         int i, j;
-        for(i = 0; i < Height; i++)
+        for (i = 0; i < Height; i++)
         {
-            for(j = 0; j < Width; j++)
+            for (j = 0; j < Width; j++)
             {
                 roomStr[i, j].isEntered = false;
                 roomStr[i, j].RoomKind = MapArr[i, j];
                 roomStr[i, j].isCleared = false;
-                roomStr[i, j].EnemyAmount = 0;
-                if(MapArr[i, j] != roomNumInfo.aisle && MapArr[i, j] != roomNumInfo.check)
+                if (MapArr[i, j] != roomNumInfo.aisle && MapArr[i, j] != roomNumInfo.check)
                 {
-                    if(j < (Width / 2))
+                    if (j < (Width / 2))
                     {
                         roomStr[i, j].DoorDirection = "Right";
-                    }else if (j > (Width / 2))
+                    }
+                    else if (j > (Width / 2))
                     {
                         roomStr[i, j].DoorDirection = "Left";
-                    }else if(j == (Width / 2))
+                    }
+                    else if (j == (Width / 2))
                     {
                         roomStr[i, j].DoorDirection = "Both";
                     }
+                }
+                if (roomStr[i, j].RoomKind <= roomNumInfo.maxEnemyRoom)
+                {
+                    roomStr[i, j].EnemyAmount = EnemyPerRoom;
+                }
+                else
+                {
+                    roomStr[i, j].EnemyAmount = 0;
                 }
             }
         }
@@ -157,7 +181,7 @@ public class MapPlacing : MonoBehaviour
     }
 
     //비율대로 랜덤 방 생성하는 함수
-    public static int[] CreateMapRandArr(int width, int height, RoomPer percent) 
+    public static int[] CreateMapRandArr(int width, int height, RoomPer percent)
     {
         if (isGoodWidth(width) == false)
         {
