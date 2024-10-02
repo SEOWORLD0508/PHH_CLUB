@@ -31,14 +31,14 @@ public struct RoomPer
 //방 종류 정수로 표현
 public struct RoomNumInfo
 {
-    public int aisle;
-    public int check;
+    public int aisle; //복도
+    public int check; //체크 포인트
     public int maxEnemyRoom; //적이 있는 방은 0번 부터 시작, 0~maxEnemyRoom번 방에서만 적이 스폰됨
 }
 
 public class MapPlacing : MonoBehaviour
 {
-    public static MapPlacing instance;
+    public static MapPlacing instance; //인스턴스 생성
 
     private void Awake()
     {
@@ -57,10 +57,11 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
-    public string result = "";
+    public string result = ""; //인스턴스 전달용
     public static int EnemyPerRoom = 5; //방당 스폰될 적 수
-    public int PblcWidth = 5;
-    public int PblcHeight = 6;
+    public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
+    public int PblcWidth = 5; //인스턴스 전달용
+    public int PblcHeight = 6; //인스턴스 전달용
     private void Start()
     {
         /*방 종류
@@ -69,8 +70,6 @@ public class MapPlacing : MonoBehaviour
         4 : 복도(플레이어가 이동하는 곳)
         */
         int i, j;
-
-
 
         MapSize mapSize;
         mapSize.width = PblcWidth; //홀수여야 함

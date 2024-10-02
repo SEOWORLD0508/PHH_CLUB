@@ -1787,6 +1787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 671901327}
   - component: {fileID: 671901328}
+  - component: {fileID: 671901329}
   m_Layer: 0
   m_Name: Env
   m_TagString: Untagged
@@ -1832,6 +1833,22 @@ MonoBehaviour:
   - {fileID: 4348073876357642783, guid: 099bc35fd0afc8b4e8b914bc26f6f557, type: 3}
   rooms: []
   GridSize: 20.5
+  result: 
+  EnemyPblc: 5
+  PblcWidth: 5
+  PblcHeight: 6
+--- !u!114 &671901329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671901326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24188dbdf0514c24fbbe2d95d4bfe430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &687830465
 PrefabInstance:
   m_ObjectHideFlags: 0
