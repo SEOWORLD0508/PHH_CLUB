@@ -8,7 +8,6 @@ public class EnemySpawn : MonoBehaviour
 {
     void Start()
     {
-        //string result = "";
         int i, j, k, l;
 
         int Width = MapPlacing.instance.PblcWidth; //맵의 가로
@@ -28,27 +27,24 @@ public class EnemySpawn : MonoBehaviour
             {
                 Map[i, j] = int.Parse(sMap[k]);
                 k++;
-            }
-        }
-
-        for (i = 0; i < Height; i++)
-        {
-            for (j = 0; j < Width; j++)
-            {
                 if (Map[i, j] <= 2)
                 {
                     int[,] EnemyRoom = CreateEnemyRoom(RoomSize, MapPlacing.instance.EnemyPblc);
-                    for (k = 0; k < RoomSize; k++)
+                    for (int rk = 0; rk < RoomSize; rk++)
                     {
                         for (l = 0; l < RoomSize; l++)
                         {
-                            RoomInMap[i, j, k, l] = EnemyRoom[k, l];
+                            RoomInMap[i, j, rk, l] = EnemyRoom[rk, l];
                         }
                     }
                 }
+
             }
         }
-        /* 방 출력 테스트
+
+        // 방 출력 테스트
+        /*
+        string result = "";
         for (k = 0; k < RoomSize; k++)
         {
             for (l = 0; l < RoomSize; l++)
@@ -60,7 +56,7 @@ public class EnemySpawn : MonoBehaviour
         Debug.Log(result);
         */
     }
-    
+
     //적 위치 표시된 방 생성 함수 / 0 : 적 없음 , 1 : 적 있음
     public static int[,] CreateEnemyRoom(int size, int amount)
     {
