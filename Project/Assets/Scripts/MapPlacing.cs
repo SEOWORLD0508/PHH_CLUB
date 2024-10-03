@@ -62,6 +62,7 @@ public class MapPlacing : MonoBehaviour
     public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
     public int PblcWidth = 5; //인스턴스 전달용
     public int PblcHeight = 6; //인스턴스 전달용
+    public int MaxEnemyRoom = 2; //인스턴스 전달용
     private void Start()
     {
         /*방 종류
@@ -80,7 +81,7 @@ public class MapPlacing : MonoBehaviour
         RoomNumInfo roomNumInfo;
         roomNumInfo.aisle = 4;
         roomNumInfo.check = 3;
-        roomNumInfo.maxEnemyRoom = 2;
+        roomNumInfo.maxEnemyRoom = MaxEnemyRoom;
 
         RoomPer roomPer;
         roomPer.Room1 = 0.3;

@@ -27,7 +27,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 Map[i, j] = int.Parse(sMap[k]);
                 k++;
-                if (Map[i, j] <= 2)
+                if (Map[i, j] <= MapPlacing.instance.MaxEnemyRoom)
                 {
                     int[,] EnemyRoom = CreateEnemyRoom(RoomSize, MapPlacing.instance.EnemyPblc);
                     for (int rk = 0; rk < RoomSize; rk++)
