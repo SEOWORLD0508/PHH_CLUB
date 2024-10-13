@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public static EnemySpawn instance; //인스턴스 생성
 
+    private void Awake()
+    {
+        if (EnemySpawn.instance == null)
+        {
+            EnemySpawn.instance = this;
+        }
+    }
     public int[,,,] pCoordinateInMap; //인스턴스 전달용
     void Start()
     {
