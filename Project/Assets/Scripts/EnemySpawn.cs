@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//미완성
-
 public class EnemySpawn : MonoBehaviour
 {
+
+    public int[,,,] pCoordinateInMap; //인스턴스 전달용
     void Start()
     {
         int i, j, k, l;
@@ -15,11 +15,11 @@ public class EnemySpawn : MonoBehaviour
 
         int RoomSize = 20; //방의 가로 세로 길이
 
-        string[] sMap = MapPlacing.instance.result.Split(" ");
+        string[] sMap = MapPlacing.instance.result.Split(" "); //MapPlacing.cs의 result 텍스트로 맵 가져옴
 
         int[,] Map = new int[Height, Width];
 
-        int[,,,] CoordinateInMap = new int[Height, Width, 2, MapPlacing.instance.EnemyPblc]; //맵과 방의 정보가 저장됨, 4차원 배열
+        int[,,,] CoordinateInMap = new int[Height, Width, 2, MapPlacing.instance.EnemyPblc]; //맵과 몬스터 스폰 좌표의 정보가 저장됨, 4차원 배열
 
         k = 0;
         for (i = 0; i < Height; i++)
@@ -30,7 +30,6 @@ public class EnemySpawn : MonoBehaviour
                 k++;
                 if (Map[i, j] <= MapPlacing.instance.MaxEnemyRoom)
                 {
-                    //int[,] EnemyRoom = CreateEnemyRoom(RoomSize, MapPlacing.instance.EnemyPblc);
                     int[,] SpawnCoordinate = CreateSpawnCoordiante(RoomSize, MapPlacing.instance.EnemyPblc);
                     for (int rk = 0; rk < 2; rk++)
                     {
@@ -42,7 +41,7 @@ public class EnemySpawn : MonoBehaviour
                 }
             }
         }
-
+        pCoordinateInMap = CoordinateInMap;
         // 방 출력 테스트
         /*
         string result = "";
