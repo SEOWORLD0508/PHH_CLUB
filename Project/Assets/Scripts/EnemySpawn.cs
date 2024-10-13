@@ -18,7 +18,8 @@ public class EnemySpawn : MonoBehaviour
         string[] sMap = MapPlacing.instance.result.Split(" ");
 
         int[,] Map = new int[Height, Width];
-        int[,,,] RoomInMap = new int[Height, Width, RoomSize, RoomSize]; //맵과 방의 정보가 저장됨, 4차원 배열
+
+        int[,,,] CoordinateInMap = new int[Height, Width, 2, MapPlacing.instance.EnemyPblc]; //맵과 방의 정보가 저장됨, 4차원 배열
 
         k = 0;
         for (i = 0; i < Height; i++)
@@ -29,27 +30,27 @@ public class EnemySpawn : MonoBehaviour
                 k++;
                 if (Map[i, j] <= MapPlacing.instance.MaxEnemyRoom)
                 {
-                    int[,] EnemyRoom = CreateEnemyRoom(RoomSize, MapPlacing.instance.EnemyPblc);
-                    for (int rk = 0; rk < RoomSize; rk++)
+                    //int[,] EnemyRoom = CreateEnemyRoom(RoomSize, MapPlacing.instance.EnemyPblc);
+                    int[,] SpawnCoordinate = CreateSpawnCoordiante(RoomSize, MapPlacing.instance.EnemyPblc);
+                    for (int rk = 0; rk < 2; rk++)
                     {
-                        for (l = 0; l < RoomSize; l++)
+                        for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
                         {
-                            RoomInMap[i, j, rk, l] = EnemyRoom[rk, l];
+                            CoordinateInMap[i, j, rk, l] = SpawnCoordinate[rk, l];
                         }
                     }
                 }
-
             }
         }
 
         // 방 출력 테스트
         /*
         string result = "";
-        for (k = 0; k < RoomSize; k++)
+        for (k = 0; k < 2; k++)
         {
-            for (l = 0; l < RoomSize; l++)
+            for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
             {
-                result = result + RoomInMap[0, 0, k, l] + " ";
+                result = result + CoordinateInMap[0, 0, k, l] + " ";
             }
             result = result + "\n";
         }
@@ -57,27 +58,17 @@ public class EnemySpawn : MonoBehaviour
         */
     }
 
-    //적 위치 표시된 방 생성 함수 / 0 : 적 없음 , 1 : 적 있음
-    public static int[,] CreateEnemyRoom(int size, int amount)
+    //적 생성 좌표 반환하는 함수 / 반환값 :  SpawnCoordinate[0 or 1(0이 y축, 1이 x축), (적 양)]
+    public static int[,] CreateSpawnCoordiante(int RoomSize, int amount)
     {
-        int i, j;
-        int k = 0;
-        int[,] Room = new int[size, size];
+        int i;
+        int[,] SpawnCoordinate = new int[2, amount];
         System.Random Rnum = new System.Random();
         for (i = 0; i < amount; i++)
         {
-            Room[Rnum.Next(size), Rnum.Next(size)] = 1;
+            SpawnCoordinate[0, i] = Rnum.Next(RoomSize);
+            SpawnCoordinate[1, i] = Rnum.Next(RoomSize);
         }
-        for (i = 0; i < size; i++)
-        {
-            for (j = 0; j < size; j++)
-            {
-                if (Room[i, j] != 1)
-                {
-                    Room[i, j] = 0;
-                }
-            }
-        }
-        return Room;
+        return SpawnCoordinate;
     }
 }
