@@ -48,12 +48,20 @@ public class EnemyController : Creature
     [SerializeField]
     Item item;
 
-    damage = 0;
-    weaponDamage  = item.values[2]; // 무기 데미지 Creature 에 저장
-    attackRange = item.values[3]; // 무기 사거리
+    [SerializeField]
+    Judgment Judgment;
+
+    
+
+
+    float damage = 0;
+    float weaponDamage; // 무기 데미지 Creature 에 저장
+    float attackRange; // 무기 사거리
     // Start is called before the first frame update
     void Start()
     {
+        weaponDamage = item.values[2];
+        attackRange = item.values[3];
         player = FindObjectOfType<PlayerMovement>().transform;
         pathF = GetComponent<E_PathFinding>();
         navmesh.updateRotation = false;
@@ -124,17 +132,19 @@ public class EnemyController : Creature
         Warning.gameObject.SetActive(true);
         Warning.gameObject.transform.position = transform.position;
         navmesh.speed = 0;
-       
 
+        Judgment.Attack(this);
         yield return new WaitForSeconds(_t1);
 
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;
-
+        
         
         yield return new WaitForSeconds(_t2);
         //navmesh.speed = speed;
       
+      
+
     }
 
 

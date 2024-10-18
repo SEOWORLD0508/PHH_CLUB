@@ -7,31 +7,7 @@ using UnityEngine;
 
 
 
-////public class AttackedEvent : MonoBehaviour
-////{
-////    public Vector3 CirclePoint(float angle, Creature victim)
-////    {
-////        angle += victim.rotation.eulerAngles.y;
-
-
-////        return new Vector3(Mathf.sin)
-////    }
-////    bool attacker(Creature attacker, Creature victim)
-////    {
-////        bool hit;
-////        if (hit)
-////        {
-////            Debug.Log("Hit!");
-////        }
-////        else
-////        {
-////            Debug.Log("Avoid!");
-////        }
-////        return hit;
-////    }
-////}
-
-public class AttackedEvent : MonoBehaviour
+public class Judgment : MonoBehaviour
 {
     public List<Creature> get_enemy_list(Creature attacker)
     {
@@ -75,12 +51,12 @@ public class AttackedEvent : MonoBehaviour
             float distance = Vector2.Distance(pos1, pos2);
             bool isInSight = is_in_attackRange(attacker, creature);
             if(distance <= attack_range && isInSight) {
-                creature.hp -= 10; // 데미지 닳는 부분 (구현 안함)
+                creature.health -= 10; // 데미지 닳는 부분 (구현 안함)
             }
         }
     }
     
 
-    
+  
     
 }
