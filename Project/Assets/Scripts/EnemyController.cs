@@ -73,7 +73,7 @@ public class EnemyController : Creature
     void Update()
     {
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
-
+        print(player);
 
         
         playerInSight = hit2d.transform &&  hit2d.transform.gameObject.layer != 7 ? true : false;
@@ -132,8 +132,9 @@ public class EnemyController : Creature
         Warning.gameObject.transform.position = transform.position;
         navmesh.speed = 0;
 
-        Judgment.Attack(this);
         yield return new WaitForSeconds(_t1);
+        Judgment.Attack(this);
+
 
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;

@@ -1838,6 +1838,7 @@ MonoBehaviour:
   PblcWidth: 5
   PblcHeight: 6
   MaxEnemyRoom: 2
+  nav: {fileID: 287608236}
 --- !u!114 &671901329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,7 +2243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.779999, y: -2.350006}
+  m_AnchoredPosition: {x: -5.7800293, y: -2.3499756}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &847735856
@@ -4526,7 +4527,7 @@ MonoBehaviour:
   dashC: 0.3
   lineRenderer: {fileID: 1880832444}
   rb: {fileID: 1546483074}
-  status: {fileID: 0}
+  status: {fileID: 1546483077}
 --- !u!61 &1546483073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4644,6 +4645,7 @@ MonoBehaviour:
   delaytime1: 0
   delaytime2: 0
   attack: 1
+  Judgment: {fileID: 1650084019}
 --- !u!114 &1546483079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5093,6 +5095,7 @@ GameObject:
   - component: {fileID: 1650084018}
   - component: {fileID: 1650084017}
   - component: {fileID: 1650084016}
+  - component: {fileID: 1650084019}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5154,6 +5157,18 @@ Transform:
   - {fileID: 1074673298}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650084019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650084015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8247ea66861b50142972dc62f838db9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1663152842
 PrefabInstance:
   m_ObjectHideFlags: 0
