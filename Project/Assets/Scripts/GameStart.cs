@@ -21,7 +21,8 @@ public class Btntype : MonoBehaviour
     public Slider volumeSlider;    // UI
     void Start()
     {
-        SettingMenu.SetActive(false);
+       //ettingMenu.SetActive(false);
+        SettingMenu.SetActive(true);
     }
 
     public void OnButtonClick()

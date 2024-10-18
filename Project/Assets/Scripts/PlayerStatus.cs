@@ -55,7 +55,7 @@ public class PlayerStatus : Creature
         {
             health = maxHp;
         }
-        if(Input.GetKeyDown(KeyCode.A) && attack) // 공격키 
+        if(Input.GetMouseButtonDown(0) && attack) // 공격키 
         {
             StartCoroutine(Attack());
         }
