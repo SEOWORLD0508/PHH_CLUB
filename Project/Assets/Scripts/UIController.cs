@@ -30,6 +30,7 @@ public class UIController : MonoBehaviour
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, targetS, barSpeed);
 
         pauseBase.gameObject.SetActive(GameManager.Instance.Pause);    
+        SettingMenu.gameObject.SetActive(GameManager.Instance.Pause);
     }
 
 }

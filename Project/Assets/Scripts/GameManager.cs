@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text DescriptionText;
     public KeyCode InventoryKey = KeyCode.Tab;
     
+
+    
     private static GameManager _instance;
     // �ν��Ͻ��� �����ϱ� ���� ������Ƽ
     public static GameManager Instance
