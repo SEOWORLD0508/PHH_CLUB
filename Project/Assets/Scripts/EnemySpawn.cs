@@ -63,6 +63,7 @@ public class EnemySpawn : MonoBehaviour
         }
         Debug.Log(result);
         */
+        //Debug.Log(MapPlacing.instance.roomNumInfo.check);
     }
 
     //적 생성 좌표 반환하는 함수 / 반환값 :  SpawnCoordinate[0 or 1(0이 y축, 1이 x축), (적 양)]

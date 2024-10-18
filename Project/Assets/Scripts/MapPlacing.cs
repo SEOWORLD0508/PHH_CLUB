@@ -63,6 +63,8 @@ public class MapPlacing : MonoBehaviour
     public int PblcWidth = 5; //인스턴스 전달용
     public int PblcHeight = 6; //인스턴스 전달용
     public int MaxEnemyRoom = 2; //인스턴스 전달용
+    public RoomNumInfo roomNumInfo;
+    public RoomStr[,] RoomInfo;
     private void Start()
     {
         /*방 종류
@@ -78,7 +80,7 @@ public class MapPlacing : MonoBehaviour
         int Width = mapSize.width;
         int Height = mapSize.height;
 
-        RoomNumInfo roomNumInfo;
+        //RoomNumInfo roomNumInfo;
         roomNumInfo.aisle = 4;
         roomNumInfo.check = 3;
         roomNumInfo.maxEnemyRoom = MaxEnemyRoom;
@@ -89,7 +91,7 @@ public class MapPlacing : MonoBehaviour
         roomPer.Room3 = 0.3;
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
         int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
-        RoomStr[,] RoomInfo = CreateMapStr(Width, Height, roomNumInfo, Map);
+        RoomInfo = CreateMapStr(Width, Height, roomNumInfo, Map);
 
         //출력 / 유니티에 반영
         for (i = 0; i < Height; i++)
