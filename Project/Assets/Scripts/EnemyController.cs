@@ -16,14 +16,11 @@ public class AttackPattern
      일반적은 패턴 1개(기본공격)만 있으면 되고 보스는 패턴 여러개 사용할예정 */
 
 }
-public class EnemyController : MonoBehaviour
+public class EnemyController : Creature
 {
 
-    public float health;
-    public float E_damage;
 
     float currentAttackT;
-    public float attackRange;
     public LayerMask collideLayer;
     public float sightRange;
     public float speed;
@@ -50,9 +47,20 @@ public class EnemyController : MonoBehaviour
     bool dashing;
     [SerializeField]
     Item item;
+
+    [SerializeField]
+    Judgment Judgment;
+
+    
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
+        damage = 0;
+        weaponDamage = item.values[2];
+        attackRange = item.values[3];
         player = FindObjectOfType<PlayerMovement>().transform;
         pathF = GetComponent<E_PathFinding>();
         navmesh.updateRotation = false;
@@ -123,17 +131,19 @@ public class EnemyController : MonoBehaviour
         Warning.gameObject.SetActive(true);
         Warning.gameObject.transform.position = transform.position;
         navmesh.speed = 0;
-       
 
+        Judgment.Attack(this);
         yield return new WaitForSeconds(_t1);
 
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;
-
+        
         
         yield return new WaitForSeconds(_t2);
         //navmesh.speed = speed;
       
+      
+
     }
 
 

@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerStatus : Creature
 {
     [Header("Basic Status")]
-    public float currentHp,maxHp; // 현재 체력 / 최대 체력
+    public float maxHp; // 현재 체력 -> Creature / 최대 체력
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
     public float Vamp; // 뱀파이어 진행도
-    public float weaponDamage; // 무기 공격력
-    public float damage; // 기본 공격력
+    // public float weaponDamage; // 무기 공격력 Creature 에서 관리
+    // public float damage; // 기본 공격력 Creature 에서 관리
     public float statime; // 스텟 회복 시간
     public float delaytime1,delaytime2; // 선딜 딜레이 / 후딜 딜레이
     public bool attack = true; // 공격 가능 여부
+
+    [SerializeField]
+    Judgment Judgment;
 
     // Start is called before the first frame update
     void Start()
@@ -22,34 +25,40 @@ public class PlayerStatus : MonoBehaviour
         maxHp = 100;
         maxStamina = 100;
         damage = 20;
-        currentHp = maxHp;
+        health = maxHp;
         currentStamina = maxStamina;
-        Debug.Log(maxHp + "/" + maxStamina + "/" + currentHp + "/" + currentStamina);
-        UpdateStatus(); //스텟 재정의 함수
+        Debug.Log(maxHp + "/" + maxStamina + "/" + health + "/" + currentStamina);
+        UpdateStatus(); //스텟 재정의 함수 // 인벤토리 무기 교체시 호출 부탁 드려요~
         StartCoroutine(timerCoroutine());
+        
     }
 
     void UpdateStatus()
     {
+        Item item = FindObjectOfType<Inventory>().weapons[0].item; // 플레이어 아이템 받아옴
+        weaponDamage = item.values[2]; // 무기 데미지
+        attackRange = item.values[3]; // 무기 사거리  
         maxHp = 100;
-        damage = 20;
+        damage = 20; // 기본 데미지
         maxStamina = 100 + Vamp * 1.5f;
         for (int i=0; i<Vamp; i++) {
             maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
             damage = damage * (float)statIncrease; // 최대 공격력 약 144
 
         }
+        
+        damage += weaponDamage;  // 무기 데미지 + 기본 데미지 * 타락치?
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        if (currentHp > maxHp)
+        if (health > maxHp)
         {
-            currentHp = maxHp;
+            health = maxHp;
         }
-        if(Input.GetKeyDown(KeyCode.A) && attack)
+        if(Input.GetMouseButtonDown(0) && attack) // 공격키 
         {
             StartCoroutine(Attack());
         }
@@ -59,7 +68,7 @@ public class PlayerStatus : MonoBehaviour
         attack = true;
         yield return new WaitForSeconds(delaytime1); // 선딜
         Debug.Log("Attack");
-        
+        Judgment.Attack(this);
 
 
 
