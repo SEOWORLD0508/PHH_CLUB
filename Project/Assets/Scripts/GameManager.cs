@@ -12,13 +12,20 @@ public class GameManager : MonoBehaviour
     public KeyCode PauseKey = KeyCode.Escape;
     [Header("Inventory")]
     public bool InventoryBool;
+
     public Transform InventoryBase;
     public Transform DescriptionBase;
     public TMP_Text NameText;
     public TMP_Text DescriptionText;
-    public KeyCode InventoryKey = KeyCode.Tab;
-    
+    public KeyCode InventoryKey = KeyCode.Tab
     private static GameManager _instance;
+    [Header("Gold")]
+    public float Gold=0;
+    
+    public float GetGold()
+    { 
+        return Gold;
+    }
     // �ν��Ͻ��� �����ϱ� ���� ������Ƽ
     public static GameManager Instance
     {
