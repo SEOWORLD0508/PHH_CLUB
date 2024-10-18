@@ -23,6 +23,8 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Transform pauseBase;
 
+    [SerializeField]    
+    Transform setting;
 
     private void Update() 
     {
@@ -30,7 +32,7 @@ public class UIController : MonoBehaviour
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, targetS, barSpeed);
         goldDiplayer.fillAmount = Mathf.Lerp(goldDiplayer.fillAmount, targetS, barSpeed);
         pauseBase.gameObject.SetActive(GameManager.Instance.Pause);    
-        SettingMenu.gameObject.SetActive(GameManager.Instance.Pause);
+        setting.gameObject.SetActive(GameManager.Instance.Pause);
     }
 
 }
