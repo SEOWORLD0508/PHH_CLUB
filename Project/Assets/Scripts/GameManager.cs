@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Transform DescriptionBase;
     public TMP_Text NameText;
     public TMP_Text DescriptionText;
-    public KeyCode InventoryKey = KeyCode.Tab
+    public KeyCode InventoryKey = KeyCode.Tab;
     private static GameManager _instance;
     [Header("Gold")]
     public float Gold=0;
