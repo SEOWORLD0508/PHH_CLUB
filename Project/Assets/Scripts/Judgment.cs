@@ -25,18 +25,37 @@ public class Judgment : MonoBehaviour
     }
     public bool is_in_attackRange(Creature attacker,Creature target)
     {
-        float weaponAngle = attacker.attackRange;
+        float weaponAngle = attacker.item.values[4];
         float minimum = Mathf.Cos(Mathf.Deg2Rad * weaponAngle);
-        var pos1 = target.transform.position;
-        var pos2 = attacker.transform.position;
-        var direction_vec = pos2 - pos1; // 대상과 공격자 사이의 방향벡터
-        var facing_vec = pos2 - pos1; // 바라보는 방향 ( 구현 안함)
-        var cos_sim = (Vector2.Dot(direction_vec,facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
-        if(cos_sim <= 1 && cos_sim >= minimum) {
+        //var pos1 = target.transform.position;
+        //var pos2 = attacker.transform.position;
+        //var direction_vec = pos2 - pos1; // 대상과 공격자 사이의 방향벡터
+        //var facing_vec = attacker.transform.forward; // 바라보는 방향 ( 구현 안함)
+        //var cos_sim = (Vector2.Dot(direction_vec,facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
+
+
+        Vector3 targetDir = (target.transform.position - attacker.transform.position).normalized;
+        Debug.DrawRay(attacker.transform.position, targetDir, Color.blue, 10.0f);
+        float dot = Vector3.Dot(attacker.dir.normalized, targetDir);
+
+        //내적을 이용한 각 계산하기
+        // thetha = cos^-1( a dot b / |a||b|)
+        float theta = Mathf.Acos(dot) * Mathf.Rad2Deg;
+
+        //Debug.Log("타겟과 AI의 각도 : " + theta);
+        //if (theta <= weaponAngle) return true;
+        //else return false;
+
+        print(attacker);
+
+        if (theta <= weaponAngle) {
+            print("AttackInRange"); 
             return true;
         }
         else
         {
+            print("AttackOutRange ,min = " + weaponAngle +" , val = " + theta);
+            
             return false;
         }
     }
@@ -46,6 +65,7 @@ public class Judgment : MonoBehaviour
         float attack_range = attacker.attackRange;
         foreach(Creature creature in enemy_list)
         {
+            print(creature);
             var pos1 = creature.transform.position;
             var pos2 = attacker.transform.position;
             float distance = Vector2.Distance(pos1, pos2);

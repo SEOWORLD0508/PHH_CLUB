@@ -16,11 +16,18 @@ public class PlayerStatus : Creature
     public float delaytime1,delaytime2; // 선딜 딜레이 / 후딜 딜레이
     public bool attack = true; // 공격 가능 여부
 
+
+    [SerializeField]
+    Inventory inventory;
+
     [SerializeField]
     Judgment Judgment;
 
     [SerializeField]
     Image healthBar, staminaBar;
+
+    [SerializeField]
+    PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +50,7 @@ public class PlayerStatus : Creature
     {
         healthBar.fillAmount = (float)health / maxHp;
         staminaBar.fillAmount = (float)stamina / maxStamina;
-        Item item = FindObjectOfType<Inventory>().weapons[0].item; // 플레이어 아이템 받아옴
+        Item item = inventory.weapons[0].item; // 플레이어 아이템 받아옴
         weaponDamage = item.values[2]; // 무기 데미지
         attackRange = item.values[3]; // 무기 사거리  
         maxHp = 100;
@@ -56,12 +63,18 @@ public class PlayerStatus : Creature
         }
         
         damage += weaponDamage;  // 무기 데미지 + 기본 데미지 * 타락치?
+        
+
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        base.Update();
+        dir = playerMovement.moveDir;
+
         
+
         if (health > maxHp)
         {
             health = maxHp;

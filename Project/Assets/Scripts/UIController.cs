@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, targetH, barSpeed);
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, targetS, barSpeed);
-        goldDiplayer.fillAmount = Mathf.Lerp(goldDiplayer.fillAmount, targetS, barSpeed);
+        //goldDiplayer.fillAmount = Mathf.Lerp(goldDiplayer.fillAmount, targetS, barSpeed);
         pauseBase.gameObject.SetActive(GameManager.Instance.Pause);    
         setting.gameObject.SetActive(GameManager.Instance.Pause);
     }
