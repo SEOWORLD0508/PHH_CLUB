@@ -19,15 +19,12 @@ public class GameStart : MonoBehaviour
 
     public AudioMixer audioMixer;  // Audio
     public Slider volumeSlider;    // UI
-<<<<<<< HEAD
     void Start()
     {
        //ettingMenu.SetActive(false);
         SettingMenu.SetActive(true);
     }
-=======
    
->>>>>>> 35729521658b6be864c06e76e9080c2eff22ff56
 
     public void OnButtonClick()
     {
