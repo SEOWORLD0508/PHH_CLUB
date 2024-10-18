@@ -15,6 +15,9 @@ public class PlayerStatus : Creature
     public float delaytime1,delaytime2; // 선딜 딜레이 / 후딜 딜레이
     public bool attack = true; // 공격 가능 여부
 
+    [SerializeField]
+    Judgment Judgment;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +68,7 @@ public class PlayerStatus : Creature
         attack = true;
         yield return new WaitForSeconds(delaytime1); // 선딜
         Debug.Log("Attack");
-        
+        Judgment.Attack(this);
 
 
 
