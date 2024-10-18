@@ -89,7 +89,7 @@ public class MapPlacing : MonoBehaviour
         roomPer.Room3 = 0.3;
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
         int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
-        RoomStr[,] RoomInfo = CreateMapStr(Width, Height, RanArr, roomNumInfo, Map);
+        RoomStr[,] RoomInfo = CreateMapStr(Width, Height, roomNumInfo, Map);
 
         //출력 / 유니티에 반영
         for (i = 0; i < Height; i++)
@@ -108,7 +108,7 @@ public class MapPlacing : MonoBehaviour
         Debug.Log(result);
     }
     //방 정보 배열 생성 함수
-    public static RoomStr[,] CreateMapStr(int Width, int Height, int[] RanArr, RoomNumInfo roomNumInfo, int[,] MapArr)
+    public static RoomStr[,] CreateMapStr(int Width, int Height, RoomNumInfo roomNumInfo, int[,] MapArr)
     {
         RoomStr[,] roomStr = new RoomStr[Height, Width];
         int i, j;
