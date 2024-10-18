@@ -54,12 +54,11 @@ public class EnemyController : Creature
     
 
 
-    float damage = 0;
-    float weaponDamage; // 무기 데미지 Creature 에 저장
-    float attackRange; // 무기 사거리
+    
     // Start is called before the first frame update
     void Start()
     {
+        damage = 0;
         weaponDamage = item.values[2];
         attackRange = item.values[3];
         player = FindObjectOfType<PlayerMovement>().transform;
