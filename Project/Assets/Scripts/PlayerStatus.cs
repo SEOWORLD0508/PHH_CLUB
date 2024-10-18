@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStatus : Creature
 {
     [Header("Basic Status")]
     public float maxHp; // 현재 체력 -> Creature / 최대 체력
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
-    public float currentStamina,maxStamina; // 현재 스테미나 / 최대 스테미나
+    public float stamina,maxStamina; // 현재 스테미나 / 최대 스테미나
     public float Vamp; // 뱀파이어 진행도
     // public float weaponDamage; // 무기 공격력 Creature 에서 관리
     // public float damage; // 기본 공격력 Creature 에서 관리
@@ -18,16 +19,21 @@ public class PlayerStatus : Creature
     [SerializeField]
     Judgment Judgment;
 
+    [SerializeField]
+    Image healthBar, staminaBar;
+
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.fillAmount = 1.0f;
+        staminaBar.fillAmount = 1.0f;
         Vamp = 0;
         maxHp = 100;
         maxStamina = 100;
         damage = 20;
-        health = maxHp;
-        currentStamina = maxStamina;
-        Debug.Log(maxHp + "/" + maxStamina + "/" + health + "/" + currentStamina);
+        health = maxHp / 2;
+        stamina = maxStamina / 2;
+        Debug.Log(maxHp + "/" + maxStamina + "/" + health + "/" + stamina);
         UpdateStatus(); //스텟 재정의 함수 // 인벤토리 무기 교체시 호출 부탁 드려요~
         StartCoroutine(timerCoroutine());
         
@@ -35,6 +41,8 @@ public class PlayerStatus : Creature
 
     void UpdateStatus()
     {
+        healthBar.fillAmount = (float)health / maxHp;
+        staminaBar.fillAmount = (float)stamina / maxStamina;
         Item item = FindObjectOfType<Inventory>().weapons[0].item; // 플레이어 아이템 받아옴
         weaponDamage = item.values[2]; // 무기 데미지
         attackRange = item.values[3]; // 무기 사거리  

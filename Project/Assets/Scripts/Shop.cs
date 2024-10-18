@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-// NPC ï¿½Úµï¿½
 
 public class Shopping : MonoBehaviour
 {
@@ -12,35 +8,86 @@ public class Shopping : MonoBehaviour
     float interactionDistance;
 
     [SerializeField]
-    public ItemHolder[] ItemList;
+    public ItemHolder[] ItemList;  // »óÁ¡¿¡¼­ ÆÇ¸ÅÇÒ ¼ö ÀÖ´Â ¾ÆÀÌÅÛ ¸ñ·Ï
 
-    void Setup()
-    {
+    private Inventory playerInventory;
+    private GameObject player;
 
-    }
     void Start()
     {
+        player = FindObjectOfType<PlayerMovement>().gameObject;
+        playerInventory = FindObjectOfType<Inventory>();
     }
+
     void Update()
     {
-        GameObject Player = FindObjectOfType<PlayerMovement>().gameObject;
-
-        float dis = Vector3.Distance(Player.transform.position, transform.position);
+        float dis = Vector3.Distance(player.transform.position, transform.position);
         if (dis < interactionDistance)
         {
-
-            if (Input.GetKeyDown(KeyCode.E)) // ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½
+            // E Å°¸¦ ´­·¯ »óÁ¡°ú »óÈ£ÀÛ¿ë
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                print("interacted"); // ìƒì ì°½ í˜¸ì¶œ ì½”ë“œ
+                OpenShopUI();  // »óÁ¡ UI ¿­±â
             }
-
-
         }
-
-
-
     }
 
+    // »óÁ¡ UI¸¦ ¿©´Â ¸Þ¼Òµå
+    void OpenShopUI()
+    {
+        Debug.Log("Shop Opened");
+        // UI¸¦ ¿­°í, ÇÃ·¹ÀÌ¾î°¡ ÆÇ¸ÅÇÒ ¼ö ÀÖ´Â ¾ÆÀÌÅÛ ¸ñ·ÏÀ» º¸¿©ÁÝ´Ï´Ù.
+        ShowInventoryItemsForSale();
+    }
 
+    // ÀÎº¥Åä¸®¿¡¼­ ÆÇ¸ÅÇÒ ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀ» º¸¿©ÁÖ°í ÆÇ¸ÅÇÏ´Â ·ÎÁ÷
+    void ShowInventoryItemsForSale()
+    {
+        foreach (ItemHolder itemHolder in playerInventory.equipments)
+        {
+            if (itemHolder.count > 0)
+            {
+                // ¿¹½Ã: UI ¹öÆ°À» »ý¼ºÇØ ÇÃ·¹ÀÌ¾î°¡ ¼±ÅÃÇÒ ¼ö ÀÖµµ·Ï ÇÔ
+                Debug.Log($"Item: {itemHolder.item.ItemName}, Count: {itemHolder.count}");
 
+                // UI ¹öÆ°À» ´­·¶À» ¶§ SellItem ¸Þ¼Òµå¸¦ È£ÃâÇÏµµ·Ï ¿¬°á
+                // ½ÇÁ¦·Î´Â UI ¹öÆ°ÀÌ ÀÖ¾î¾ß ÇÏÁö¸¸, ¿©±â¼­´Â °£´ÜÇÏ°Ô Ã³¸®
+                // ¹öÆ° Å¬¸¯ ½Ã ¾ÆÀÌÅÛ ÆÇ¸Å
+                SellItem(itemHolder.item);
+            }
+        }
+    }
+
+    // ¾ÆÀÌÅÛ ÆÇ¸Å ¸Þ¼Òµå
+    public void SellItem(Item itemToSell)
+    {
+        // ÀÎº¥Åä¸®¿¡¼­ ÇØ´ç ¾ÆÀÌÅÛ ÆÇ¸Å
+        ItemHolder itemInInventory = playerInventory.equipments.Find(holder => holder.item == itemToSell);
+        if (itemInInventory == null || itemInInventory.count <= 0)
+        {
+            Debug.Log("You don't have this item to sell!");
+            return;
+        }
+
+        // ¾ÆÀÌÅÛÀÇ ÆÇ¸Å °¡°Ý °è»ê (±¸¸Å °¡°ÝÀÇ 50%)
+        float sellPrice = itemToSell.values[0] * 0.5f;
+
+        // ÀÎº¥Åä¸®¿¡¼­ ¾ÆÀÌÅÛ Á¦°Å
+        playerInventory.RemoveItem(playerInventory.equipments, itemToSell, 1);
+
+        // ÇÃ·¹ÀÌ¾îÀÇ µ· Áõ°¡
+        GameManager.Instance.Gold += sellPrice;
+
+        // UI ¾÷µ¥ÀÌÆ®
+        UpdateGoldUI();
+
+        Debug.Log($"Sold {itemToSell.ItemName} for {sellPrice} Gold.");
+    }
+
+    // µ· UI ¾÷µ¥ÀÌÆ®
+    void UpdateGoldUI()
+    {
+        // µ· °ü·Ã UI °»½Å ·ÎÁ÷ Ãß°¡
+        Debug.Log($"Current Gold: {GameManager.Instance.Gold}");
+    }
 }

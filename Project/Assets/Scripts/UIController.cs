@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
 
     [Header("Bars")]
     [SerializeField]
-    Image healthBar, staminaBar;
+    Image healthBar, staminaBar,goldDiplayer;
 
 
     [SerializeField]
@@ -28,8 +28,9 @@ public class UIController : MonoBehaviour
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, targetH, barSpeed);
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, targetS, barSpeed);
-
+        goldDiplayer.fillAmount = Mathf.Lerp(goldDiplayer.fillAmount, targetS, barSpeed);
         pauseBase.gameObject.SetActive(GameManager.Instance.Pause);    
+        SettingMenu.gameObject.SetActive(GameManager.Instance.Pause);
     }
 
 }
