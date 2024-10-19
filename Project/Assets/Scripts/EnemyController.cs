@@ -74,7 +74,7 @@ public class EnemyController : Creature
     public override void Update()
     {
         //dir = navmesh.path.corners[0];
-        Debug.DrawRay(transform.position, dir.normalized, Color.red, 10.0f);
+        //Debug.DrawRay(transform.position, dir.normalized, Color.red, 10.0f);
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
 
         
@@ -94,7 +94,7 @@ public class EnemyController : Creature
         }
         else
         {
-            dir = player.transform.position - transform.position;
+            dir = (player.transform.position - transform.position).normalized;
         }
 
 

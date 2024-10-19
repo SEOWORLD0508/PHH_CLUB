@@ -34,12 +34,21 @@ public class Judgment : MonoBehaviour
         //var cos_sim = (Vector2.Dot(direction_vec,facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
 
 
-        Vector3 targetDir = (target.transform.position - attacker.transform.position).normalized;
-        Debug.DrawRay(attacker.transform.position, targetDir, Color.blue, 10.0f);
-        float dot = Vector3.Dot(attacker.dir.normalized, targetDir);
+        Vector3 targetDir = (target.transform.position - attacker.transform.position).normalized; //공격할때 타겟을 향한 단위벡터
+        Debug.DrawRay(attacker.transform.position, targetDir, Color.blue, 10.0f); 
+        Debug.DrawRay(attacker.transform.position, attacker.dir, Color.red, 10.0f);
+        float dot = Vector3.Dot(attacker.dir, targetDir);
+
+        dot = Mathf.Clamp(dot, -1, 1);
+       
 
         //내적을 이용한 각 계산하기
         // thetha = cos^-1( a dot b / |a||b|)
+        
+        //dot가 -1 ~ 1 면 acos -> 각도로 변환 -> 내가 지정해둔 각도랑 비교해서
+        //dot가 그거 밖이면 false
+             
+
         float theta = Mathf.Acos(dot) * Mathf.Rad2Deg;
 
         //Debug.Log("타겟과 AI의 각도 : " + theta);
@@ -47,7 +56,7 @@ public class Judgment : MonoBehaviour
         //else return false;
 
         print(attacker);
-
+        
         if (theta <= weaponAngle) {
             print("AttackInRange"); 
             return true;
@@ -65,7 +74,7 @@ public class Judgment : MonoBehaviour
         float attack_range = attacker.attackRange;
         foreach(Creature creature in enemy_list)
         {
-            print(creature);
+        
             var pos1 = creature.transform.position;
             var pos2 = attacker.transform.position;
             float distance = Vector2.Distance(pos1, pos2);
