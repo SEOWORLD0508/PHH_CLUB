@@ -1,7 +1,9 @@
 //모듈 선언
+using NavMeshPlus.Components;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 //맵 크기
 struct MapSize
@@ -65,6 +67,9 @@ public class MapPlacing : MonoBehaviour
     public int MaxEnemyRoom = 2; //인스턴스 전달용
     public RoomNumInfo roomNumInfo;
     public RoomStr[,] RoomInfo;
+
+    [SerializeField]
+    NavMeshSurface nav;
     private void Start()
     {
         /*방 종류
@@ -108,6 +113,7 @@ public class MapPlacing : MonoBehaviour
             //result = result + "\n";
         }
         Debug.Log(result);
+        nav.BuildNavMesh();
     }
     //방 정보 배열 생성 함수
     public static RoomStr[,] CreateMapStr(int Width, int Height, RoomNumInfo roomNumInfo, int[,] MapArr)

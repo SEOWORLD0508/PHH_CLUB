@@ -45,19 +45,19 @@ public class EnemyController : Creature
     Transform Warning;
 
     bool dashing;
-    [SerializeField]
-    Item item;
+
 
     [SerializeField]
     Judgment Judgment;
 
     
 
-
+    
     
     // Start is called before the first frame update
     void Start()
     {
+
         damage = 0;
         weaponDamage = item.values[2];
         attackRange = item.values[3];
@@ -67,13 +67,15 @@ public class EnemyController : Creature
         navmesh.updateUpAxis = false;
         navmesh.speed = speed;
         navmesh.stoppingDistance = attackRange / 2;
+        dir = player.transform.position - transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+        //dir = navmesh.path.corners[0];
+        Debug.DrawRay(transform.position, dir.normalized, Color.red, 10.0f);
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
-
 
         
         playerInSight = hit2d.transform &&  hit2d.transform.gameObject.layer != 7 ? true : false;
@@ -89,6 +91,10 @@ public class EnemyController : Creature
         if (canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             Attack();
+        }
+        else
+        {
+            dir = player.transform.position - transform.position;
         }
 
 
@@ -132,8 +138,9 @@ public class EnemyController : Creature
         Warning.gameObject.transform.position = transform.position;
         navmesh.speed = 0;
 
-        Judgment.Attack(this);
         yield return new WaitForSeconds(_t1);
+        Judgment.Attack(this);
+
 
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;

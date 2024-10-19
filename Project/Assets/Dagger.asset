@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   ItemName: Dagger
+  ItemDescription: 
+  sprite: {fileID: 0}
   values:
   - 10
   - 0.1
   - 0.5
+  - 2
+  - 10
   itemType: 0
   prefab: {fileID: 5147083851657952484, guid: 80baaebfed7bb474595f7574777b0b32, type: 3}
+  useAble: 0
+  specialIndex: 0
