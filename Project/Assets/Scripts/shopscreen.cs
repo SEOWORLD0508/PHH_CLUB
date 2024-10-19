@@ -18,6 +18,7 @@ public class ShapeController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             ToggleShapePosition();
+
         }
     }
 
