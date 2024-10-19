@@ -88,10 +88,10 @@ public class PlayerStatus : Creature
     {
         while(true)
         {
-            currentStamina += 50f;
-            if (currentStamina > maxStamina)
+            stamina += 50f;
+            if (stamina > maxStamina)
             {
-                currentStamina = maxStamina;
+                stamina = maxStamina;
             }
 
             yield return new WaitForSeconds(1f);
