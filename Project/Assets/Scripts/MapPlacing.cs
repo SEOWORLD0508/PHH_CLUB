@@ -58,12 +58,12 @@ public class MapPlacing : MonoBehaviour
     List<Transform> rooms;
 
     [SerializeField]
-    float GridSize;
+    float GridSize = 19.5f;
     public string result = ""; //인스턴스 전달용
     public static int EnemyPerRoom = 5; //방당 스폰될 적 수
     public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
-    public int PblcWidth = 5; //인스턴스 전달용
-    public int PblcHeight = 6; //인스턴스 전달용
+    public int PblcWidth = 6; //인스턴스 전달용
+    public int PblcHeight = 4; //인스턴스 전달용
     public int MaxEnemyRoom = 2; //인스턴스 전달용
     public RoomNumInfo roomNumInfo;
     public RoomStr[,] RoomInfo;
@@ -77,12 +77,12 @@ public class MapPlacing : MonoBehaviour
         3 : 체크 포인트
         4 : 복도(플레이어가 이동하는 곳)
         */
-        int i, j;
-
+        int i, j, k;
+        int cnt = 0;
         MapSize mapSize;
-        mapSize.width = PblcWidth; //홀수여야 함
+        mapSize.width = PblcWidth; //홀수여야 함 원래거반 
         mapSize.height = PblcHeight;
-        int Width = mapSize.width;
+        int Width = mapSize.width / 2;
         int Height = mapSize.height;
 
         //RoomNumInfo roomNumInfo;
@@ -95,13 +95,37 @@ public class MapPlacing : MonoBehaviour
         roomPer.Room2 = 0.4;
         roomPer.Room3 = 0.3;
         int[] RanArr = CreateMapRandArr(Width, Height, roomPer);
-        int[,] Map = CreateMap(Width, Height, RanArr, roomNumInfo);
-        RoomInfo = CreateMapStr(Width, Height, roomNumInfo, Map);
+        int[,] hfMap1 = CreateMap(Width, Height, RanArr, roomNumInfo);
+        int[] RanArr2 = CreateMapRandArr(Width, Height, roomPer);
+        int[,] hfMap2 = CreateMap(Width, Height, RanArr2, roomNumInfo);
+        int[,] Map = new int[PblcHeight, PblcWidth];
 
-        //출력 / 유니티에 반영
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
+            {
+                Map[i, j] = hfMap1[i, j];
+            }
+        }
+        for (i = 0; i < Height; i++)
+        {
+            for (j = Width; j < Width * 2; j++)
+            {
+                Debug.Log(j);
+                k = hfMap2[i, Width - cnt - 1];
+                hfMap2[i, Width - cnt - 1] = hfMap2[i, j - Width];
+                hfMap2[i, j - Width] = k;
+                cnt++;
+                Map[i, j] = hfMap2[i, j - Width];
+            }
+            cnt = 0;
+        }
+        Map[Height - 1, 0] = roomNumInfo.check;
+        RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
+        //출력 / 유니티에 반영
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < PblcWidth; j++)
             {
                 result = result + Map[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
@@ -184,7 +208,7 @@ public class MapPlacing : MonoBehaviour
                 }
             }
         } //방 비율대로 랜덤 생성/배치
-        MapArr[Height - 1, 0] = roomNumInfo.check; //체크 포인트
+        //MapArr[Height - 1, 0] = roomNumInfo.check; //체크 포인트
         return MapArr;
     }
 
@@ -303,6 +327,7 @@ public class MapPlacing : MonoBehaviour
                 MapArr[j, i] = roomNumInfo.aisle;
             }
         }
+        MapArr[height - 3, width - 1] = 5;
         return MapArr;
     }
 
