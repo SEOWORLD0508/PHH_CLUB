@@ -55,8 +55,9 @@ public class Judgment : MonoBehaviour
         //if (theta <= weaponAngle) return true;
         //else return false;
 
-        print(attacker);
         
+
+
         if (theta <= weaponAngle) {
             print("AttackInRange"); 
             return true;
