@@ -14,7 +14,7 @@ public class Shopping : MonoBehaviour
     private Inventory playerInventory;
     private GameObject player;
 
-    public List<Item> ItemForSellList;
+    public List<Item> ItemToSellList; // 플레이어가 팔 거 
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -55,14 +55,15 @@ public class Shopping : MonoBehaviour
                 // UI 버튼을 눌렀을 때 SellItem 메소드를 호출하도록 연결
                 // 실제로는 UI 버튼이 있어야 하지만, 여기서는 간단하게 처리
                 // 버튼 클릭 시 아이템 판매
-                SellItem(itemHolder.item);
+                SellItem();
             }
         }
     }
 
     // 아이템 판매 메소드
-    public void SellItem(Item itemToSell)
+    public void SellItem() // Item itemToSell
     {
+        /*
         // 인벤토리에서 해당 아이템 판매
         ItemHolder itemInInventory = playerInventory.equipments.Find(holder => holder.item == itemToSell);
         if (itemInInventory == null || itemInInventory.count <= 0)
@@ -70,20 +71,26 @@ public class Shopping : MonoBehaviour
             Debug.Log("You don't have this item to sell!");
             return;
         }
+        */
+        foreach(Item ItemToSell in ItemToSellList)
+        {
+            // 아이템의 판매 가격 계산 (구매 가격의 50%)
+            float sellPrice = ItemToSell.values[0] * 0.5f;
 
-        // 아이템의 판매 가격 계산 (구매 가격의 50%)
-        float sellPrice = itemToSell.values[0] * 0.5f;
+            // 인벤토리에서 아이템 제거
+            playerInventory.RemoveItem(playerInventory.equipments, ItemToSell, 1);
 
-        // 인벤토리에서 아이템 제거
-        playerInventory.RemoveItem(playerInventory.equipments, itemToSell, 1);
+            // 플레이어의 돈 증가
+            GameManager.Instance.Gold += sellPrice;
 
-        // 플레이어의 돈 증가
-        GameManager.Instance.Gold += sellPrice;
+            // UI 업데이트
+            UpdateGoldUI();
 
-        // UI 업데이트
-        UpdateGoldUI();
-
-        Debug.Log($"Sold {itemToSell.ItemName} for {sellPrice} Gold.");
+            Debug.Log($"Sold {ItemToSell.ItemName} for {sellPrice} Gold.");
+        }
+        
+        
+        
     }
 
     // 돈 UI 업데이트
@@ -94,16 +101,16 @@ public class Shopping : MonoBehaviour
     }
 
 
-    // Applies an upwards force to all rigidbodies that enter the trigger.
+    // 아이템 드갔다가 나가는거 ㅇㅇ
     void OnTriggerEnter2D(Collider2D other)
     {
         if ((other.CompareTag("Item")))
         {
-            Item ItemForSell = other.gameObject.GetComponent<ItemPrefab>().item;
-            print(ItemForSell);
-            if (!(ItemForSellList.Contains(ItemForSell)))
+            Item ItemToSell = other.gameObject.GetComponent<ItemPrefab>().item;
+            print(ItemToSell);
+            if (!(ItemToSellList.Contains(ItemToSell)))
                   {
-                  ItemForSellList.Add(other.gameObject.GetComponent<ItemPrefab>().item);
+                  ItemToSellList.Add(other.gameObject.GetComponent<ItemPrefab>().item);
                   print("Enter : " + other.name);
                 
             }
@@ -117,11 +124,11 @@ public class Shopping : MonoBehaviour
     {
         if ((other.CompareTag("Item")))
         {
-            Item ItemForSell = other.gameObject.GetComponent<ItemPrefab>().item;
-            print(ItemForSell);
-            if ((ItemForSellList.Contains(ItemForSell)))
+            Item ItemToSell = other.gameObject.GetComponent<ItemPrefab>().item;
+            print(ItemToSell);
+            if ((ItemToSellList.Contains(ItemToSell)))
             {
-                ItemForSellList.Remove(other.gameObject.GetComponent<ItemPrefab>().item);
+                ItemToSellList.Remove(other.gameObject.GetComponent<ItemPrefab>().item);
                 print("Exit : " + other.name);
 
             }
