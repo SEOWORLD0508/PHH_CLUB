@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shopping : MonoBehaviour
@@ -8,11 +9,12 @@ public class Shopping : MonoBehaviour
     float interactionDistance;
 
     [SerializeField]
-    public ItemHolder[] ItemList;  // 상점에서 판매할 수 있는 아이템 목록
+    public ItemHolder[] ItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록
 
     private Inventory playerInventory;
     private GameObject player;
 
+    public List<Item> ItemForSellList;
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -25,7 +27,7 @@ public class Shopping : MonoBehaviour
         if (dis < interactionDistance)
         {
             // E 키를 눌러 상점과 상호작용
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 OpenShopUI();  // 상점 UI 열기
             }
@@ -89,5 +91,44 @@ public class Shopping : MonoBehaviour
     {
         // 돈 관련 UI 갱신 로직 추가
         Debug.Log($"Current Gold: {GameManager.Instance.Gold}");
+    }
+
+
+    // Applies an upwards force to all rigidbodies that enter the trigger.
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if ((other.CompareTag("Item")))
+        {
+            Item ItemForSell = other.gameObject.GetComponent<ItemPrefab>().item;
+            print(ItemForSell);
+            if (!(ItemForSellList.Contains(ItemForSell)))
+                  {
+                  ItemForSellList.Add(other.gameObject.GetComponent<ItemPrefab>().item);
+                  print("Enter : " + other.name);
+                
+            }
+           
+        }
+        {
+
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if ((other.CompareTag("Item")))
+        {
+            Item ItemForSell = other.gameObject.GetComponent<ItemPrefab>().item;
+            print(ItemForSell);
+            if ((ItemForSellList.Contains(ItemForSell)))
+            {
+                ItemForSellList.Remove(other.gameObject.GetComponent<ItemPrefab>().item);
+                print("Exit : " + other.name);
+
+            }
+
+        }
+        {
+
+        }
     }
 }
