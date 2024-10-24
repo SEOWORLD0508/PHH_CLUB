@@ -35,12 +35,12 @@ public struct RoomNumInfo
 {
     public int aisle; //복도
     public int check; //체크 포인트
+    public int boss; //보스방
     public int maxEnemyRoom; //적이 있는 방은 0번 부터 시작, 0~maxEnemyRoom번 방에서만 적이 스폰됨
 }
 
 public class MapPlacing : MonoBehaviour
 {
-    public static MapPlacing instance; //인스턴스 생성
 
     private void Awake()
     {
@@ -52,13 +52,8 @@ public class MapPlacing : MonoBehaviour
 
     //코드에서 유니티에 상호작용 할수 있게 함
     [SerializeField]
-    Transform[] roomPrefabs;
-
-    [SerializeField]
-    List<Transform> rooms;
-
-    [SerializeField]
-    float GridSize = 19.5f;
+    public Transform[] roomPrefabs;
+    public static MapPlacing instance; //인스턴스 생성
     public string result = ""; //인스턴스 전달용
     public static int EnemyPerRoom = 5; //방당 스폰될 적 수
     public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
@@ -67,9 +62,17 @@ public class MapPlacing : MonoBehaviour
     public int MaxEnemyRoom = 2; //인스턴스 전달용
     public RoomNumInfo roomNumInfo;
     public RoomStr[,] RoomInfo;
+    [SerializeField]
+    List<Transform> rooms;
+
+    [SerializeField]
+    float GridSize = 19.5f;
 
     [SerializeField]
     NavMeshSurface nav;
+
+
+
     private void Start()
     {
         /*방 종류
@@ -85,7 +88,7 @@ public class MapPlacing : MonoBehaviour
         int Width = mapSize.width / 2;
         int Height = mapSize.height;
 
-        //RoomNumInfo roomNumInfo;
+        roomNumInfo.boss = 5;
         roomNumInfo.aisle = 4;
         roomNumInfo.check = 3;
         roomNumInfo.maxEnemyRoom = MaxEnemyRoom;
@@ -104,35 +107,90 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = 0; j < Width; j++)
             {
+                Debug.Log(j);
                 Map[i, j] = hfMap1[i, j];
             }
         }
+
         for (i = 0; i < Height; i++)
         {
             for (j = Width; j < Width * 2; j++)
             {
-                Debug.Log(j);
+                /*Debug.Log(j);
                 k = hfMap2[i, Width - cnt - 1];
                 hfMap2[i, Width - cnt - 1] = hfMap2[i, j - Width];
                 hfMap2[i, j - Width] = k;
-                cnt++;
+                cnt++;*/
                 Map[i, j] = hfMap2[i, j - Width];
             }
-            cnt = 0;
+            //cnt = 0;
         }
+
+
+        Map[Height - 3, Width] = roomNumInfo.check;
         Map[Height - 1, 0] = roomNumInfo.check;
         RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
         //출력 / 유니티에 반영
+        cnt = 0;
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < PblcWidth; j++)
             {
                 result = result + Map[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
-                if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check)
+                if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check && RoomInfo[i, j].RoomKind != roomNumInfo.boss)
                 {
                     Debug.Log(RoomInfo[i, j].DoorDirection);
                 }
+                /*else
+                {
+                    //Debug.Log(rooms[cnt].position.x+", "+rooms[cnt].position.y);
+                    //Debug.Log(rooms[cnt].GetChild(1).GetChild(1));
+
+                }
+                if (i != 0 && i != Height - 1 && j != 0 && j != PblcWidth - 1)
+                {
+                    for (k = 0; k < 4; k++)
+                    {
+                        Destroy(rooms[cnt].GetChild(1).GetChild(k).gameObject);
+                    }
+                }
+                else
+                {
+                    if (j == 0 || j == PblcWidth - 1)
+                    {
+                        if (i > Height - 2)
+                        {
+                            if (Map[i, j] == roomNumInfo.aisle)
+                            {
+                                Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
+                                Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                            }
+                        }
+                        else
+                        {
+                            Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).GetChild(2).gameObject);
+                        }
+                    }
+                    else
+                    {
+                        if (i > Height - 2)
+                        {
+                            if (Map[i, j] == roomNumInfo.aisle)
+                            {
+                                Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
+                                Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                            }
+                        }
+                        else
+                        {
+                            Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).GetChild(2).gameObject);
+                        }
+                    }
+                }*/
+                cnt++;
             }
             //result = result + "\n";
         }
@@ -327,9 +385,10 @@ public class MapPlacing : MonoBehaviour
                 MapArr[j, i] = roomNumInfo.aisle;
             }
         }
-        MapArr[height - 3, width - 1] = 5;
+        MapArr[height - 3, width - 1] = roomNumInfo.boss;
         return MapArr;
     }
+
 
     //맵 가로가 홀수인지 확인하는 함수
     public static bool isGoodWidth(int width)
