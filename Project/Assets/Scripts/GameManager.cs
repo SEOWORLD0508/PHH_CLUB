@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
     { 
         return Gold;
     }
+    public void UpdateGoldUI()
+    {
+        // 돈 관련 UI 갱신 로직 추가
+        Debug.Log($"Current Gold: {GameManager.Instance.Gold}");
+    }
     // �ν��Ͻ��� �����ϱ� ���� ������Ƽ
     public static GameManager Instance
     {

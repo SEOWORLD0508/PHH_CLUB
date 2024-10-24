@@ -84,7 +84,7 @@ public class Shopping : MonoBehaviour
             GameManager.Instance.Gold += sellPrice;
 
             // UI 업데이트
-            UpdateGoldUI();
+            GameManager.Instance.UpdateGoldUI();
 
             Debug.Log($"Sold {ItemToSell.ItemName} for {sellPrice} Gold.");
         }
@@ -93,12 +93,7 @@ public class Shopping : MonoBehaviour
         
     }
 
-    // 돈 UI 업데이트
-    void UpdateGoldUI()
-    {
-        // 돈 관련 UI 갱신 로직 추가
-        Debug.Log($"Current Gold: {GameManager.Instance.Gold}");
-    }
+    // 돈 UI 업데이트 -> GameManager.Instance.UpdateGoldUI()
 
 
     // 아이템 드갔다가 나가는거 ㅇㅇ
