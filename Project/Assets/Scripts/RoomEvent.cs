@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class RoomEvent : MonoBehaviour
 {
-    int Width = MapPlacing.instance.PblcWidth; //맵의 가로
-    int Height = MapPlacing.instance.PblcHeight; //맵의 세로
+    static int Width = MapPlacing.instance.PblcWidth; //맵의 가로
+    static int Height = MapPlacing.instance.PblcHeight; //맵의 세로
     int i, j;
+    bool[,] MapMobSpawned = new bool[Height, Width];
     void Start()
     {
-
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < Width; j++)
+            {
+                MapMobSpawned[i,j] = false;
+            }
+        }
     }
     void Update()
     {
@@ -20,6 +27,13 @@ public class RoomEvent : MonoBehaviour
                 if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == 0)
                 {
                     RoomClear(i, j);
+                }
+                else
+                {
+                    if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == MapPlacing.instance.EnemyPblc)
+                    {
+                        //적 생성 코드
+                    }
                 }
             }
         }

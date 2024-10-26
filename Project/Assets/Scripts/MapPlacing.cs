@@ -41,7 +41,7 @@ public struct RoomNumInfo
 
 public class MapPlacing : MonoBehaviour
 {
-
+    public static MapPlacing instance; //인스턴스 생성
     private void Awake()
     {
         if (MapPlacing.instance == null)
@@ -53,7 +53,7 @@ public class MapPlacing : MonoBehaviour
     //코드에서 유니티에 상호작용 할수 있게 함
     [SerializeField]
     public Transform[] roomPrefabs;
-    public static MapPlacing instance; //인스턴스 생성
+
     public string result = ""; //인스턴스 전달용
     public static int EnemyPerRoom = 5; //방당 스폰될 적 수
     public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
@@ -63,7 +63,7 @@ public class MapPlacing : MonoBehaviour
     public RoomNumInfo roomNumInfo;
     public RoomStr[,] RoomInfo;
     [SerializeField]
-    List<Transform> rooms;
+    public List<Transform> rooms;
 
     [SerializeField]
     float GridSize = 19.5f;
