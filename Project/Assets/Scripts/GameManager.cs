@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [Header("Inventory")]
     public bool InventoryBool;
 
+    [Header("Shop")]
+    public bool ShopOnOff;
+
     public Transform InventoryBase;
     public Transform DescriptionBase;
     public TMP_Text NameText;

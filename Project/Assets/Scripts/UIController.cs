@@ -26,6 +26,11 @@ public class UIController : MonoBehaviour
     [SerializeField]    
     Transform setting;
 
+    [Space]
+    [Header("Shop")]
+    [SerializeField]
+    Transform ShopBase;
+
     private void Update() 
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, targetH, barSpeed);
@@ -36,7 +41,7 @@ public class UIController : MonoBehaviour
         //SettingMenu.gameObject.SetActive(GameManager.Instance.Pause);
 
         setting.gameObject.SetActive(GameManager.Instance.Pause);
-
+        ShopBase.gameObject.SetActive(GameManager.Instance.ShopOnOff);
     }
 
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shopping : MonoBehaviour
 {
@@ -9,17 +10,16 @@ public class Shopping : MonoBehaviour
     float interactionDistance;
 
     [SerializeField]
-    public ItemHolder[] ItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록
+    ItemHolder[] ItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록
 
-    [SerializeField]
-    Transform ShopBase; // Shop Ui
 
 
     private Inventory playerInventory;
     private GameObject player;
 
     public List<Item> ItemToSellList; // 플레이어가 팔 거 
-    public bool ShopOnOff = false;
+
+
    
     void Start()
     {
@@ -36,10 +36,10 @@ public class Shopping : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.P))
             {   // 상점 UI 열기 / 닫기
                 //OpenShopUI(); 
-                ShopOnOff = !ShopOnOff;
+                print("Shop Opened");
+                GameManager.Instance.ShopOnOff = !GameManager.Instance.ShopOnOff;
             }
         }
-        ShopBase.gameObject.SetActive(ShopOnOff);
 
     }
     /*
