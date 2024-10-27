@@ -11,10 +11,16 @@ public class Shopping : MonoBehaviour
     [SerializeField]
     public ItemHolder[] ItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록
 
+    [SerializeField]
+    Transform ShopBase; // Shop Ui
+
+
     private Inventory playerInventory;
     private GameObject player;
 
     public List<Item> ItemToSellList; // 플레이어가 팔 거 
+    public bool ShopOnOff = false;
+   
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -28,20 +34,25 @@ public class Shopping : MonoBehaviour
         {
             // E 키를 눌러 상점과 상호작용
             if (Input.GetKeyDown(KeyCode.P))
-            {
-                OpenShopUI();  // 상점 UI 열기
+            {   // 상점 UI 열기 / 닫기
+                //OpenShopUI(); 
+                ShopOnOff = !ShopOnOff;
             }
         }
-    }
+        ShopBase.gameObject.SetActive(ShopOnOff);
 
+    }
+    /*
     // 상점 UI를 여는 메소드
     void OpenShopUI()
     {
         Debug.Log("Shop Opened");
+        
         // UI를 열고, 플레이어가 판매할 수 있는 아이템 목록을 보여줍니다.
-        ShowInventoryItemsForSale();
+        //ShowInventoryItemsForSale();
     }
-
+    */
+    /*
     // 인벤토리에서 판매할 수 있는 아이템을 보여주고 판매하는 로직
     void ShowInventoryItemsForSale()
     {
@@ -59,7 +70,7 @@ public class Shopping : MonoBehaviour
             }
         }
     }
-
+    */
     // 아이템 판매 메소드
     public void SellItem() // Item itemToSell
     {
