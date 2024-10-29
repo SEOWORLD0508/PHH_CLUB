@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class sellButton : MonoBehaviour
+public class SellButton : MonoBehaviour
 {
     public Button myButton; // ¹öÆ°
     // Start is called before the first frame update
@@ -15,7 +15,9 @@ public class sellButton : MonoBehaviour
 
     void SellItem()
     {
-        GameObject.FindObjectOfType<Shopping>().SellItem();
+        print(1);
+        Shopping StoreKeeper = FindObjectOfType<Shopping>();
+        StoreKeeper.SellItem();
     }
     
 }

@@ -49,8 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 5000
   ItemForSaleList: []
-  ItemForSellList:
-  - {fileID: 11400000, guid: cc18ea787cb70344dbd7050923c39635, type: 2}
+  ItemToSellList: []
 --- !u!61 &8832765296084923625
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [Header("Gold")]
     public float Gold=0;
     
+    public List<Item> ItemToSellList = new List<Item>();
     public float GetGold()
     { 
         return Gold;
