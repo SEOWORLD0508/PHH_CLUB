@@ -26,5 +26,6 @@ public class Item : ScriptableObject
     2.damage
     3.range
     4.angle
+    5.price
     */
 }
