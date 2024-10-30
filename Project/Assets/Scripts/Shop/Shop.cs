@@ -75,7 +75,7 @@ public class Shopping : MonoBehaviour
         foreach(Item ItemToSell in ItemToSellList)
         {
             // 아이템의 판매 가격 계산 (구매 가격의 50%)
-            float sellPrice = ItemToSell.values[5] * 0.5f;
+            float sellPrice = ItemToSell.price * 0.5f;
 
             // 인벤토리에서 아이템 제거
             playerInventory.RemoveItem(playerInventory.equipments, ItemToSell, 1);
