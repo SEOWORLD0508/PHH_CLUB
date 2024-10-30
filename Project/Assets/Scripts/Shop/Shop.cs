@@ -10,23 +10,19 @@ public class Shopping : MonoBehaviour
     float interactionDistance;
 
     [SerializeField]
-    ItemHolder[] ItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록
+    ItemHolder[] StaticItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록 ( 정해져있는거 )
+    ItemHolder[] DynamicItemForSaleList; // 상점에서 판매할 수 있는 아이템 목록 ( 랜덤 )
 
 
 
-    private Inventory playerInventory;
     private GameObject player;
 
-    /*
-    [SerializeField]
-    public List<string> ItemToSellList; // 플레이어가 팔 거 
-    */
 
    
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
-        playerInventory = FindObjectOfType<Inventory>();
+        //playerInventory = FindObjectOfType<Inventory>();
     }
 
     void Update()
@@ -97,6 +93,10 @@ public class Shopping : MonoBehaviour
 
         GameManager.Instance.ItemToSellList.Clear();
         
+    }
+    void SetItemList()
+    {
+
     }
 
     // 돈 UI 업데이트 -> GameManager.Instance.UpdateGoldUI()
