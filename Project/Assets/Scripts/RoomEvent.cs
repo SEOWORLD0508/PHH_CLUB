@@ -14,7 +14,7 @@ public class RoomEvent : MonoBehaviour
         {
             for (j = 0; j < Width; j++)
             {
-                MapMobSpawned[i,j] = false;
+                MapMobSpawned[i, j] = false;
             }
         }
     }
@@ -27,6 +27,7 @@ public class RoomEvent : MonoBehaviour
                 if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == 0)
                 {
                     RoomClear(i, j);
+                    Debug.Log("Room [" + i + ", " + j + "] clear!");
                 }
                 else
                 {
