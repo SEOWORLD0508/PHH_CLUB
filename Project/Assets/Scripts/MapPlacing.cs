@@ -71,8 +71,6 @@ public class MapPlacing : MonoBehaviour
     [SerializeField]
     NavMeshSurface nav;
 
-
-
     private void Start()
     {
         /*방 종류
@@ -116,16 +114,9 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = Width; j < Width * 2; j++)
             {
-                /*Debug.Log(j);
-                k = hfMap2[i, Width - cnt - 1];
-                hfMap2[i, Width - cnt - 1] = hfMap2[i, j - Width];
-                hfMap2[i, j - Width] = k;
-                cnt++;*/
                 Map[i, j] = hfMap2[i, j - Width];
             }
-            //cnt = 0;
         }
-
 
         Map[Height - 3, Width] = roomNumInfo.check;
         Map[Height - 1, 0] = roomNumInfo.check;
@@ -142,7 +133,13 @@ public class MapPlacing : MonoBehaviour
                 {
                     Debug.Log(RoomInfo[i, j].DoorDirection);
                 }
-
+                /* 체크 포인트 룸 프리팹 완성되면 
+                if (Map[i, j] == roomNumInfo.check)
+                {
+                    Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                    Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                }
+                */
                 if (Map[i, j] == roomNumInfo.aisle)
                 {
                     if (i < Height - 2)
