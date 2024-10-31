@@ -142,56 +142,68 @@ public class MapPlacing : MonoBehaviour
                 {
                     Debug.Log(RoomInfo[i, j].DoorDirection);
                 }
-                /*
-                if(Map[i, j]==roomNumInfo.aisle){
-                    if (i > Height - 2)
+
+                if (Map[i, j] == roomNumInfo.aisle)
+                {
+                    if (i < Height - 2)
                     {
-                        Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
-                        Destroy(rooms[cnt].GetChild(1).GetChild(2).gameObject);
-                        Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                        if (i == 0)
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+                        else
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+
                     }
                     else if (i == Height - 2)
                     {
                         if (j == 0)
                         {
-                            Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(2).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
                         }
                         else if (j == PblcWidth - 1)
                         {
-                            Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(2).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
                         }
                         else
                         {
-                            Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(2).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
                         }
                     }
                     else
                     {
                         if (j == 0)
                         {
-                            Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
                         }
                         else if (j == PblcWidth - 1)
                         {
-                            Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
                         }
                         else
                         {
-                            Destroy(rooms[cnt].GetChild(1).GetChild(0).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(1).gameObject);
-                            Destroy(rooms[cnt].GetChild(1).GetChild(3).gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
                         }
                     }
-                }*/
+                }
                 cnt++;
             }
             //result = result + "\n";
