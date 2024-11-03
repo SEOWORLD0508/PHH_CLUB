@@ -59,8 +59,12 @@ public class Judgment : MonoBehaviour
 
 
         if (theta <= weaponAngle) {
-            print("AttackInRange"); 
+            print("AttackInRange");
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isHit", true);
             return true;
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isHit", false);
         }
         else
         {
