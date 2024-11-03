@@ -4163,6 +4163,7 @@ GameObject:
   - component: {fileID: 671901327}
   - component: {fileID: 671901328}
   - component: {fileID: 671901329}
+  - component: {fileID: 671901330}
   m_Layer: 0
   m_Name: Env
   m_TagString: Untagged
@@ -4206,6 +4207,7 @@ MonoBehaviour:
   - {fileID: 4348073876357642783, guid: 242f24fab521a7d47b378e1426a6876d, type: 3}
   - {fileID: 4348073876357642783, guid: 347e141ad835d2849acc41cd7d963cc8, type: 3}
   - {fileID: 4348073876357642783, guid: 099bc35fd0afc8b4e8b914bc26f6f557, type: 3}
+  Door: {fileID: 4849825124166782470, guid: abd5a816108c85a4da35772724d0d7e1, type: 3}
   result: 
   EnemyPblc: 5
   PblcWidth: 6
@@ -4224,6 +4226,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24188dbdf0514c24fbbe2d95d4bfe430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &671901330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671901326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1616728e94d2d54491bc61405588ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &687830465
@@ -10991,7 +11005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 0
   StaticItemForSaleList: []
-  ItemForSaleList: []
 --- !u!114 &1902185873
 MonoBehaviour:
   m_ObjectHideFlags: 0

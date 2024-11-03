@@ -53,7 +53,7 @@ public class MapPlacing : MonoBehaviour
     //코드에서 유니티에 상호작용 할수 있게 함
     [SerializeField]
     public Transform[] roomPrefabs;
-
+    public Transform Door;
     public string result = ""; //인스턴스 전달용
     public static int EnemyPerRoom = 5; //방당 스폰될 적 수
     public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
@@ -118,8 +118,10 @@ public class MapPlacing : MonoBehaviour
             }
         }
 
-        Map[Height - 3, Width] = roomNumInfo.check;
+        //Map[Height - 3, Width] = roomNumInfo.check;
         Map[Height - 1, 0] = roomNumInfo.check;
+        Map[Height - 3, Width] = roomNumInfo.boss;
+        Map[Height - 3, Width - 1] = roomNumInfo.boss;
         RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
         //출력 / 유니티에 반영
         cnt = 0;
@@ -131,7 +133,24 @@ public class MapPlacing : MonoBehaviour
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
                 if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check && RoomInfo[i, j].RoomKind != roomNumInfo.boss)
                 {
-                    Debug.Log(RoomInfo[i, j].DoorDirection);
+                    //Debug.Log(RoomInfo[i, j].DoorDirection);
+                    if (RoomInfo[i, j].DoorDirection == "Right")
+                    {
+                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
+                        door.transform.parent = rooms[cnt].transform;
+                    }
+                    else if (RoomInfo[i, j].DoorDirection == "Left")
+                    {
+                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position, Quaternion.identity);
+                        door.transform.parent = rooms[cnt].transform;
+                    }
+                    else
+                    {
+                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
+                        Transform door2 = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position, Quaternion.identity);
+                        door.transform.parent = rooms[cnt].transform;
+                        door2.transform.parent = rooms[cnt].transform;
+                    }
                 }
                 /* 체크 포인트 룸 프리팹 완성되면 
                 if (Map[i, j] == roomNumInfo.check)
@@ -208,6 +227,7 @@ public class MapPlacing : MonoBehaviour
         Debug.Log(result);
         nav.BuildNavMesh();
     }
+
     //방 정보 배열 생성 함수
     public static RoomStr[,] CreateMapStr(int Width, int Height, RoomNumInfo roomNumInfo, int[,] MapArr)
     {
@@ -222,7 +242,7 @@ public class MapPlacing : MonoBehaviour
                 roomStr[i, j].isCleared = false;
                 if (MapArr[i, j] != roomNumInfo.aisle && MapArr[i, j] != roomNumInfo.check)
                 {
-                    if (j < (Width / 2))
+                    if (j < (Width / 2) - 1)
                     {
                         roomStr[i, j].DoorDirection = "Right";
                     }
@@ -230,7 +250,7 @@ public class MapPlacing : MonoBehaviour
                     {
                         roomStr[i, j].DoorDirection = "Left";
                     }
-                    else if (j == (Width / 2))
+                    else if (j == (Width / 2) || j == (Width / 2) - 1)
                     {
                         roomStr[i, j].DoorDirection = "Both";
                     }
@@ -396,10 +416,9 @@ public class MapPlacing : MonoBehaviour
                 MapArr[j, i] = roomNumInfo.aisle;
             }
         }
-        MapArr[height - 3, width - 1] = roomNumInfo.boss;
+        //MapArr[height - 3, width - 1] = roomNumInfo.boss;
         return MapArr;
     }
-
 
     //맵 가로가 홀수인지 확인하는 함수
     public static bool isGoodWidth(int width)
