@@ -62,6 +62,7 @@ public class MapPlacing : MonoBehaviour
     public int MaxEnemyRoom = 2; //인스턴스 전달용
     public RoomNumInfo roomNumInfo;
     public RoomStr[,] RoomInfo;
+    public int[,] PblcMap;
     [SerializeField]
     public List<Transform> rooms;
 
@@ -123,6 +124,7 @@ public class MapPlacing : MonoBehaviour
         Map[Height - 3, Width] = roomNumInfo.boss;
         Map[Height - 3, Width - 1] = roomNumInfo.boss;
         RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
+        PblcMap = Map;
         //출력 / 유니티에 반영
         cnt = 0;
         for (i = 0; i < Height; i++)
