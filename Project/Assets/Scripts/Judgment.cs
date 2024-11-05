@@ -59,12 +59,14 @@ public class Judgment : MonoBehaviour
 
 
         if (theta <= weaponAngle) {
+            /*이부분 에러 납니다
             print("AttackInRange");
             animator.SetBool("isIdle", false);
             animator.SetBool("isHit", true);
             return true;
             animator.SetBool("isIdle", true);
             animator.SetBool("isHit", false);
+            */
         }
         else
         {
@@ -72,6 +74,7 @@ public class Judgment : MonoBehaviour
             
             return false;
         }
+        return false; //if문 안에만 반환문 있으면 에러나요
     }
     public void Attack(Creature attacker)
     {
