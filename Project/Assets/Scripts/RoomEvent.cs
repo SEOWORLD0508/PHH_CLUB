@@ -45,21 +45,33 @@ public class RoomEvent : MonoBehaviour
                     }
                     if (MapPlacing.instance.RoomInfo[i, j].DoorDirection != "Both")
                     {
-                        if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < 3)
+                        if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < 1)
                         {
-                            if(popUpText!=null) OutText();
+                            //if(popUpText!=null) OutText();
                             Debug.Log("ddd");
+                            if (Input.GetKeyDown(KeyCode.E))
+                            {
+                                if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
+                                {
+                                    GetOutRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
+                                }
+                                else
+                                {
+                                    GetInRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
+                                }
+                                Debug.Log(MapPlacing.instance.RoomInfo[i, j].isEntered);
+                            }
                         }
                     }
                     else
                     {
-                        if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < 3)
+                        if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < 1)
                         {
-                            Debug.Log("ddd");
+
                         }
-                        else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < 3)
+                        else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < 1)
                         {
-                            Debug.Log("ddd");
+
                         }
                     }
                 }
@@ -84,5 +96,39 @@ public class RoomEvent : MonoBehaviour
         popUpText.text = "Press <color=yellow>E</color> to get out";
         popUpText.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + Vector3.down * 1);
         popUpText.gameObject.SetActive(true);
+    }
+
+    public void GetOutRoom(int y, int x, string Direction, int k)
+    {
+        if (Direction == "Right")
+        {
+            player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
+        }
+        else if (Direction == "Left")
+        {
+            player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(-3, 0, 0);
+        }
+        else
+        {
+
+        }
+        MapPlacing.instance.RoomInfo[i, j].isEntered = false;
+    }
+
+    public void GetInRoom(int y, int x, string Direction, int k)
+    {
+        if (Direction == "Right")
+        {
+            player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(-3, 0, 0);
+        }
+        else if (Direction == "Left")
+        {
+            player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
+        }
+        else
+        {
+
+        }
+        MapPlacing.instance.RoomInfo[i, j].isEntered = true;
     }
 }
