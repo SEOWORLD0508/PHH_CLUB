@@ -71,7 +71,14 @@ public class RoomEvent : MonoBehaviour
                         }
                         else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < 1)
                         {
-
+                            if(j == Width / 2)
+                            {
+                                
+                            }
+                            else if(j == (Width / 2) - 1)
+                            {
+                            
+                            }
                         }
                     }
                 }
