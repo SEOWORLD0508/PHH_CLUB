@@ -5,7 +5,8 @@ using TMPro;
 
 public class RoomEvent : MonoBehaviour
 {
-    TMP_Text popUpText;
+    [SerializeField]
+    public static TextMeshProUGUI popUpText;
     static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
     static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
     int i, j, k;
@@ -21,6 +22,7 @@ public class RoomEvent : MonoBehaviour
                 MapMobSpawned[i, j] = false;
             }
         }
+        popUpText = GetComponent<TextMeshProUGUI>();
     }
     void Update()
     {
@@ -47,8 +49,6 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < 1)
                         {
-                            //if(popUpText!=null) OutText();
-                            Debug.Log("ddd");
                             if (Input.GetKeyDown(KeyCode.E))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
@@ -67,17 +67,24 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < 1)
                         {
+                            if (MapPlacing.instance.RoomInfo[i, j + 1].isEntered == true)
+                            {
 
+                            }
+                            else
+                            {
+                                GetInRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
+                            }
                         }
                         else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < 1)
                         {
-                            if(j == Width / 2)
+                            if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
                             {
-                                
+                                GetOutRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
                             }
-                            else if(j == (Width / 2) - 1)
+                            else
                             {
-                            
+                                GetInRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
                             }
                         }
                     }
@@ -96,13 +103,6 @@ public class RoomEvent : MonoBehaviour
     public static void RoomClear(int y, int x) //방 클리어 선언
     {
         MapPlacing.instance.RoomInfo[y, x].isCleared = true;
-    }
-
-    public void OutText()
-    {
-        popUpText.text = "Press <color=yellow>E</color> to get out";
-        popUpText.transform.position = Camera.main.WorldToScreenPoint(player.transform.position + Vector3.down * 1);
-        popUpText.gameObject.SetActive(true);
     }
 
     public void GetOutRoom(int y, int x, string Direction, int k)

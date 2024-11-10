@@ -149,7 +149,7 @@ public class MapPlacing : MonoBehaviour
                     else
                     {
                         Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
-                        Transform door2 = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position, Quaternion.identity);
+                        Transform door2 = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position + new Vector3(0.25f, 0, 0), Quaternion.identity);
                         door.transform.parent = rooms[cnt].transform;
                         door2.transform.parent = rooms[cnt].transform;
                     }
@@ -248,11 +248,11 @@ public class MapPlacing : MonoBehaviour
                     {
                         roomStr[i, j].DoorDirection = "Right";
                     }
-                    else if (j > (Width / 2))
+                    else if (j > (Width / 2) || j == (Width / 2) - 1)
                     {
                         roomStr[i, j].DoorDirection = "Left";
                     }
-                    else if (j == (Width / 2) || j == (Width / 2) - 1)
+                    else if (j == (Width / 2)/* || j == (Width / 2) - 1*/)
                     {
                         roomStr[i, j].DoorDirection = "Both";
                     }
