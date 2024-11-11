@@ -69,11 +69,13 @@ public class RoomEvent : MonoBehaviour
                         {
                             if (MapPlacing.instance.RoomInfo[i, j + 1].isEntered == true)
                             {
-
+                                GetOutRoom(i, j + 1, MapPlacing.instance.RoomInfo[i, j + 1].DoorDirection, k);
+                                GetInRoom(i, j, "Right", k);
                             }
                             else
                             {
-                                GetInRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
+                                GetInRoom(i, j + 1, MapPlacing.instance.RoomInfo[i, j + 1].DoorDirection, k);
+                                GetOutRoom(i, j, "Right", k);
                             }
                         }
                         else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < 1)
@@ -115,10 +117,6 @@ public class RoomEvent : MonoBehaviour
         {
             player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(-3, 0, 0);
         }
-        else
-        {
-
-        }
         MapPlacing.instance.RoomInfo[i, j].isEntered = false;
     }
 
@@ -131,10 +129,6 @@ public class RoomEvent : MonoBehaviour
         else if (Direction == "Left")
         {
             player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
-        }
-        else
-        {
-
         }
         MapPlacing.instance.RoomInfo[i, j].isEntered = true;
     }
