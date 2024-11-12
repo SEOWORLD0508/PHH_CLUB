@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Space]
 
-    public Vector2 moveDir;
+    private Vector2 moveDir;
 
     [SerializeField]
     Rigidbody2D rb;

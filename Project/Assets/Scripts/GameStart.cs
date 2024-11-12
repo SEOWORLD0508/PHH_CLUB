@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class GameStart : MonoBehaviour
+public class Btntype : MonoBehaviour
 {
     public enum ButtonType
     {
@@ -21,24 +21,17 @@ public class GameStart : MonoBehaviour
     public Slider volumeSlider;    // UI
     void Start()
     {
-       //ettingMenu.SetActive(false);
-        SettingMenu.SetActive(true);
+        SettingMenu.SetActive(false);
     }
-   
 
     public void OnButtonClick()
     {
-
-        print(buttonType);
         switch (buttonType)
         {
-
-
             case ButtonType.StartGame:
                 SceneManager.LoadScene("SampleScene");
                 break;
             case ButtonType.Options:
-                print("asfa");
                 SettingMenu.SetActive(true);
                 // volumeSlider.onValueChanged.AddListener(SetVolume);
                 break;
@@ -46,7 +39,6 @@ public class GameStart : MonoBehaviour
                 Application.Quit();
                 break;
             case ButtonType.SettingQuit:
-                print("asdf");
                 SettingMenu.SetActive(false);
                 break;
         }
