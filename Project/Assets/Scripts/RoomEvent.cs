@@ -5,6 +5,14 @@ using TMPro;
 
 public class RoomEvent : MonoBehaviour
 {
+    [SerializeField]
+    public static TextMeshProUGUI popUpText;
+    static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
+    static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
+    int i, j, k;
+    bool[,] MapMobSpawned = new bool[Height, Width];
+    GameObject player;
+    public bool bossRoomAble = false;
     void Start()
     {
         
@@ -28,10 +36,92 @@ public class RoomEvent : MonoBehaviour
         }
         //popUpText = GetComponent<TextMeshProUGUI>();
     }
-
     void Update()
     {
-        
+        k = 0;
+        int l = 0;
+        int doorDis = 3;
+        double[,,,] CoordinateInMap;
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < Width; j++)
+            {
+                if (MapPlacing.instance.PblcMap[i, j] <= MapPlacing.instance.MaxEnemyRoom)
+                {
+                    if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == 0 && MapMobSpawned[i, j] == true)
+                    {
+                        RoomClear(i, j);
+                        Debug.Log("Room [" + i + ", " + j + "] clear!");
+                    }
+                    else
+                    {
+                        if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == MapPlacing.instance.EnemyPblc)
+                        {
+                            //적 생성 코드
+                            CoordinateInMap = EnemySpawn.instance.pCoordinateInMap;
+                            //CoordinateInMap[i, j, 0, l], CoordinateInMap[i, j, 1, l]
+                        }
+                    }
+                    if (MapPlacing.instance.RoomInfo[i, j].DoorDirection != "Both")
+                    {
+                        if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
+                        {
+                            Debug.Log("room");
+                            if (Input.GetKey(KeyCode.E))
+                            {
+                                if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
+                                {
+                                    GetOutRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
+                                }
+                                else
+                                {
+                                    GetInRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
+                                }
+                                Debug.Log(MapPlacing.instance.RoomInfo[i, j].isEntered);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
+                        {
+                            Debug.Log("room");
+                            if (Input.GetKey(KeyCode.E))
+                            {
+                                if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
+                                {
+                                    GetOutRoom(i, j, "Right", k);
+                                }
+                                else
+                                {
+                                    GetInRoom(i, j, "Right", k);
+                                }
+                            }
+                        }
+                        else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < doorDis)
+                        {
+                            Debug.Log("room");
+                            if (Input.GetKey(KeyCode.E))
+                            {
+                                if (MapPlacing.instance.RoomInfo[i, j - 1].isEntered == true)
+                                {
+                                    MapPlacing.instance.RoomInfo[i, j - 1].isEntered = false;
+                                    MapPlacing.instance.RoomInfo[i, j].isEntered = true;
+                                    player.transform.position = MapPlacing.instance.rooms[k].GetChild(7).position + new Vector3(3, 0, 0);
+                                }
+                                else
+                                {
+                                    MapPlacing.instance.RoomInfo[i, j - 1].isEntered = true;
+                                    MapPlacing.instance.RoomInfo[i, j].isEntered = false;
+                                    player.transform.position = MapPlacing.instance.rooms[k].GetChild(7).position + new Vector3(-3, 0, 0);
+                                }
+                            }
+                        }
+                    }
+                }
+                k++;
+            }
+        }
     }
 
     //public delegate void KillEnemy(object sender, EventArgs e);

@@ -25,7 +25,7 @@ public class Judgment : MonoBehaviour
     }
     public bool is_in_attackRange(Creature attacker,Creature target)
     {
-        float weaponAngle = attacker.attackRange;
+        float weaponAngle = attacker.item.values[4];
         float minimum = Mathf.Cos(Mathf.Deg2Rad * weaponAngle);
         var pos1 = target.transform.position;
         var pos2 = attacker.transform.position;
@@ -78,6 +78,8 @@ public class Judgment : MonoBehaviour
         }
         else
         {
+            print("AttackOutRange ,min = " + weaponAngle +" , val = " + theta);
+            
             return false;
         }
         return false; //if문 안에만 반환문 있으면 에러나요
@@ -88,6 +90,7 @@ public class Judgment : MonoBehaviour
         float attack_range = attacker.attackRange;
         foreach(Creature creature in enemy_list)
         {
+        
             var pos1 = creature.transform.position;
             var pos2 = attacker.transform.position;
             float distance = Vector2.Distance(pos1, pos2);
