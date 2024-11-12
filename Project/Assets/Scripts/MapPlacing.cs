@@ -252,7 +252,7 @@ public class MapPlacing : MonoBehaviour
                     {
                         roomStr[i, j].DoorDirection = "Left";
                     }
-                    else if (j == (Width / 2)/* || j == (Width / 2) - 1*/)
+                    else if (j == (Width / 2)/* || j == (Width / 2)*/)
                     {
                         roomStr[i, j].DoorDirection = "Both";
                     }
