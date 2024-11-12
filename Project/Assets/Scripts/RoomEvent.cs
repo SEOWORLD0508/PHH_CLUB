@@ -13,17 +13,7 @@ public class RoomEvent : MonoBehaviour
     bool[,] MapMobSpawned = new bool[Height, Width];
     GameObject player;
     public bool bossRoomAble = false;
-    void Start()
-    {
-        
-    [SerializeField]
-    public static TextMeshProUGUI popUpText;
-    static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
-    static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
-    int i, j, k;
-    bool[,] MapMobSpawned = new bool[Height, Width];
-    GameObject player;
-    public bool bossRoomAble = false;
+    
     void Start()
     {
         player = GameObject.Find("Player");
@@ -122,13 +112,10 @@ public class RoomEvent : MonoBehaviour
                 k++;
             }
         }
-    }
+    
 
     //public delegate void KillEnemy(object sender, EventArgs e);
-        k = 0;
-        int l = 0;
-        int doorDis = 3;
-        double[,,,] CoordinateInMap;
+       
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)

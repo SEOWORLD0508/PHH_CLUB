@@ -52,13 +52,6 @@ public class MapPlacing : MonoBehaviour
 
     //코드에서 유니티에 상호작용 할수 있게 함
     [SerializeField]
-    Transform[] roomPrefabs;
-
-    [SerializeField]
-    List<Transform> rooms;
-
-    [SerializeField]
-    float GridSize;
     public Transform[] roomPrefabs;
     public Transform Door;
     public string result = ""; //인스턴스 전달용
@@ -142,25 +135,6 @@ public class MapPlacing : MonoBehaviour
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
                 if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check && RoomInfo[i, j].RoomKind != roomNumInfo.boss)
                 {
-                    //Debug.Log(RoomInfo[i, j].DoorDirection);
-                    if (RoomInfo[i, j].DoorDirection == "Right")
-                    {
-                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
-                        door.transform.parent = rooms[cnt].transform;
-                    }
-                    else if (RoomInfo[i, j].DoorDirection == "Left")
-                    {
-                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position, Quaternion.identity);
-                        door.transform.parent = rooms[cnt].transform;
-                    }
-                    else
-                    {
-                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
-                        Transform door2 = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position + new Vector3(0.25f, 0, 0), Quaternion.identity);
-                        door.transform.parent = rooms[cnt].transform;
-                        door2.transform.parent = rooms[cnt].transform;
-                    }
-                }
                     //Debug.Log(RoomInfo[i, j].DoorDirection);
                     if (RoomInfo[i, j].DoorDirection == "Right")
                     {
@@ -457,6 +431,4 @@ public class MapPlacing : MonoBehaviour
         }
         return false;
     }
-
-    
-
+}
