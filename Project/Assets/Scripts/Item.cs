@@ -23,6 +23,8 @@ public class Item : ScriptableObject
     0 = pre-delay
     1 = after-delay
     2~ = index (weapon = damage & range) (potion = amount) (and more)
-
+    2.damage
+    3.range
+    4.angle
     */
 }
