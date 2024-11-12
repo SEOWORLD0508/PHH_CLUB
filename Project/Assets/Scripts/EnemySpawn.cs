@@ -23,11 +23,12 @@ public class EnemySpawn : MonoBehaviour
 
         int RoomSize = 20; //방의 가로 세로 길이
 
+        int RoomSize = 18; //방의 가로 세로 길이
         string[] sMap = MapPlacing.instance.result.Split(" "); //MapPlacing.cs의 result 텍스트로 맵 가져옴
-
         int[,] Map = new int[Height, Width];
 
         int[,,,] CoordinateInMap = new int[Height, Width, 2, MapPlacing.instance.EnemyPblc]; //맵과 몬스터 스폰 좌표의 정보가 저장됨, 4차원 배열
+        double[,,,] CoordinateInMap = new double[Height, Width, 2, MapPlacing.instance.EnemyPblc]; //맵과 몬스터 스폰 좌표의 정보가 저장됨, 4차원 배열
 
         k = 0;
         for (i = 0; i < Height; i++)

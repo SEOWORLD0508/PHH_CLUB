@@ -57,6 +57,8 @@ public class MapPlacing : MonoBehaviour
 
     [SerializeField]
     float GridSize;
+    public Transform[] roomPrefabs;
+    public Transform Door;
     public string result = ""; //인스턴스 전달용
     public static int EnemyPerRoom = 5; //방당 스폰될 적 수
     public int EnemyPblc = EnemyPerRoom; //인스턴스 전달용
@@ -65,6 +67,16 @@ public class MapPlacing : MonoBehaviour
     public int MaxEnemyRoom = 2; //인스턴스 전달용
     public RoomNumInfo roomNumInfo;
     public RoomStr[,] RoomInfo;
+    public int[,] PblcMap;
+    [SerializeField]
+    public List<Transform> rooms;
+
+    [SerializeField]
+    float GridSize = 19.5f;
+
+    [SerializeField]
+    NavMeshSurface nav;
+
     private void Start()
     {
         /*방 종류
@@ -98,17 +110,131 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = 0; j < Width; j++)
             {
+                Debug.Log(j);
+                Map[i, j] = hfMap1[i, j];
+            }
+        }
+
+        for (i = 0; i < Height; i++)
+        {
+            for (j = Width; j < Width * 2; j++)
+            {
+                Map[i, j] = hfMap2[i, j - Width];
+            }
+        }
+
+        //Map[Height - 3, Width] = roomNumInfo.check;
+        Map[Height - 1, 0] = roomNumInfo.check;
+        Map[Height - 3, Width] = roomNumInfo.boss;
+        Map[Height - 3, Width - 1] = roomNumInfo.boss;
+        RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
+        PblcMap = Map;
+        //출력 / 유니티에 반영
+        cnt = 0;
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < PblcWidth; j++)
+            {
                 result = result + Map[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
                 if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check)
                 {
                     Debug.Log(RoomInfo[i, j].DoorDirection);
                 }
+                    //Debug.Log(RoomInfo[i, j].DoorDirection);
+                    if (RoomInfo[i, j].DoorDirection == "Right")
+                    {
+                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
+                        door.transform.parent = rooms[cnt].transform;
+                    }
+                    else if (RoomInfo[i, j].DoorDirection == "Left")
+                    {
+                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position, Quaternion.identity);
+                        door.transform.parent = rooms[cnt].transform;
+                    }
+                    else
+                    {
+                        Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
+                        Transform door2 = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (3)").position + new Vector3(0.25f, 0, 0), Quaternion.identity);
+                        door.transform.parent = rooms[cnt].transform;
+                        door2.transform.parent = rooms[cnt].transform;
+                    }
+                }
+                /* 체크 포인트 룸 프리팹 완성되면 
+                if (Map[i, j] == roomNumInfo.check)
+                {
+                    Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                    Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                }
+                */
+                if (Map[i, j] == roomNumInfo.aisle)
+                {
+                    if (i < Height - 2)
+                    {
+                        if (i == 0)
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+                        else
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+
+                    }
+                    else if (i == Height - 2)
+                    {
+                        if (j == 0)
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                        }
+                        else if (j == PblcWidth - 1)
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+                        else
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+                    }
+                    else
+                    {
+                        if (j == 0)
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (1)").gameObject);
+                        }
+                        else if (j == PblcWidth - 1)
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+                        else
+                        {
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                            Destroy(rooms[cnt].GetChild(1).Find("TestWall (3)").gameObject);
+                        }
+                    }
+                }
+                cnt++;
             }
             //result = result + "\n";
         }
         Debug.Log(result);
     }
+
     //방 정보 배열 생성 함수
     public static RoomStr[,] CreateMapStr(int Width, int Height, RoomNumInfo roomNumInfo, int[,] MapArr)
     {
@@ -123,15 +249,15 @@ public class MapPlacing : MonoBehaviour
                 roomStr[i, j].isCleared = false;
                 if (MapArr[i, j] != roomNumInfo.aisle && MapArr[i, j] != roomNumInfo.check)
                 {
-                    if (j < (Width / 2))
+                    if (j < (Width / 2) - 1)
                     {
                         roomStr[i, j].DoorDirection = "Right";
                     }
-                    else if (j > (Width / 2))
+                    else if (j > (Width / 2) || j == (Width / 2) - 1)
                     {
                         roomStr[i, j].DoorDirection = "Left";
                     }
-                    else if (j == (Width / 2))
+                    else if (j == (Width / 2)/* || j == (Width / 2)*/)
                     {
                         roomStr[i, j].DoorDirection = "Both";
                     }
@@ -297,6 +423,7 @@ public class MapPlacing : MonoBehaviour
                 MapArr[j, i] = roomNumInfo.aisle;
             }
         }
+        //MapArr[height - 3, width - 1] = roomNumInfo.boss;
         return MapArr;
     }
 
@@ -309,4 +436,5 @@ public class MapPlacing : MonoBehaviour
         }
         return false;
     }
-}
+
+

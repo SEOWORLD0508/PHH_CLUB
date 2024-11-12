@@ -18,13 +18,12 @@ public class AttackPattern
 }
 public class EnemyController : Creature
 {
-
-
     float currentAttackT;
     public LayerMask collideLayer;
     public float sightRange;
     public float speed;
     E_PathFinding pathF;
+    public Animator animator;
 
 
     public AttackPattern[] attackPatterns = new AttackPattern[1]; // 인스펙터상에서 값 넣고, 코드로 값은 안바꿀듯
@@ -67,6 +66,13 @@ public class EnemyController : Creature
         navmesh.updateUpAxis = false;
         navmesh.speed = speed;
         navmesh.stoppingDistance = attackRange / 2;
+        dir = player.transform.position - transform.position;
+        animator = GetComponent<Animator>();
+        animator.SetBool("isAttack", false);
+        animator.SetBool("isHit", false);
+        animator.SetBool("isDie", false);
+        animator.SetBool("isWalk", false);
+        animator.SetBool("isIdle", true);
     }
 
     // Update is called once per frame
@@ -116,9 +122,13 @@ public class EnemyController : Creature
         
         currentAttackT = attackPatterns[i].val[1] + attackPatterns[i].val[2];
 
+        animator.SetBool("isAttack", true);
+        animator.SetBool("isIdle", false);
        
         StartCoroutine(DCoroutine(attackPatterns[i].val[1], attackPatterns[i].val[2]));
-        
+
+        animator.SetBool("isAttack", false);
+        animator.SetBool("isIdle", true);
     }
 
     
