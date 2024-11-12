@@ -18,6 +18,8 @@ public class AttackPattern
 }
 public class EnemyController : Creature
 {
+
+
     float currentAttackT;
     public LayerMask collideLayer;
     public float sightRange;
@@ -44,14 +46,15 @@ public class EnemyController : Creature
     Transform Warning;
 
     bool dashing;
-
+    [SerializeField]
+    Item item;
 
     [SerializeField]
     Judgment Judgment;
 
     
 
-    
+
     
     // Start is called before the first frame update
     void Start()
@@ -77,11 +80,10 @@ public class EnemyController : Creature
     }
 
     // Update is called once per frame
-    public override void Update()
+    void Update()
     {
-        //dir = navmesh.path.corners[0];
-        //Debug.DrawRay(transform.position, dir.normalized, Color.red, 10.0f);
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
+
 
         
         playerInSight = hit2d.transform &&  hit2d.transform.gameObject.layer != 7 ? true : false;
@@ -97,10 +99,6 @@ public class EnemyController : Creature
         if (canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             Attack();
-        }
-        else
-        {
-            dir = (player.transform.position - transform.position).normalized;
         }
 
 
@@ -135,6 +133,9 @@ public class EnemyController : Creature
 
         //animator.SetBool("isAttack", false);
         //animator.SetBool("isIdle", true);
+       
+        StartCoroutine(DCoroutine(attackPatterns[i].val[1], attackPatterns[i].val[2]));
+        
     }
 
     
@@ -148,9 +149,8 @@ public class EnemyController : Creature
         Warning.gameObject.transform.position = transform.position;
         navmesh.speed = 0;
 
-        yield return new WaitForSeconds(_t1);
         Judgment.Attack(this);
-
+        yield return new WaitForSeconds(_t1);
 
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;

@@ -12,29 +12,13 @@ public class GameManager : MonoBehaviour
     public KeyCode PauseKey = KeyCode.Escape;
     [Header("Inventory")]
     public bool InventoryBool;
-
-    [Header("Shop")]
-    public bool ShopOnOff;
-
     public Transform InventoryBase;
     public Transform DescriptionBase;
     public TMP_Text NameText;
     public TMP_Text DescriptionText;
     public KeyCode InventoryKey = KeyCode.Tab;
-    private static GameManager _instance;
-    [Header("Gold")]
-    public float Gold=0;
     
-    public List<Item> ItemToSellList = new List<Item>();
-    public float GetGold()
-    { 
-        return Gold;
-    }
-    public void UpdateGoldUI()
-    {
-        // 돈 관련 UI 갱신 로직 추가
-        Debug.Log($"Current Gold: {GameManager.Instance.Gold}");
-    }
+    private static GameManager _instance;
     // �ν��Ͻ��� �����ϱ� ���� ������Ƽ
     public static GameManager Instance
     {
