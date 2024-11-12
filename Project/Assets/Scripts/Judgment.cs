@@ -25,20 +25,56 @@ public class Judgment : MonoBehaviour
     }
     public bool is_in_attackRange(Creature attacker,Creature target)
     {
-        float weaponAngle = attacker.attackRange;
+        float weaponAngle = attacker.item.values[4];
         float minimum = Mathf.Cos(Mathf.Deg2Rad * weaponAngle);
-        var pos1 = target.transform.position;
-        var pos2 = attacker.transform.position;
-        var direction_vec = pos2 - pos1; // 대상과 공격자 사이의 방향벡터
-        var facing_vec = pos2 - pos1; // 바라보는 방향 ( 구현 안함)
-        var cos_sim = (Vector2.Dot(direction_vec,facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
-        if(cos_sim <= 1 && cos_sim >= minimum) {
+        //var pos1 = target.transform.position;
+        //var pos2 = attacker.transform.position;
+        //var direction_vec = pos2 - pos1; // 대상과 공격자 사이의 방향벡터
+        //var facing_vec = attacker.transform.forward; // 바라보는 방향 ( 구현 안함)
+        //var cos_sim = (Vector2.Dot(direction_vec,facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
+
+
+        Vector3 targetDir = (target.transform.position - attacker.transform.position).normalized; //공격할때 타겟을 향한 단위벡터
+        Debug.DrawRay(attacker.transform.position, targetDir, Color.blue, 10.0f); 
+        Debug.DrawRay(attacker.transform.position, attacker.dir, Color.red, 10.0f);
+        float dot = Vector3.Dot(attacker.dir, targetDir);
+
+        dot = Mathf.Clamp(dot, -1, 1);
+       
+
+        //내적을 이용한 각 계산하기
+        // thetha = cos^-1( a dot b / |a||b|)
+        
+        //dot가 -1 ~ 1 면 acos -> 각도로 변환 -> 내가 지정해둔 각도랑 비교해서
+        //dot가 그거 밖이면 false
+             
+
+        float theta = Mathf.Acos(dot) * Mathf.Rad2Deg;
+
+        //Debug.Log("타겟과 AI의 각도 : " + theta);
+        //if (theta <= weaponAngle) return true;
+        //else return false;
+
+        
+
+
+        if (theta <= weaponAngle) {
+            /*이부분 에러 납니다
+            print("AttackInRange");
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isHit", true);
             return true;
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isHit", false);
+            */
         }
         else
         {
+            print("AttackOutRange ,min = " + weaponAngle +" , val = " + theta);
+            
             return false;
         }
+        return false; //if문 안에만 반환문 있으면 에러나요
     }
     public void Attack(Creature attacker)
     {
@@ -46,6 +82,7 @@ public class Judgment : MonoBehaviour
         float attack_range = attacker.attackRange;
         foreach(Creature creature in enemy_list)
         {
+        
             var pos1 = creature.transform.position;
             var pos2 = attacker.transform.position;
             float distance = Vector2.Distance(pos1, pos2);

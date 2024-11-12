@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: d22450db131f2bc41bfca146f5a8835b
+guid: 13b4f5d63b4212e4cbd549e7d6de3438
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - Door: {fileID: 4849825124166782470, guid: abd5a816108c85a4da35772724d0d7e1, type: 3}
-  - nav: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
