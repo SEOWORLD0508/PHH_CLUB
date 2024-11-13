@@ -73,9 +73,10 @@ public class Shopping : MonoBehaviour
     // 아이템 판매 메소드
     public void SellItem() // Item itemToSell
     {
-        foreach(Item ItemToSell in GameManager.Instance.ItemToSellList)
+        for(var i = GameManager.Instance.ItemToSellList.Count - 1; i >= 0; i--)
         {
             // 아이템의 판매 가격 계산 (구매 가격의 50%)
+            Item ItemToSell = GameManager.Instance.ItemToSellList[i].GetComponent<ItemPrefab>().item;
             float sellPrice = ItemToSell.values[0] * 0.5f;
 
             // 인벤토리에서 아이템 제거
@@ -87,10 +88,30 @@ public class Shopping : MonoBehaviour
 
             // UI 업데이트
             GameManager.Instance.UpdateGoldUI();
-
+            Destroy(GameManager.Instance.ItemToSellList[i]);
             Debug.Log($"Sold {ItemToSell.ItemName} for {sellPrice} Gold.");
         }
+        /*
+        foreach(GameObject ItemToSellObject in GameManager.Instance.ItemToSellList)
+        {
+            // 아이템의 판매 가격 계산 (구매 가격의 50%)
+            Item ItemToSell= ItemToSellObject.GetComponent<ItemPrefab>().item;
+            float sellPrice = ItemToSell.values[0] * 0.5f;
 
+            // 인벤토리에서 아이템 제거
+            //playerInventory.RemoveItem(playerInventory.equipments, ItemToSell, 1);
+            //Destroy(ItemToSell);
+            // 아이템 제거 구현 해야함 ㅇㅇ
+            // 플레이어의 돈 증가
+            GameManager.Instance.Gold += sellPrice;
+
+            // UI 업데이트
+            GameManager.Instance.UpdateGoldUI();
+            
+            Debug.Log($"Sold {ItemToSell.ItemName} for {sellPrice} Gold.");
+            
+        }
+        */
         GameManager.Instance.ItemToSellList.Clear();
         
     }
@@ -107,8 +128,12 @@ public class Shopping : MonoBehaviour
     {
         if ((other.CompareTag("Item")))
         {
+            GameObject ItemObject = other.gameObject;
+            GameManager.Instance.ItemToSellList.Add(ItemObject);
+            /*
             Item ItemToSell = other.gameObject.GetComponent<ItemPrefab>().item;
             GameManager.Instance.ItemToSellList.Add(ItemToSell); 
+            */
             print("Enter : " + other.name);
         }
         {
@@ -119,9 +144,14 @@ public class Shopping : MonoBehaviour
     {
         if ((other.CompareTag("Item")))
         {
+            GameObject ItemObject = other.gameObject;
+            GameManager.Instance.ItemToSellList.Remove(ItemObject);
+            /*
             Item ItemToSell = other.gameObject.GetComponent<ItemPrefab>().item;
             GameManager.Instance.ItemToSellList.Remove(ItemToSell);
+            */
             print("Exit : " + other.name);
+
         }
         {
 

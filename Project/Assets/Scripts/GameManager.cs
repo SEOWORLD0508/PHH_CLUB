@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [Header("Gold")]
     public float Gold;
     
-    public List<Item> ItemToSellList = new List<Item>();
+    public List<GameObject> ItemToSellList = new List<GameObject>();
     public float GetGold()
     { 
         return Gold;
