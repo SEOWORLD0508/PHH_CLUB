@@ -259,7 +259,8 @@ public class Inventory : MonoBehaviour
 
     public void DropItem(Item _item)
     {
-        if (_item == null)
+        
+        if (_item != null)
             Instantiate(_item.prefab, transform.position, Quaternion.identity);
         List<ItemHolder> t = (_item.itemType == ItemType.Etc) ? equipments : weapons;
         RemoveItem(t, _item, 1);
