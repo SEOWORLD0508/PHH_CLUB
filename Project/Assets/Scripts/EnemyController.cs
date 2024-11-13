@@ -44,22 +44,23 @@ public class EnemyController : Creature
     [SerializeField]
     Transform Warning;
 
-    bool dashing;
+    bool attacking;
 
 
     [SerializeField]
     Judgment Judgment;
 
-    
 
-    
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         damage = 0;
         weaponDamage = item.values[2];
         attackRange = item.values[3];
+        weaponAngle = item.values[4];
         player = FindObjectOfType<PlayerMovement>().transform;
         pathF = GetComponent<E_PathFinding>();
         navmesh.updateRotation = false;
@@ -67,6 +68,7 @@ public class EnemyController : Creature
         navmesh.speed = speed;
         navmesh.stoppingDistance = attackRange / 2;
         dir = player.transform.position - transform.position;
+        attacking = false;
         /*
         animator = GetComponent<Animator>();
         animator.SetBool("isAttack", false);
@@ -84,9 +86,9 @@ public class EnemyController : Creature
         //Debug.DrawRay(transform.position, dir.normalized, Color.red, 10.0f);
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
 
-        
-        playerInSight = hit2d.transform &&  hit2d.transform.gameObject.layer != 7 ? true : false;
-        
+
+        playerInSight = hit2d.transform && hit2d.transform.gameObject.layer != 7 ? true : false;
+
         if (currentAttackT > 0) currentAttackT -= Time.deltaTime;
 
         canAttack = playerInSight ? true : false;
@@ -105,16 +107,24 @@ public class EnemyController : Creature
         }
 
 
-        if (playerInSight && !dashing)
+        if (playerInSight && !attacking)
         {
 
             if (!useUnityPathfinding)
                 transform.Translate(pathF.Main(obs, player.position, transform.position, speed) * speed * Time.deltaTime);
             else
             {
-                //print("!");
                 navmesh.SetDestination(player.position);
+                animator.SetBool("isIdle", false);
+                animator.SetBool("isWalk", true);
             }
+        }
+        else
+        {
+            navmesh.SetDestination(transform.position);
+            animator.SetBool("isWalk", false);
+            animator.SetBool("isIdle", !attacking);
+
         }
 
     }
@@ -122,39 +132,36 @@ public class EnemyController : Creature
 
 
 
-    public virtual void Attack() 
+    public virtual void Attack()
     {
+
         int i = Random.Range(0, attackPatterns.Length);
         //Debug.Log("Attacked... Pattern -> " + i);
-        
+
         currentAttackT = attackPatterns[i].val[1] + attackPatterns[i].val[2];
 
-        animator.SetBool("isAttack", true);
-        animator.SetBool("isIdle", false);
-       
+
         StartCoroutine(DCoroutine(attackPatterns[i].val[1], attackPatterns[i].val[2]));
 
-        animator.SetBool("isAttack", false);
-        animator.SetBool("isIdle", true);
-        //animator.SetBool("isAttack", true);
-        //animator.SetBool("isIdle", false);
-       
-        StartCoroutine(DCoroutine(attackPatterns[i].val[1], attackPatterns[i].val[2]));
 
-        //animator.SetBool("isAttack", false);
-        //animator.SetBool("isIdle", true);
+   
     }
 
-    
 
-    public IEnumerator DCoroutine(float _t1,float _t2)
+
+    public IEnumerator DCoroutine(float _t1, float _t2)
     {
 
-        //navmesh.speed = Vector3.Distance(transform.position, player.position) / T;
-        //navmesh.SetDestination(player.position);
+ 
+        attacking = true;
         Warning.gameObject.SetActive(true);
         Warning.gameObject.transform.position = transform.position;
         navmesh.speed = 0;
+
+
+        animator.SetBool("isWalk", false);
+        animator.SetBool("isIdle", false);
+        animator.SetBool("isAttack", true);
 
         yield return new WaitForSeconds(_t1);
         Judgment.Attack(this);
@@ -162,16 +169,15 @@ public class EnemyController : Creature
 
         Warning.gameObject.SetActive(false);
         navmesh.speed = speed;
-        
-        
+
+
         yield return new WaitForSeconds(_t2);
         //navmesh.speed = speed;
-      
-      
+
+        animator.SetBool("isAttack", false);
+        animator.SetBool("isIdle", true);
+        attacking = false;
 
     }
 
-
-
-    // movement parameter ->  [(x,y), (x,y), 1]  1 for plyer, 2 for obstacle
 }
