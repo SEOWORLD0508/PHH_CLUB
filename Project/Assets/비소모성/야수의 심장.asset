@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1fba3b6d4ca74249888f95e9c89f902, type: 3}
+  m_Name: "\uC57C\uC218\uC758 \uC2EC\uC7A5"
+  m_EditorClassIdentifier: 
+  ItemName: "\uC57C\uC218\uC758 \uC2EC\uC7A5"
+  ItemDescription: "(\uCCB4\uB825\uC774 \uC904\uC5B4\uB4E4\uC218\uB85D \uCD1D \uACF5\uACA9\uB825
+    \uC99D\uAC00) \uCCB4\uB825 -1% \uB2F9 \uCD1D\uACF5\uACA8\uB824 +1%(\uCD5C\uB300
+    +99%\uAE4C\uC9C0)"
+  sprite: {fileID: 0}
+  values:
+  - 10
+  - 0.1
+  - 0.5
+  - 2
+  - 10
+  itemType: 0
+  prefab: {fileID: 5147083851657952484, guid: 80baaebfed7bb474595f7574777b0b32, type: 3}
+  useAble: 0
+  specialIndex: 0
