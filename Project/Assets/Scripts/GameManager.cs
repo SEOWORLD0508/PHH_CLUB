@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     public KeyCode InventoryKey = KeyCode.Tab;
     private static GameManager _instance;
     [Header("Gold")]
-    public float Gold=0;
+    public float Gold;
     
     public List<Item> ItemToSellList = new List<Item>();
     public float GetGold()
