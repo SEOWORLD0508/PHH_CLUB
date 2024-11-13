@@ -10,8 +10,8 @@ public class Shopping : MonoBehaviour
     float interactionDistance;
 
     [SerializeField]
-    ItemHolder[] StaticItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록 ( 정해져있는거 )
-    ItemHolder[] DynamicItemForSaleList; // 상점에서 판매할 수 있는 아이템 목록 ( 랜덤 )
+    public ItemHolder[] StaticItemForSaleList;  // 상점에서 판매할 수 있는 아이템 목록 ( 정해져있는거 )
+    public ItemHolder[] DynamicItemForSaleList; // 상점에서 판매할 수 있는 아이템 목록 ( 랜덤 )
 
 
 
