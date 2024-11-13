@@ -10,9 +10,10 @@ public class ItemBuyEvent : MonoBehaviour
     
     public void OnClickBuyItemButton()
     {
-        saleItemPrefab = transform.parent.GetComponent<ItemPrefab>();
-        print(saleItemPrefab.amount);
-        print(saleItemPrefab.item.name);
+        print(transform.parent.gameObject.name);
+
+        //print(saleItemPrefab.amount);
+        //print(saleItemPrefab.item.name);
         /*
         saleItemPrefab.amount -= 1;
         if (saleItemPrefab.amount <= 0)
