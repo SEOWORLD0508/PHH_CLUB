@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class RoomEvent : MonoBehaviour
 {
     [SerializeField]
-    public static TextMeshProUGUI popUpText;
     static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
     static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
     int i, j, k;
     bool[,] MapMobSpawned = new bool[Height, Width];
     GameObject player;
     public bool bossRoomAble = false;
-    
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -24,8 +22,8 @@ public class RoomEvent : MonoBehaviour
                 MapMobSpawned[i, j] = false;
             }
         }
-        //popUpText = GetComponent<TextMeshProUGUI>();
     }
+
     void Update()
     {
         k = 0;
@@ -109,17 +107,6 @@ public class RoomEvent : MonoBehaviour
                         }
                     }
                 }
-                k++;
-            }
-        }
-    
-
-    //public delegate void KillEnemy(object sender, EventArgs e);
-       
-        for (i = 0; i < Height; i++)
-        {
-            for (j = 0; j < Width; j++)
-            {
                 if (MapPlacing.instance.PblcMap[i, j] <= MapPlacing.instance.MaxEnemyRoom)
                 {
                     if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == 0 && MapMobSpawned[i, j] == true)

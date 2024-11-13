@@ -22,7 +22,6 @@ public class EnemySpawn : MonoBehaviour
 
         int Width = MapPlacing.instance.PblcWidth; //맵의 가로
         int Height = MapPlacing.instance.PblcHeight; //맵의 세로
-       
         int RoomSize = 18; //방의 가로 세로 길이
         string[] sMap = MapPlacing.instance.result.Split(" "); //MapPlacing.cs의 result 텍스트로 맵 가져옴
         int[,] Map = new int[Height, Width];
