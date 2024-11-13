@@ -15,14 +15,14 @@ MonoBehaviour:
   ItemName: "\uAE08\uC695\uC758 \uC8FC\uBA38\uB2C8"
   ItemDescription: "(\uC544\uC774\uD15C \uCE78 \uC99D\uAC00, \uACE8\uB4DC \uB4DC\uB78D
     x0.75)"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300026, guid: 87efaf20c96bd46b2a6e7bf4d4d3fd57, type: 3}
   values:
   - 10
   - 0.1
   - 0.5
   - 2
   - 10
-  itemType: 0
+  itemType: 2
   prefab: {fileID: 5147083851657952484, guid: 80baaebfed7bb474595f7574777b0b32, type: 3}
   useAble: 0
   specialIndex: 0

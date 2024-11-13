@@ -10,7 +10,8 @@ using static UnityEditor.Progress;
 public enum ItemType
 {
     Weapon,
-    Etc
+    Etc,
+    Passive
 }
 [System.Serializable]
 public class ItemHolder
@@ -112,7 +113,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void AddItem(List<ItemHolder> _itemHolder, Item _target)
+    public void AddItem(List<ItemHolder> _itemHolder, Item _target)
     {
         bool t = false; //이미 해당 아이템이 인벤토리에 있으면 count만 늘리고, 없으면 새로 하나 만듬
         foreach (ItemHolder item in _itemHolder)

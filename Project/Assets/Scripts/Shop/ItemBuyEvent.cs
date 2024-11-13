@@ -27,6 +27,7 @@ public class ItemBuyEvent : MonoBehaviour
             Image = item_.sprite;
             ItemForSaleList.Add(item_);
             transform.GetChild(0).GetChild(0).GetChild(i).GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = item_.name;
+            transform.GetChild(0).GetChild(0).GetChild(i).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (item_.values[0].ToString() + "$");
             //transform.GetChild(0).GetChild(0).GetChild(i).GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().sprite = Image;
         }
         for(var j = 0; j < StaticItemForSaleList.Length; j++)
@@ -37,6 +38,7 @@ public class ItemBuyEvent : MonoBehaviour
 
             ItemForSaleList.Add(item_);
             transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = item_.name;
+            transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (item_.values[0].ToString() + "$");
             //transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().sprite = Image;
         }
 
@@ -45,8 +47,23 @@ public class ItemBuyEvent : MonoBehaviour
 
     public void OnClickBuyItemButton(int k)
     {
-        if (ItemForSaleList[k].values[0] <= GameManager.Instance.Gold)
+        Inventory Inv = FindObjectOfType<Inventory>().gameObject.GetComponent<Inventory>();
+        Item target_item = ItemForSaleList[k];
+        if (target_item.values[0] <= GameManager.Instance.Gold)
         {
+            switch (target_item.itemType)
+            {
+                case ItemType.Weapon:
+                    if (Inv.weapons.Count == 2)
+                        Inv.weapons.RemoveAt(0); // 대충 구현해둠 일단은 아이템이 사라지고 바뀌게 해놓음
+                    Inv.AddItem(Inv.weapons,target_item);
+                    break;
+                case ItemType.Etc:
+                    Inv.AddItem(Inv.equipments, target_item);
+                    break;
+                case ItemType.Passive: // 패시브 아이템 효과 구현하도록 하는 코드
+                    break;
+            }
             GameManager.Instance.Gold -= ItemForSaleList[k].values[0];
             if (k >= 0 && k <= 3)
             {
@@ -54,7 +71,7 @@ public class ItemBuyEvent : MonoBehaviour
             }
         }
         
-        //AddItem()
+        
         
         
     }

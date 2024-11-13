@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: "\uBA48\uCD9C \uC218 \uC5C6\uB294 \uD798"
   ItemDescription: "(\uAE30\uBCF8 \uACF5\uACA9\uB825 \uC99D\uAC00) +30%"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300026, guid: 87efaf20c96bd46b2a6e7bf4d4d3fd57, type: 3}
   values:
   - 10
   - 0.1
   - 0.5
   - 2
   - 10
-  itemType: 0
+  itemType: 2
   prefab: {fileID: 5147083851657952484, guid: 80baaebfed7bb474595f7574777b0b32, type: 3}
   useAble: 0
   specialIndex: 0
