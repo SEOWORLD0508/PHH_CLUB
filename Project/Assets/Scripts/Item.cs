@@ -18,6 +18,7 @@ public class Item : ScriptableObject
     public bool useAble;
     public bool specialIndex; // normal = 0,  if has special effect or etc... will be used
 
+    
     //TODO : trlst kr --> eng
     /*
     0 = pre-delay
@@ -27,4 +28,48 @@ public class Item : ScriptableObject
     3.range
     4.angle
     */
+
+    public void PassiveItemEffect()
+    {
+        PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
+        PlayerMovement Player_Movement = FindObjectOfType<PlayerMovement>();
+        switch (ItemName)
+        {
+            case("가학"):
+                Player_.heal_by_enemy_attack = true;
+                break;
+            case ("금욕의 주머니"):
+                // goldDegree 바꾸면 됨
+                break;
+            case ("멈출 수 없는 힘"):
+                Player_.damage +=  6;
+                break;
+            case ("비열한 칼날"):
+                // 시간안에 할 수 있음?
+                break;
+            case ("스캐빈저"):
+                Player_.heal_by_enemy_kill = true;
+                break;
+            case ("신속한 보법"):
+                Player_Movement.maxSpeed = Player_Movement.maxSpeed * 2;
+                Player_Movement.dashable = false;
+                break;
+            case ("야수의 심장"):
+                // 넌 뭐냐;;
+                break;
+            case ("완강한 마음"):
+                Player_.maxVamp = Player_.maxVamp * 1.5f;
+                break;
+            case ("웨폰 메뉴얼"):
+                Player_.weaponDamageCoeff = 1.5f;
+                break;
+            case ("탐욕의 주머니"):
+                // goldDegree 바꾸면 됨
+                break;
+            
+
+        }
+    }
 }
+
+
