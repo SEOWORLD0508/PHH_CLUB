@@ -19,6 +19,8 @@ public class PlayerStatus : Creature
     public bool heal_by_enemy_attack = false; // 적 공격시 체력 회복
     public bool immune = false; // 무적 판정
     public float weaponDamageCoeff = 1;
+
+    public bool health_to_damage = false;
     [SerializeField]
     Inventory inventory;
 
@@ -63,15 +65,20 @@ public class PlayerStatus : Creature
         attackRange = item.values[3]; // 무기 사거리  
         maxHp = 100;
         damage = 20; // 기본 데미지
-        maxStamina = 100 + Vamp * 1.5f;
-        for (int i=0; i<Vamp; i++) {
+        //maxStamina = 100 + Vamp * 1.5f;
+        for (int i=0; i<Vamp; i++) {  // 침식도 비례 데미지 갱신
             maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
             damage = damage * (float)statIncrease; // 최대 공격력 약 144
 
         }
         
-        damage += weaponDamage;  // 무기 데미지 + 기본 데미지 * 타락치?
-        
+        damage += weaponDamage ;  // 무기 데미지 + 기본 데미지 * 타락치?
+
+        if (health_to_damage) // 야수의 신장?
+        {
+            float ratio = health / maxHp;
+            damage = damage * (1 + ratio);
+        }
 
     }
 

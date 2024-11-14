@@ -57,7 +57,7 @@ public class Item : ScriptableObject
                 Player_Movement.dashable = false;
                 break;
             case ("야수의 심장"):
-                // 넌 뭐냐;;
+                Player_.health_to_damage = true;
                 break;
             case ("완강한 마음"):
                 Player_.maxVamp = Player_.maxVamp * 1.5f;
