@@ -246,7 +246,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 UseItem(desSlot.item);
-                //print(desSlot.item.ItemName + "is Used");
+                print(desSlot.item.ItemName + "is Used");
                 RemoveItem(equipments, desSlot.item, 1);
                 
             }
@@ -269,7 +269,7 @@ public class Inventory : MonoBehaviour
     }
     public void UseItem(Item _item)
     {
-        PlayerStatus Player_ = transform.parent.GetComponent<PlayerStatus>();
+        PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
         // 회복량 %
         if(_item.specialIndex == 1)
         {
