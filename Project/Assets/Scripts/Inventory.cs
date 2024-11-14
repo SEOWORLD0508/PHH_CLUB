@@ -38,6 +38,10 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     Slot[] slots;
+    [SerializeField]
+    Slot[] weaponSlots;
+    
+
 
     public Slot closestSlot;
     Slot desSlot;
@@ -93,8 +97,29 @@ public class Inventory : MonoBehaviour
                     slots[i].countText.text = slots[i].count.ToString();
                 }
             }
+            for (int i = 0; i < weaponSlots.Length; i++)
+            {
 
-
+                if (i < weapons.Count)
+                {
+                    weaponSlots[i].item = weapons[i].item;
+                    weaponSlots[i].count = weapons[i].count;
+                }
+                else
+                {
+                    weaponSlots[i].item = null;
+                    weaponSlots[i].count = 0;
+                }
+                if (weaponSlots[i].count == 0)
+                {
+                    weaponSlots[i].countBase.gameObject.SetActive(false);
+                }
+                else
+                {
+                    weaponSlots[i].countBase.gameObject.SetActive(true);
+                    //weaponSlots[i].countText.text = weaponSlots[i].count.ToString();
+                }
+            }
         }
         else
         {
@@ -116,31 +141,55 @@ public class Inventory : MonoBehaviour
     public void AddItem(List<ItemHolder> _itemHolder, Item _target)
     {
         bool t = false; //이미 해당 아이템이 인벤토리에 있으면 count만 늘리고, 없으면 새로 하나 만듬
-        foreach (ItemHolder item in _itemHolder)
-        {
-            if(item.item == _target)
-            {
-                item.count++;
-                t = true;
-            }    
-        }
+        int i = 0;
 
-        ItemHolder it = new ItemHolder();
-        it.item = _target;
-        it.count = 1;
-        if (!t) _itemHolder.Add(it);
+            foreach (ItemHolder item in _itemHolder)
+            {
+                if (item.item != null) i++;
+                if (item.item == _target)
+                {
+                    t = true;
+                    if(_target.itemType != ItemType.Weapon) // 해당 무기; 이미 있으면 스킵!
+                        item.count++;
+
+                }
+            }
+        
+        //else
+        //{
+
+        //}
+
+        if (!t) 
+        {
+            ItemHolder it = new ItemHolder();
+            it.item = _target;
+            it.count = 1;
+            _itemHolder.Add(it);
+            if(weapons.Count > 2)
+            {
+                DropItem(weapons[0].item);
+            }
+        }
     }   
 
     public void RemoveItem(List<ItemHolder> _itemHolder, Item _target, int amount)
     {
         
+
+        List<ItemHolder> remove = new List<ItemHolder>();
         foreach (ItemHolder item in _itemHolder)
         {
             if (item.item == _target) {
-                item.count -= amount;
+                item.count -= amount;        
+                if(item.count == 0)  remove.Add(item);
                 break;
                 
             }
+        }
+        foreach(ItemHolder item in remove)
+        {
+            _itemHolder.Remove(item);
         }
 
         
@@ -154,7 +203,7 @@ public class Inventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (equipments.Count > 0 && closestSlot != null)
+            if (equipments.Count + weapons.Count > 0 && closestSlot != null)
             {
                 if (closestSlot.item != null)
                 {
@@ -204,18 +253,17 @@ public class Inventory : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    closest.DecreaseAmount(1);
+                    
                     switch(closest.item.itemType)
                     {
-                        case ItemType.Etc:
+                        default:
                             AddItem(equipments, closest.item);
                             break;
                         case ItemType.Weapon:
-                            if (weapons.Count == 2)
-                                weapons.RemoveAt(0);
                             AddItem(weapons, closest.item);
                             break;
                     }
+                    closest.DecreaseAmount(1);
                 }
 
             }
@@ -247,7 +295,10 @@ public class Inventory : MonoBehaviour
             {
                 UseItem(desSlot.item);
                 print(desSlot.item.ItemName + "is Used");
-                RemoveItem(equipments, desSlot.item, 1);
+                if (desSlot.item.itemType == ItemType.Etc)
+                { 
+                    RemoveItem(equipments, desSlot.item, 1);
+                }
                 
             }
 
@@ -263,7 +314,7 @@ public class Inventory : MonoBehaviour
         
         if (_item != null)
             Instantiate(_item.prefab, transform.position, Quaternion.identity);
-        List<ItemHolder> t = (_item.itemType == ItemType.Etc) ? equipments : weapons;
+        List<ItemHolder> t = (_item.itemType == ItemType.Weapon) ?  weapons : equipments;
         RemoveItem(t, _item, 1);
 
     }
