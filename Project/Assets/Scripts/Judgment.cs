@@ -8,7 +8,8 @@ using UnityEngine;
 
 
 public class Judgment : MonoBehaviour
-{
+{   
+    public PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
     public List<Creature> get_enemy_list(Creature attacker)
     {
         var Creature_list = FindObjectsOfType<Creature>();
@@ -97,7 +98,16 @@ public class Judgment : MonoBehaviour
             bool isInSight = is_in_attackRange(attacker, creature);
             if(distance <= attack_range && isInSight) {
                 print("health down");
-                creature.health -= attacker.damage; // 데미지 닳는 부분 
+                creature.health -= attacker.damage; // 데미지 닳는 부분
+
+                if(creature.entity_name != "Player")
+                {
+                   
+                    if (Player_.heal_by_enemy_attack)
+                    {
+                        Player_.health += Player_.maxHp * 3 / 100;
+                    }
+                }
                 if(creature.health <= 0 )
                 {
                     if(creature.entity_name == "Player")
@@ -107,10 +117,16 @@ public class Judgment : MonoBehaviour
                     else
                     {
                         creature.Die();
+                        if (Player_.heal_by_enemy_kill)
+                        {
+                            Player_.health += Player_.maxHp * 15 / 100;
+                        }
                     }
                 }
             }
+            
         }
+        
     }
     
 }

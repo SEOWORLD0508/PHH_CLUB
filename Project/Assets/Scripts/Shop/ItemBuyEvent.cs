@@ -62,6 +62,7 @@ public class ItemBuyEvent : MonoBehaviour
                     Inv.AddItem(Inv.equipments, target_item);
                     break;
                 case ItemType.Passive: // 패시브 아이템 효과 구현하도록 하는 코드
+                    target_item.PassiveItemEffect();
                     break;
             }
             GameManager.Instance.Gold -= ItemForSaleList[k].values[0];

@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [Space]
 
     [Header("Dash")]
+    public bool dashable = true;
     public KeyCode DashKey;
     public float dashAmount;
     public float dashC; // 재사용시간
@@ -76,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Translate(moveDir * currentSpeed);
 
 
-        if (Input.GetKeyDown(DashKey) && currentDashT <= 0)
+        if (Input.GetKeyDown(DashKey) && currentDashT <= 0 && dashable)
         {
             lineRenderer.gameObject.SetActive(true);
             currentDashT = dashC;

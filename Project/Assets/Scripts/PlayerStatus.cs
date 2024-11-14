@@ -9,14 +9,16 @@ public class PlayerStatus : Creature
     public float maxHp; // 현재 체력 -> Creature / 최대 체력
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float stamina,maxStamina; // 현재 스테미나 / 최대 스테미나
-    public float Vamp; // 뱀파이어 진행도
+    public float Vamp,maxVamp; // 뱀파이어 진행도 / 최대 진행도
     // public float weaponDamage; // 무기 공격력 Creature 에서 관리
     // public float damage; // 기본 공격력 Creature 에서 관리
     public float statime; // 스텟 회복 시간
     public float delaytime1,delaytime2; // 선딜 딜레이 / 후딜 딜레이
     public bool attack = true; // 공격 가능 여부
+    public bool heal_by_enemy_kill = false; // 적 처치시 체력 회복
+    public bool heal_by_enemy_attack = false; // 적 공격시 체력 회복
 
-
+    public float weaponDamageCoeff = 1;
     [SerializeField]
     Inventory inventory;
 
@@ -37,6 +39,7 @@ public class PlayerStatus : Creature
         healthBar.fillAmount = 1.0f;
         staminaBar.fillAmount = 1.0f;
         Vamp = 0;
+        maxVamp = 100;
         maxHp = 100;
         maxStamina = 100;
         damage = 20;
@@ -56,7 +59,7 @@ public class PlayerStatus : Creature
         healthBar.fillAmount = (float)health / maxHp;
         staminaBar.fillAmount = (float)stamina / maxStamina;
         Item item = inventory.weapons[0].item; // 플레이어 아이템 받아옴
-        weaponDamage = item.values[2]; // 무기 데미지
+        weaponDamage = item.values[2] * weaponDamageCoeff; // 무기 데미지
         attackRange = item.values[3]; // 무기 사거리  
         maxHp = 100;
         damage = 20; // 기본 데미지
@@ -88,6 +91,10 @@ public class PlayerStatus : Creature
         {
             StartCoroutine(Attack());
         }
+        if(Vamp >= maxVamp)
+        {
+            GameManager.Instance.GameOver(); // 최대 침식도 넘었을 떄 게임 오버
+        }
     }
     IEnumerator Attack()
     {
@@ -95,8 +102,8 @@ public class PlayerStatus : Creature
         yield return new WaitForSeconds(delaytime1); // 선딜
         Debug.Log("Attack");
         Judgment.Attack(this);
-
-
+        
+        
 
         yield return new WaitForSeconds(delaytime2); //후딜
         attack = true;
