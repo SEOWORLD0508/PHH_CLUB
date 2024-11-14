@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class RoomEvent : MonoBehaviour
 {
+    public static RoomEvent instance; //인스턴스 생성
+    private void Awake()
+    {
+        if (RoomEvent.instance == null)
+        {
+            RoomEvent.instance = this;
+        }
+    }
     static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
     static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
 
@@ -67,6 +75,7 @@ public class RoomEvent : MonoBehaviour
                             for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
                             {
                                 Transform enemy = Instantiate(enemies, MapPlacing.instance.rooms[k].position + new Vector3(Random.Range(-8, 8), Random.Range(-8, 8), 0), Quaternion.identity);
+                                enemy.eulerAngles = new Vector3(-90, 0, 0);
                             }
                             MapMobSpawned[i, j] = true;
                         }
@@ -134,9 +143,10 @@ public class RoomEvent : MonoBehaviour
     }
 
     //적 수 차감
-    public static void MinusEnemy(int y, int x)
+    public void MinusEnemy(int y, int x)
     {
         MapPlacing.instance.RoomInfo[y, x].EnemyAmount--;
+        Debug.Log("Enemy died " + MapPlacing.instance.RoomInfo[y, x].EnemyAmount);
     }
 
     //방 클리어 선언
@@ -171,5 +181,26 @@ public class RoomEvent : MonoBehaviour
             player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
         }
         MapPlacing.instance.RoomInfo[i, j].isEntered = true;
+    }
+
+    public int[] FindPlayerRoom()
+    {
+        int i, j;
+        int[] result = new int[2];
+        for (i = 0; i < Height; i++)
+        {
+            for (j = 0; j < Width; j++)
+            {
+                if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
+                {
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
+                }
+            }
+        }
+        int[] noPlayer = new int[1];
+        noPlayer[0] = -1;
+        return noPlayer;
     }
 }

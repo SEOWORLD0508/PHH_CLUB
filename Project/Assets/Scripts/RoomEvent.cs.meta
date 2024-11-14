@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - enemies: {fileID: 8926872799658415383, guid: a8fe80abb5875014f9a77b22adf049ee, type: 3}
-  executionOrder: 300
+  executionOrder: 100
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
