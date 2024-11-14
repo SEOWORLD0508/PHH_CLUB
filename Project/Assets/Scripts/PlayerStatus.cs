@@ -86,7 +86,7 @@ public class PlayerStatus : Creature
     }
     IEnumerator Attack()
     {
-        attack = true;
+        attack = false;
         yield return new WaitForSeconds(delaytime1); // 선딜
         Debug.Log("Attack");
         Judgment.Attack(this);
@@ -94,7 +94,7 @@ public class PlayerStatus : Creature
 
 
         yield return new WaitForSeconds(delaytime2); //후딜
-        attack = false;
+        attack = true;
     }
 
     IEnumerator timerCoroutine() 

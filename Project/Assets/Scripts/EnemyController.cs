@@ -59,6 +59,7 @@ public class EnemyController : Creature
     {
         damage = 0;
         weaponDamage = item.values[2];
+        damage += weaponDamage;
         attackRange = item.values[3];
         weaponAngle = item.values[4];
         player = FindObjectOfType<PlayerMovement>().transform;
@@ -95,11 +96,10 @@ public class EnemyController : Creature
 
         //Debug.Log("will add more conditions");
 
-
-
         if (canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             Attack();
+            
         }
         else
         {
