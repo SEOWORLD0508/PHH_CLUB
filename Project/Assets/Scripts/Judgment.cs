@@ -29,16 +29,16 @@ public class Judgment : MonoBehaviour
         float minimum = Mathf.Cos(Mathf.Deg2Rad * weaponAngle);
         var pos1 = target.transform.position;
         var pos2 = attacker.transform.position;
-        var direction_vec = pos2 - pos1; // 대상과 공격자 사이의 방향벡터
-        var facing_vec = pos2 - pos1; // 바라보는 방향 ( 구현 안함)
+        var direction_vec = pos1 - pos2; // 대상과 공격자 사이의 방향벡터
+        var facing_vec = attacker.dir; // 바라보는 방향 
+        // z축은 고려할 필요 없어서 0으로 초기화
+        direction_vec.z = 0;
+        facing_vec.z = 0;
         var cos_sim = (Vector2.Dot(direction_vec, facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
-        if (cos_sim <= 1 && cos_sim >= minimum) {
+        bool standing = (facing_vec.x == 0 && facing_vec.y == 0 && facing_vec.z == 0);
+        if (cos_sim <= 1 && cos_sim >= minimum || standing) {
 
-            //var pos1 = target.transform.position;
-            //var pos2 = attacker.transform.position;
-            //var direction_vec = pos2 - pos1; // 대상과 공격자 사이의 방향벡터
-            //var facing_vec = attacker.transform.forward; // 바라보는 방향 ( 구현 안함)
-            //var cos_sim = (Vector2.Dot(direction_vec,facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
+           // 가만히 서서 때리면 걍 다 맞게 해둠
 
 
             Vector3 targetDir = (target.transform.position - attacker.transform.position).normalized; //공격할때 타겟을 향한 단위벡터
@@ -65,7 +65,7 @@ public class Judgment : MonoBehaviour
 
 
 
-            if (theta <= weaponAngle) {
+            if (theta <= weaponAngle || standing) {
                 /*이부분 에러 납니다
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isHit", true);
@@ -96,7 +96,19 @@ public class Judgment : MonoBehaviour
             float distance = Vector2.Distance(pos1, pos2);
             bool isInSight = is_in_attackRange(attacker, creature);
             if(distance <= attack_range && isInSight) {
-                creature.health -= 10; // 데미지 닳는 부분 (구현 안함)
+                print("health down");
+                creature.health -= attacker.damage; // 데미지 닳는 부분 
+                if(creature.health <= 0 )
+                {
+                    if(creature.entity_name == "Player")
+                    {
+                        GameManager.Instance.GameOver();
+                    }
+                    else
+                    {
+                        creature.Die();
+                    }
+                }
             }
         }
     }

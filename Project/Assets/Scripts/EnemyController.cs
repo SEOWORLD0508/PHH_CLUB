@@ -57,8 +57,10 @@ public class EnemyController : Creature
     // Start is called before the first frame update
     void Start()
     {
+        entity_name = "Monster";
         damage = 0;
         weaponDamage = item.values[2];
+        damage += weaponDamage;
         attackRange = item.values[3];
         weaponAngle = item.values[4];
         player = FindObjectOfType<PlayerMovement>().transform;
@@ -95,11 +97,10 @@ public class EnemyController : Creature
 
         //Debug.Log("will add more conditions");
 
-
-
         if (canAttack && currentAttackT <= 0 && Vector3.Distance(transform.position, player.position) <= attackRange)
         {
             Attack();
+            
         }
         else
         {
@@ -126,6 +127,9 @@ public class EnemyController : Creature
             animator.SetBool("isIdle", !attacking);
 
         }
+
+        
+        
 
     }
 
@@ -179,5 +183,5 @@ public class EnemyController : Creature
         attacking = false;
 
     }
-
+    
 }
