@@ -11362,6 +11362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 0.01
   accel: 0.05
+  dashable: 1
   DashKey: 32
   dashAmount: 1
   dashC: 0.3
@@ -11485,10 +11486,14 @@ MonoBehaviour:
   stamina: 100
   maxStamina: 100
   Vamp: 0
+  maxVamp: 0
   statime: 0
   delaytime1: 0
   delaytime2: 0
   attack: 1
+  heal_by_enemy_kill: 0
+  heal_by_enemy_attack: 0
+  weaponDamageCoeff: 1
   inventory: {fileID: 1546483079}
   Judgment: {fileID: 1650084019}
   healthBar: {fileID: 847735858}
@@ -12732,6 +12737,7 @@ MonoBehaviour:
   DescriptionText: {fileID: 235826777}
   InventoryKey: 9
   Gold: 0
+  goldDegree: 1
   ItemToSellList: []
 --- !u!4 &1650084018
 Transform:
@@ -12761,6 +12767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8247ea66861b50142972dc62f838db9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player_: {fileID: 0}
 --- !u!1 &1662775609
 GameObject:
   m_ObjectHideFlags: 0
