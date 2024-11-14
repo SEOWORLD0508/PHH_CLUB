@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public float dashAmount;
     public float dashC; // 재사용시간
     private float currentDashT; // 재사용 시간 계산용 변수
+    public bool invincible;
+    public float invincibleTime;
     [SerializeField]
     private float reverseOffset;
     [SerializeField]
@@ -44,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
+        invincible = false;
+        
     }
 
     // Update is called once per frame
@@ -69,7 +72,12 @@ public class PlayerMovement : MonoBehaviour
             if (currentDashT < dashC / 2)
                 lineRenderer.gameObject.SetActive(false);
         }
+        if(currentDashT < dashC - invincibleTime)
+        {
+            invincible = false;
+        }
 
+        status.immune = invincible;
 
 
         if (moveDir != Vector2.zero)
@@ -92,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
             
             lineRenderer.gameObject.SetActive(true);
             currentDashT = dashC;
+            invincible = true;
             //status.currentStamina -= 10;
             transform.position = checkWall(dashAmount);
 

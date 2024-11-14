@@ -87,6 +87,7 @@ public class EnemyController : Creature
         //dir = navmesh.path.corners[0];
         //Debug.DrawRay(transform.position, dir.normalized, Color.red, 10.0f);
         RaycastHit2D hit2d = Physics2D.Raycast(transform.position, (player.transform.position - transform.position).normalized, sightRange, collideLayer);
+        RefreshImage();
 
 
         playerInSight = hit2d.transform && hit2d.transform.gameObject.layer != 7 ? true : false;
@@ -163,9 +164,7 @@ public class EnemyController : Creature
         navmesh.speed = 0;
 
 
-        animator.SetBool("isWalk", false);
-        animator.SetBool("isIdle", false);
-        animator.SetBool("isAttack", true);
+        animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(_t1); // 선딜
         Judgment.Attack(this);
@@ -178,8 +177,7 @@ public class EnemyController : Creature
         yield return new WaitForSeconds(_t2); // 후딜
         //navmesh.speed = speed;
 
-        animator.SetBool("isAttack", false);
-        animator.SetBool("isIdle", true);
+ 
         attacking = false;
 
     }
