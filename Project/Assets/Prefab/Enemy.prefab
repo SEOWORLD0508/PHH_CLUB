@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 4794036937217508444}
   - component: {fileID: 2447346511394895697}
   - component: {fileID: 88270446364867743}
-  - component: {fileID: 4835129904791741258}
-  - component: {fileID: 3189273580516808895}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -76,7 +74,7 @@ MonoBehaviour:
   - {x: -1.930022, y: -1}
   navmesh: {fileID: 4915110985494678234}
   useUnityPathfinding: 1
-  Warning: {fileID: 0}
+  Warning: {fileID: 2347397305716174902, guid: 60637b1879fa99645b7fd6501847d8ae, type: 3}
   Judgment: {fileID: 0}
 --- !u!195 &4915110985494678234
 NavMeshAgent:
@@ -159,35 +157,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &4835129904791741258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7105801853993443951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a84554a23243b41be99e85304470c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionDistance: 0
-  StaticItemForSaleList: []
-  DynamicItemForSaleList: []
---- !u!114 &3189273580516808895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7105801853993443951}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd9f894030c3cb48833807f272423a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shape: {fileID: 0}
-  playerView: {fileID: 0}
 --- !u!1001 &9100406466312272437
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -122,7 +122,8 @@ public class Shopping : MonoBehaviour
 
     // 아이템 드갔다가 나가는거 ㅇㅇ
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
+        print(other.name);
         if ((other.CompareTag("Item")))
         {
             GameObject ItemObject = other.gameObject;
@@ -138,11 +139,10 @@ public class Shopping : MonoBehaviour
         }
     }
     private void OnTriggerExit2D(Collider2D other)
-    {
+    {   
         if ((other.CompareTag("Item")))
         {
             GameObject ItemObject = other.gameObject;
-            print(other.gameObject);
             GameManager.Instance.ItemToSellList.Remove(ItemObject);
             /*
             Item ItemToSell = other.gameObject.GetComponent<ItemPrefab>().item;
