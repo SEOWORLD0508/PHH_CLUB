@@ -17,7 +17,7 @@ public class PlayerStatus : Creature
     public bool attack = true; // 공격 가능 여부
     public bool heal_by_enemy_kill = false; // 적 처치시 체력 회복
     public bool heal_by_enemy_attack = false; // 적 공격시 체력 회복
-
+    public bool immune = false; // 무적 판정
     public float weaponDamageCoeff = 1;
     [SerializeField]
     Inventory inventory;

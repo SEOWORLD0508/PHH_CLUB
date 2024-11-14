@@ -39,7 +39,9 @@ public class Item : ScriptableObject
                 Player_.heal_by_enemy_attack = true;
                 break;
             case ("금욕의 주머니"):
-                // goldDegree 바꾸면 됨
+                GameManager.Instance.goldDegree = 0.75f;
+                Player_.weaponDamageCoeff += 0.2f;
+                // 인벤토리 크기 -> 무기 데미지 계수 20%p 증가로 바꿈 
                 break;
             case ("멈출 수 없는 힘"):
                 Player_.damage +=  6;
@@ -61,12 +63,14 @@ public class Item : ScriptableObject
                 Player_.maxVamp = Player_.maxVamp * 1.5f;
                 break;
             case ("웨폰 메뉴얼"):
-                Player_.weaponDamageCoeff = 1.5f;
+                Player_.weaponDamageCoeff += 0.5f;
                 break;
             case ("탐욕의 주머니"):
-                // goldDegree 바꾸면 됨
+                GameManager.Instance.goldDegree = 1.5f;
                 break;
-            
+            case ("윤회"):
+                GameManager.Instance.rebirth = true;
+                break;
 
         }
     }

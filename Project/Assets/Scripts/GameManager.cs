@@ -22,10 +22,14 @@ public class GameManager : MonoBehaviour
     public TMP_Text DescriptionText;
     public KeyCode InventoryKey = KeyCode.Tab;
     private static GameManager _instance;
+
     [Header("Gold")]
     public float Gold;
     public float goldDegree = 1f;
     public List<GameObject> ItemToSellList = new List<GameObject>();
+
+    [Header("ReBirth")]
+    public bool rebirth = false;
     public float GetGold()
     { 
         return Gold;
@@ -88,8 +92,19 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-        print("GameOver");
-        // 게임 오버 구현 해야함
+        if (rebirth)
+        {
+            rebirth = false;
+            FindObjectOfType<PlayerStatus>().health = 3;
+            FindObjectOfType<PlayerStatus>().immune = true;
+            FindObjectOfType<PlayerStatus>().immune = false;
+        }
+        else
+        {
+            print("GameOver");
+            // 게임 오버 구현 해야함
+        }
+
     }
 
 }

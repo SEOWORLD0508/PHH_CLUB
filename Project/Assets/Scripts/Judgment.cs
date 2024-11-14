@@ -103,16 +103,25 @@ public class Judgment : MonoBehaviour
             bool isInSight = is_in_attackRange(attacker, creature);
             if(distance <= attack_range && isInSight) {
                 print("health down");
+
                 creature.health -= attacker.damage; // 데미지 닳는 부분
 
-                if(creature.entity_name != "Player")
+                
+                if (creature.entity_name != "Player")
                 {
                     if (Player_.heal_by_enemy_attack)
                     {
                         Player_.health += Player_.maxHp * 3 / 100;
                     }
                 }
-                if(creature.health <= 0 )
+                else
+                {
+                    if (Player_.immune)
+                    {
+                        creature.health += attacker.damage;
+                    }
+                }
+                if (creature.health <= 0 )
                 {
                     if(creature.entity_name == "Player")
                     {
