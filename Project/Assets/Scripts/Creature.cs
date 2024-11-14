@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 
 public class Creature : MonoBehaviour
 {
     public float health;
+    public float maxHp; // 현재 체력 -> Creature / 최대 체력
+    public Image healthBar;
     public float damage; // 무기 데미지 + 기본 데미지 
     public float attackRange;
     public float weaponDamage;
@@ -33,4 +36,11 @@ public class Creature : MonoBehaviour
             RoomEvent.instance.MinusEnemy(pRoom[0], pRoom[1]);
         }
     }
+    public virtual void RefreshImage()
+    {
+        healthBar.fillAmount = (float)health / maxHp;
+        
+    }
+
+
 }

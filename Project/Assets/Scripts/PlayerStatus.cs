@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerStatus : Creature
 {
     [Header("Basic Status")]
-    public float maxHp; // 현재 체력 -> Creature / 최대 체력
+    
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float stamina,maxStamina; // 현재 스테미나 / 최대 스테미나
     public float Vamp,maxVamp; // 뱀파이어 진행도 / 최대 진행도
@@ -28,7 +28,7 @@ public class PlayerStatus : Creature
     Judgment Judgment;
 
     [SerializeField]
-    Image healthBar, staminaBar;
+    Image staminaBar;
 
     [SerializeField]
     PlayerMovement playerMovement;
@@ -58,21 +58,21 @@ public class PlayerStatus : Creature
 
     void UpdateStatus()
     {
-        healthBar.fillAmount = (float)health / maxHp;
-        staminaBar.fillAmount = (float)stamina / maxStamina;
+        RefreshImage();
         Item item = inventory.weapons[0].item; // 플레이어 아이템 받아옴
         weaponDamage = item.values[2] * weaponDamageCoeff; // 무기 데미지
         attackRange = item.values[3]; // 무기 사거리  
         maxHp = 100;
         damage = 20; // 기본 데미지
         //maxStamina = 100 + Vamp * 1.5f;
-        for (int i=0; i<Vamp; i++) {  // 침식도 비례 데미지 갱신
+        for (int i = 0; i < Vamp; i++)
+        {  // 침식도 비례 데미지 갱신
             maxHp = maxHp * (float)statIncrease; // 최대 체력 약 724
             damage = damage * (float)statIncrease; // 최대 공격력 약 144
 
         }
-        
-        damage += weaponDamage ;  // 무기 데미지 + 기본 데미지 * 타락치?
+
+        damage += weaponDamage;  // 무기 데미지 + 기본 데미지 * 타락치?
 
         if (health_to_damage) // 야수의 신장?
         {
@@ -82,13 +82,20 @@ public class PlayerStatus : Creature
 
     }
 
+    public override void RefreshImage()
+    {
+
+        base.RefreshImage();
+        staminaBar.fillAmount = (float)stamina / maxStamina;
+    }
+
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
         dir = playerMovement.moveDir;
 
-        
+        RefreshImage();
 
         if (health > maxHp)
         {

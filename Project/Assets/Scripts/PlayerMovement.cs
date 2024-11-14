@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,7 +21,13 @@ public class PlayerMovement : MonoBehaviour
     public float dashC; // 재사용시간
     private float currentDashT; // 재사용 시간 계산용 변수
     [SerializeField]
+    private float reverseOffset;
+    [SerializeField]
     Transform lineRenderer;
+    
+
+    [SerializeField]
+    LayerMask wallLayer;
 
     [Space]
 
@@ -74,17 +82,36 @@ public class PlayerMovement : MonoBehaviour
             currentSpeed = 0;
 
         //rb.AddForce(moveDir * currentSpeed);
+       
         transform.Translate(moveDir * currentSpeed);
 
 
         if (Input.GetKeyDown(DashKey) && currentDashT <= 0 && dashable)
         {
+
+            
             lineRenderer.gameObject.SetActive(true);
             currentDashT = dashC;
             //status.currentStamina -= 10;
-            transform.Translate(moveDir * dashAmount);
+            transform.position = checkWall(dashAmount);
 
         }
     }
+    Vector2 checkWall(float _moveAmount)
+    {
+        Vector2 cPos = new Vector2(transform.position.x, transform.position.y) - moveDir * reverseOffset;
 
+        Vector2 targetP = cPos + moveDir * _moveAmount;
+        Vector2 dir = (cPos - targetP).normalized;
+
+
+        RaycastHit2D ray = Physics2D.Raycast(cPos, dir, Vector2.Distance(targetP, cPos), wallLayer);
+        if (ray)
+        {
+            targetP = ray.point;
+            
+        }
+        return targetP;
+
+    }
 }
