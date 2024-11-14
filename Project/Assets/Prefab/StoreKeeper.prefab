@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1210502104972308257}
   - component: {fileID: 685347375470251832}
   - component: {fileID: 8832765296084923625}
-  - component: {fileID: 4479300081166330883}
   m_Layer: 0
   m_Name: StoreKeeper
   m_TagString: Untagged
@@ -47,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a84554a23243b41be99e85304470c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 5000
+  interactionDistance: 100
   StaticItemForSaleList:
   - item: {fileID: 11400000, guid: dc313dae718262742ad8f82b0a40134d, type: 2}
     count: 0
@@ -129,35 +128,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 100}
+  m_Size: {x: 20, y: 20}
   m_EdgeRadius: 0
---- !u!50 &4479300081166330883
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458229495795681964}
-  m_BodyType: 2
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &6685963177975613978
 GameObject:
   m_ObjectHideFlags: 0

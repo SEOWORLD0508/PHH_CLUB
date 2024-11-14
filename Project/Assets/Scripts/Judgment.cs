@@ -9,10 +9,11 @@ using UnityEngine;
 
 public class Judgment : MonoBehaviour
 {   
-    public PlayerStatus Player_;
+   // public PlayerStatus Player_;
     void Start()
     {
-        Player_ = FindObjectOfType<PlayerStatus>();
+        //Player_ = FindObjectOfType<PlayerStatus>();
+       // print(Player_.heal_by_enemy_attack);
     }
     public List<Creature> get_enemy_list(Creature attacker)
     {
@@ -91,11 +92,11 @@ public class Judgment : MonoBehaviour
         }return false; }
     public void Attack(Creature attacker)
     {
+        PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
         var enemy_list = get_enemy_list(attacker);
         float attack_range = attacker.attackRange;
         foreach(Creature creature in enemy_list)
         {
-        
             var pos1 = creature.transform.position;
             var pos2 = attacker.transform.position;
             float distance = Vector2.Distance(pos1, pos2);
@@ -106,7 +107,6 @@ public class Judgment : MonoBehaviour
 
                 if(creature.entity_name != "Player")
                 {
-                   
                     if (Player_.heal_by_enemy_attack)
                     {
                         Player_.health += Player_.maxHp * 3 / 100;

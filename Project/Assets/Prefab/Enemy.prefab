@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2cb9b8952009545af1e2548332ecf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
   damage: 0
   attackRange: 0.5
   weaponDamage: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   navmesh: {fileID: 4915110985494678234}
   useUnityPathfinding: 1
   Warning: {fileID: 2347397305716174902, guid: 60637b1879fa99645b7fd6501847d8ae, type: 3}
-  Judgment: {fileID: 0}
+  Judgment: {fileID: 4546336718045784146, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
 --- !u!195 &4915110985494678234
 NavMeshAgent:
   m_ObjectHideFlags: 0
