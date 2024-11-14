@@ -24,4 +24,4 @@ MonoBehaviour:
   itemType: 1
   prefab: {fileID: 3142725598512659494, guid: 3f535e8494c17164fb70f0676fd4b137, type: 3}
   useAble: 0
-  specialIndex: 0
+  specialIndex: 1
