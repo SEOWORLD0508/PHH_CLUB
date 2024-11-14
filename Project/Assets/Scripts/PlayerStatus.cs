@@ -32,6 +32,8 @@ public class PlayerStatus : Creature
     // Start is called before the first frame update
     void Start()
     {
+        entity_name = "Player";
+
         healthBar.fillAmount = 1.0f;
         staminaBar.fillAmount = 1.0f;
         Vamp = 0;
@@ -41,8 +43,11 @@ public class PlayerStatus : Creature
         health = maxHp / 2;
         stamina = maxStamina / 2;
         Debug.Log(maxHp + "/" + maxStamina + "/" + health + "/" + stamina);
+        
         UpdateStatus(); //스텟 재정의 함수 // 인벤토리 무기 교체시 호출 부탁 드려요~
         StartCoroutine(timerCoroutine());
+
+        
         
     }
 
@@ -111,4 +116,5 @@ public class PlayerStatus : Creature
         }
        
     }
+   
 }

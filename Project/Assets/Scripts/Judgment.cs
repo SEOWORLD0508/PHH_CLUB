@@ -98,6 +98,17 @@ public class Judgment : MonoBehaviour
             if(distance <= attack_range && isInSight) {
                 print("health down");
                 creature.health -= attacker.damage; // 데미지 닳는 부분 
+                if(creature.health <= 0 )
+                {
+                    if(creature.entity_name == "Player")
+                    {
+                        GameManager.Instance.GameOver();
+                    }
+                    else
+                    {
+                        creature.Die();
+                    }
+                }
             }
         }
     }

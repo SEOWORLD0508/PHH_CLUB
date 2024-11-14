@@ -86,5 +86,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(_num);
 
     }
+    public void GameOver()
+    {
+        print("GameOver");
+        // 게임 오버 구현 해야함
+    }
 
 }

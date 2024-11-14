@@ -57,6 +57,7 @@ public class EnemyController : Creature
     // Start is called before the first frame update
     void Start()
     {
+        entity_name = "Monster";
         damage = 0;
         weaponDamage = item.values[2];
         damage += weaponDamage;
@@ -127,6 +128,9 @@ public class EnemyController : Creature
 
         }
 
+        
+        
+
     }
 
 
@@ -179,5 +183,5 @@ public class EnemyController : Creature
         attacking = false;
 
     }
-
+    
 }
