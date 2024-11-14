@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class Creature : MonoBehaviour
 {
+    public Transform mesh;
+    public Vector3 leftRot;
+    public Vector3 rightRot;
     public float health;
     public float maxHp; // 현재 체력 -> Creature / 최대 체력
     public Image healthBar;
@@ -40,6 +43,13 @@ public class Creature : MonoBehaviour
     {
         healthBar.fillAmount = (float)health / maxHp;
         
+    }
+
+    public void rotateMesh(bool _right)
+    {
+        Vector3 targetR = _right ? rightRot : leftRot;
+       
+        mesh.transform.localRotation = Quaternion.Euler(targetR);
     }
 
 

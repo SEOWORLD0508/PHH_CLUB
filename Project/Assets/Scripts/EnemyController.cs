@@ -38,8 +38,7 @@ public class EnemyController : Creature
 
     [SerializeField]
     NavMeshAgent navmesh;
-    [SerializeField]
-    bool useUnityPathfinding;
+
 
     [SerializeField]
     Transform Warning;
@@ -50,6 +49,7 @@ public class EnemyController : Creature
     [SerializeField]
     Judgment Judgment;
 
+    
 
 
 
@@ -111,15 +111,12 @@ public class EnemyController : Creature
 
         if (playerInSight && !attacking)
         {
-
-            if (!useUnityPathfinding)
-                transform.Translate(pathF.Main(obs, player.position, transform.position, speed) * speed * Time.deltaTime);
-            else
-            {
-                navmesh.SetDestination(player.position);
-                animator.SetBool("isIdle", false);
-                animator.SetBool("isWalk", true);
-            }
+            
+            rotateMesh(player.transform.position.x > transform.position.x);
+            navmesh.SetDestination(player.position);
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isWalk", true);
+            
         }
         else
         {
