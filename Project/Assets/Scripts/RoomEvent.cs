@@ -131,13 +131,15 @@ public class RoomEvent : MonoBehaviour
     {
         MapPlacing.instance.RoomInfo[y, x].EnemyAmount--;
         Debug.Log("Enemy died " + MapPlacing.instance.RoomInfo[y, x].EnemyAmount);
+        GameManager.Instance.Gold += (float)Random.Range(20, 25) * GameManager.Instance.goldDegree;
+        GameManager.Instance.UpdateGoldUI();
     }
 
     //방 클리어 선언
     public static void RoomClear(int y, int x)
     {
         MapPlacing.instance.RoomInfo[y, x].isCleared = true;
-        GameManager.Instance.Gold += (float)Random.Range(500, 550) * GameManager.Instance.goldDegree;
+        GameManager.Instance.Gold += (float)Random.Range(10, 20) * GameManager.Instance.goldDegree;
         GameManager.Instance.UpdateGoldUI();
     }
 
