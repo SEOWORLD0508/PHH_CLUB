@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class RoomEvent : MonoBehaviour
 {
-    [SerializeField]
     static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
     static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
+
+
+    [SerializeField]
+    public Transform enemies;
+
     int i, j, k;
     bool[,] MapMobSpawned = new bool[Height, Width];
     GameObject player;
     public bool bossRoomAble = false;
-
+    //double[,,,] CoordinateInMap;
     void Start()
     {
         player = GameObject.Find("Player");
@@ -22,14 +26,26 @@ public class RoomEvent : MonoBehaviour
                 MapMobSpawned[i, j] = false;
             }
         }
+        /*
+        CoordinateInMap = EnemySpawn.instance.pCoordinateInMap;
+        string result = "";
+        for (int k = 0; k < 2; k++)
+        {
+            for (int l = 0; l < MapPlacing.instance.EnemyPblc; l++)
+            {
+                result = result + CoordinateInMap[0, 0, k, l] + " ";
+            }
+            result = result + "\n";
+        }
+        Debug.Log(result);
+        */
     }
 
     void Update()
     {
         k = 0;
-        int l = 0;
+        int l;
         int doorDis = 3;
-        double[,,,] CoordinateInMap;
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
@@ -43,11 +59,16 @@ public class RoomEvent : MonoBehaviour
                     }
                     else
                     {
-                        if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == MapPlacing.instance.EnemyPblc)
+                        if (MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == MapPlacing.instance.EnemyPblc && MapMobSpawned[i, j] == false && MapPlacing.instance.RoomInfo[i, j].isEntered == true)
                         {
                             //적 생성 코드
-                            CoordinateInMap = EnemySpawn.instance.pCoordinateInMap;
-                            //CoordinateInMap[i, j, 0, l], CoordinateInMap[i, j, 1, l]
+                            //Debug.Log(CoordinateInMap[i, j, 1, 0]);
+                            //(float)CoordinateInMap[i, j, 1, l], (float)CoordinateInMap[i, j, 0, l], 0 new Vector3((float)CoordinateInMap[i, j, 1, l], (float)CoordinateInMap[i, j, 0, l], 0)
+                            for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
+                            {
+                                Transform enemy = Instantiate(enemies, MapPlacing.instance.rooms[k].position + new Vector3(Random.Range(-8, 8), Random.Range(-8, 8), 0), Quaternion.identity);
+                            }
+                            MapMobSpawned[i, j] = true;
                         }
                     }
                     if (MapPlacing.instance.RoomInfo[i, j].DoorDirection != "Both")

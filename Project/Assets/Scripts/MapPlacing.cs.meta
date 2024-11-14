@@ -4,10 +4,6 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences: []
-  executionOrder: 100
-  defaultReferences:
-  - Door: {fileID: 4849825124166782470, guid: abd5a816108c85a4da35772724d0d7e1, type: 3}
-  - nav: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
