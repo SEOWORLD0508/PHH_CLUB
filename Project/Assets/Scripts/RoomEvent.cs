@@ -153,6 +153,8 @@ public class RoomEvent : MonoBehaviour
     public static void RoomClear(int y, int x)
     {
         MapPlacing.instance.RoomInfo[y, x].isCleared = true;
+        GameManager.Instance.Gold += (float)Random.Range(500, 550);
+        GameManager.Instance.UpdateGoldUI();
     }
 
     //방 나가기
