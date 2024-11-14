@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     [Header("Gold")]
     public float Gold;
-    
+    public float goldDegree = 1f;
     public List<GameObject> ItemToSellList = new List<GameObject>();
     public float GetGold()
     { 

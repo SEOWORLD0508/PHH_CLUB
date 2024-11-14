@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 
-public class Creature : MonoBehaviour {
+public class Creature : MonoBehaviour
+{
     public float health;
     public float damage; // 무기 데미지 + 기본 데미지 
     public float attackRange;
@@ -19,14 +20,17 @@ public class Creature : MonoBehaviour {
 
     public virtual void Update()
     {
-        dir =( (transform.position - lastPos).magnitude != 0 )? transform.position-lastPos :dir ;
+        dir = ((transform.position - lastPos).magnitude != 0) ? transform.position - lastPos : dir;
         lastPos = transform.position;
         Debug.DrawRay(transform.position, dir, Color.red);
-     
-        
     }
     public void Die()
     {
         Destroy(this.gameObject);
+        int[] pRoom = RoomEvent.instance.FindPlayerRoom();
+        if (pRoom[0] != -1)
+        {
+            RoomEvent.instance.MinusEnemy(pRoom[0], pRoom[1]);
+        }
     }
 }
