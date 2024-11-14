@@ -18,7 +18,7 @@ MonoBehaviour:
   values:
   - 30
   - 0.1
-  - 0.5
+  - 15
   - 2
   - 10
   itemType: 1

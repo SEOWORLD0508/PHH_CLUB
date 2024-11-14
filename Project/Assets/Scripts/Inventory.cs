@@ -245,7 +245,8 @@ public class Inventory : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                print(desSlot.item.ItemName + "is Used");
+                UseItem(desSlot.item);
+                //print(desSlot.item.ItemName + "is Used");
                 RemoveItem(equipments, desSlot.item, 1);
                 
             }
@@ -266,6 +267,19 @@ public class Inventory : MonoBehaviour
         RemoveItem(t, _item, 1);
 
     }
-
+    public void UseItem(Item _item)
+    {
+        PlayerStatus Player_ = transform.parent.GetComponent<PlayerStatus>();
+        // 회복량 %
+        if(_item.specialIndex == 1)
+        {
+            Player_.health += Player_.maxHp * _item.values[2] / 100;
+        }
+        // 침식도
+        else if(_item.specialIndex == 2 )
+        {
+            Player_.Vamp += _item.values[2];
+        }
+    }
 
 }

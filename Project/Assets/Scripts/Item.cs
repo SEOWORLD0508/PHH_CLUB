@@ -16,19 +16,19 @@ public class Item : ScriptableObject
     public ItemType itemType;
     public Transform prefab;
     public bool useAble;
-    public bool specialIndex; // normal = 0,  if has special effect or etc... will be used
+    public int specialIndex; // Weapon = 0 / 회복 = 1 / 침식도 = 2 / 
 
     
     //TODO : trlst kr --> eng
     /*
-    0 = pre-delay
-    1 = after-delay
-    2~ = index (weapon = damage & range) (potion = amount) (and more)
-    2.damage
+    0 = 가격
+    1 = 안씀
+    2.damage / 혹은 회복량 % / 혹은 침식도 +
     3.range
     4.angle
     */
 
+   
     public void PassiveItemEffect()
     {
         PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();

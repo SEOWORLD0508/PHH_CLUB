@@ -167,7 +167,7 @@ public class EnemyController : Creature
         animator.SetBool("isIdle", false);
         animator.SetBool("isAttack", true);
 
-        yield return new WaitForSeconds(_t1);
+        yield return new WaitForSeconds(_t1); // 선딜
         Judgment.Attack(this);
 
 
@@ -175,7 +175,7 @@ public class EnemyController : Creature
         navmesh.speed = speed;
 
 
-        yield return new WaitForSeconds(_t2);
+        yield return new WaitForSeconds(_t2); // 후딜
         //navmesh.speed = speed;
 
         animator.SetBool("isAttack", false);
