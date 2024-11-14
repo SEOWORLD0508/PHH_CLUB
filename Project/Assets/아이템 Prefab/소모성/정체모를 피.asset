@@ -16,7 +16,7 @@ MonoBehaviour:
   ItemDescription: "(\uC800\uAE09 \uCCB4\uB825\uD68C\uBCF5\uC81C) 15%\r\n"
   sprite: {fileID: 0}
   values:
-  - 10
+  - 30
   - 0.1
   - 0.5
   - 2

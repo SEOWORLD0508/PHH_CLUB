@@ -16,7 +16,7 @@ MonoBehaviour:
   ItemDescription: 
   sprite: {fileID: 0}
   values:
-  - 10
+  - 45
   - 0.1
   - 0.5
   - 2
