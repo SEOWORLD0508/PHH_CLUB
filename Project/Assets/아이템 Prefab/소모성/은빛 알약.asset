@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1fba3b6d4ca74249888f95e9c89f902, type: 3}
-  m_Name: "\uC815\uC81C\uB41C \uD53C"
+  m_Name: "\uC740\uBE5B \uC54C\uC57D"
   m_EditorClassIdentifier: 
-  ItemName: "\uC815\uC81C\uB41C \uD53C"
-  ItemDescription: "(\uACE0\uAE09 \uCCB4\uB825\uD68C\uBCF5\uC81C) 25%"
+  ItemName: "\uC740\uBE5B \uC54C\uC57D"
+  ItemDescription: "(\uCE68\uC2DD \uCE58\uB8CC\uC81C) -10"
   sprite: {fileID: 0}
   values:
   - 10
@@ -22,6 +22,6 @@ MonoBehaviour:
   - 2
   - 10
   itemType: 1
-  prefab: {fileID: 5147083851657952484, guid: 80baaebfed7bb474595f7574777b0b32, type: 3}
+  prefab: {fileID: 5936377186798042204, guid: 4cd7e3d6153e48049b59c85cb1d3e768, type: 3}
   useAble: 0
   specialIndex: 0

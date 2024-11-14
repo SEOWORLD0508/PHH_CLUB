@@ -115,10 +115,7 @@ public class Shopping : MonoBehaviour
         GameManager.Instance.ItemToSellList.Clear();
         
     }
-    void SetItemList()
-    {
-
-    }
+   
 
     // µ· UI ¾÷µ¥ÀÌÆ® -> GameManager.Instance.UpdateGoldUI()
 
@@ -145,6 +142,7 @@ public class Shopping : MonoBehaviour
         if ((other.CompareTag("Item")))
         {
             GameObject ItemObject = other.gameObject;
+            print(other.gameObject);
             GameManager.Instance.ItemToSellList.Remove(ItemObject);
             /*
             Item ItemToSell = other.gameObject.GetComponent<ItemPrefab>().item;
