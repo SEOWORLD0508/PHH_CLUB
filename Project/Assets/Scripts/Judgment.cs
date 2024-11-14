@@ -9,7 +9,11 @@ using UnityEngine;
 
 public class Judgment : MonoBehaviour
 {   
-    public PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
+    public PlayerStatus Player_;
+    void Start()
+    {
+        Player_ = FindObjectOfType<PlayerStatus>();
+    }
     public List<Creature> get_enemy_list(Creature attacker)
     {
         var Creature_list = FindObjectsOfType<Creature>();
