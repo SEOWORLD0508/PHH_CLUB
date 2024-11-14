@@ -168,7 +168,7 @@ public class EnemyController : Creature
         animator.SetBool("isAttack", true);
 
         yield return new WaitForSeconds(_t1);
-        Judgment.Attack(this);
+        Judgment.instance.Attack(this);
 
 
         Warning.gameObject.SetActive(false);

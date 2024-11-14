@@ -8,7 +8,16 @@ using UnityEngine;
 
 
 public class Judgment : MonoBehaviour
-{   
+{
+    public static Judgment instance; //인스턴스 생성
+    private void Awake()
+    {
+        if (Judgment.instance == null)
+        {
+            Judgment.instance = this;
+        }
+    }
+
     public PlayerStatus Player_;
     void Start()
     {
@@ -19,9 +28,9 @@ public class Judgment : MonoBehaviour
         var Creature_list = FindObjectsOfType<Creature>();
         var enemy_list = new List<Creature>();
         String name = attacker.entity_name;
-        foreach(Creature creature in Creature_list)
+        foreach (Creature creature in Creature_list)
         {
-            if(creature.entity_name != name)
+            if (creature.entity_name != name)
             {
                 enemy_list.Add(creature);
             }
@@ -41,9 +50,10 @@ public class Judgment : MonoBehaviour
         facing_vec.z = 0;
         var cos_sim = (Vector2.Dot(direction_vec, facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
         bool standing = (facing_vec.x == 0 && facing_vec.y == 0 && facing_vec.z == 0);
-        if (cos_sim <= 1 && cos_sim >= minimum || standing) {
+        if (cos_sim <= 1 && cos_sim >= minimum || standing)
+        {
 
-           // 가만히 서서 때리면 걍 다 맞게 해둠
+            // 가만히 서서 때리면 걍 다 맞게 해둠
 
 
             Vector3 targetDir = (target.transform.position - attacker.transform.position).normalized; //공격할때 타겟을 향한 단위벡터
@@ -70,7 +80,8 @@ public class Judgment : MonoBehaviour
 
 
 
-            if (theta <= weaponAngle || standing) {
+            if (theta <= weaponAngle || standing)
+            {
                 /*이부분 에러 납니다
                 animator.SetBool("isIdle", false);
                 animator.SetBool("isHit", true);
@@ -88,33 +99,36 @@ public class Judgment : MonoBehaviour
                 return false;
             }
             ; //if문 안에만 반환문 있으면 에러나요
-        }return false; }
+        }
+        return false;
+    }
     public void Attack(Creature attacker)
     {
         var enemy_list = get_enemy_list(attacker);
         float attack_range = attacker.attackRange;
-        foreach(Creature creature in enemy_list)
+        foreach (Creature creature in enemy_list)
         {
-        
+
             var pos1 = creature.transform.position;
             var pos2 = attacker.transform.position;
             float distance = Vector2.Distance(pos1, pos2);
             bool isInSight = is_in_attackRange(attacker, creature);
-            if(distance <= attack_range && isInSight) {
+            if (distance <= attack_range && isInSight)
+            {
                 print("health down");
                 creature.health -= attacker.damage; // 데미지 닳는 부분
 
-                if(creature.entity_name != "Player")
+                if (creature.entity_name != "Player")
                 {
-                   
+
                     if (Player_.heal_by_enemy_attack)
                     {
                         Player_.health += Player_.maxHp * 3 / 100;
                     }
                 }
-                if(creature.health <= 0 )
+                if (creature.health <= 0)
                 {
-                    if(creature.entity_name == "Player")
+                    if (creature.entity_name == "Player")
                     {
                         GameManager.Instance.GameOver();
                     }
@@ -128,9 +142,9 @@ public class Judgment : MonoBehaviour
                     }
                 }
             }
-            
+
         }
-        
+
     }
-    
+
 }
