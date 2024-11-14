@@ -5184,7 +5184,6 @@ GameObject:
   m_Component:
   - component: {fileID: 671901327}
   - component: {fileID: 671901328}
-  - component: {fileID: 671901329}
   - component: {fileID: 671901330}
   m_Layer: 0
   m_Name: Env
@@ -5238,18 +5237,6 @@ MonoBehaviour:
   rooms: []
   GridSize: 19
   nav: {fileID: 287608236}
---- !u!114 &671901329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671901326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24188dbdf0514c24fbbe2d95d4bfe430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &671901330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5262,6 +5249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1616728e94d2d54491bc61405588ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: {fileID: 8926872799658415383, guid: a8fe80abb5875014f9a77b22adf049ee, type: 3}
   bossRoomAble: 0
 --- !u!1001 &687830465
 PrefabInstance:

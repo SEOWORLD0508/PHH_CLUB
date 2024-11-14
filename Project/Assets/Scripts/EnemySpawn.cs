@@ -1,9 +1,11 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
+    public static EnemySpawn instance; //인스턴스 생성
     private void Awake()
     {
         if (EnemySpawn.instance == null)
@@ -14,7 +16,6 @@ public class EnemySpawn : MonoBehaviour
     static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
     static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
 
-    public static EnemySpawn instance; //인스턴스 생성
     public double[,,,] pCoordinateInMap; //인스턴스 전달용
     void Start()
     {
@@ -36,7 +37,7 @@ public class EnemySpawn : MonoBehaviour
                 k++;
                 if (Map[i, j] <= MapPlacing.instance.MaxEnemyRoom)
                 {
-                    double[,] SpawnCoordinate = CreateSpawnCoordiante(RoomSize, MapPlacing.instance.EnemyPblc, j, i);
+                    double[,] SpawnCoordinate = CreateSpawnCoordiante(RoomSize, MapPlacing.instance.EnemyPblc, k);
                     for (int rk = 0; rk < 2; rk++)
                     {
                         for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
@@ -49,31 +50,33 @@ public class EnemySpawn : MonoBehaviour
         }
         pCoordinateInMap = CoordinateInMap;
         // 방 출력 테스트
-        /*
+
         string result = "";
         for (k = 0; k < 2; k++)
         {
             for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
             {
-                result = result + CoordinateInMap[0, 0, k, l] + " ";
+                result = result + pCoordinateInMap[0, 0, k, l] + " ";
             }
             result = result + "\n";
         }
         Debug.Log(result);
-        */
+
     }
 
     //적 생성 좌표 반환하는 함수 / 반환값 :  SpawnCoordinate[0 or 1(0이 y축, 1이 x축), (적 양)]
-    public static double[,] CreateSpawnCoordiante(int RoomSize, int amount, int x, int y)
+    public static double[,] CreateSpawnCoordiante(int RoomSize, int amount, int k)
     {
         int i;
         double[,] SpawnCoordinate = new double[2, amount];
         System.Random Rnum = new System.Random();
+
         for (i = 0; i < amount; i++)
         {
-            SpawnCoordinate[0, i] = Rnum.Next(RoomSize) + MapPlacing.instance.rooms[x * y].GetChild(1).GetChild(3).position.y - 9.89028;
-            SpawnCoordinate[1, i] = Rnum.Next(RoomSize) + MapPlacing.instance.rooms[x * y].GetChild(1).GetChild(3).position.x;
+            SpawnCoordinate[0, i] = Rnum.Next(RoomSize) + MapPlacing.instance.rooms[k].GetChild(1).GetChild(3).position.y - 9.89028;
+            SpawnCoordinate[1, i] = Rnum.Next(RoomSize) + MapPlacing.instance.rooms[k].GetChild(1).GetChild(3).position.x;
         }
         return SpawnCoordinate;
     }
 }
+*/
