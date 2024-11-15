@@ -23,23 +23,23 @@ public class ItemBuyEvent : MonoBehaviour
         {
             
             Item item_ = DynamicItemForSaleList[i].item;
-            //Sprite Image;
-            //Image = item_.sprite;
+            Sprite Image;
+            Image = item_.sprite;
             ItemForSaleList.Add(item_);
             transform.GetChild(0).GetChild(0).GetChild(i).GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = item_.name;
             transform.GetChild(0).GetChild(0).GetChild(i).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (item_.values[0].ToString() + "$");
-            //transform.GetChild(0).GetChild(0).GetChild(i).GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().sprite = Image;
+            transform.GetChild(0).GetChild(0).GetChild(i).GetChild(1).GetComponent<Image>().sprite = Image;
         }
         for(var j = 0; j < StaticItemForSaleList.Length; j++)
         {
             Item item_ = StaticItemForSaleList[j].item;
-            //Sprite Image;
-            //Image = item_.sprite;
+            Sprite Image;
+            Image = item_.sprite;
 
             ItemForSaleList.Add(item_);
             transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = item_.name;
             transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = (item_.values[0].ToString() + "$");
-            //transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().sprite = Image;
+            transform.GetChild(0).GetChild(0).GetChild(j+4).GetChild(1).GetComponent<Image>().sprite = Image;
         }
 
 
