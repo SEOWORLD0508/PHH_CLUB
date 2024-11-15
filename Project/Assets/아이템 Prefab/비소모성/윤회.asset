@@ -16,7 +16,7 @@ MonoBehaviour:
   ItemDescription: .
   sprite: {fileID: 21300000, guid: e23eccb3381fc474ca4f95d427fb29dd, type: 3}
   values:
-  - 10
+  - 200
   - 0.1
   - 0.5
   - 2

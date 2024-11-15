@@ -17,7 +17,7 @@ MonoBehaviour:
     x1.5)"
   sprite: {fileID: 21300000, guid: d83e36252e7250c439327c8bf075943a, type: 3}
   values:
-  - 10
+  - 100
   - 0.1
   - 0.5
   - 2
