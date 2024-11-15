@@ -45,7 +45,7 @@ public class PlayerStatus : Creature
         maxHp = 100;
         maxStamina = 100;
         damage = 20;
-        health = maxHp / 2;
+        health = maxHp;
         stamina = maxStamina / 2;
         Debug.Log(maxHp + "/" + maxStamina + "/" + health + "/" + stamina);
         
