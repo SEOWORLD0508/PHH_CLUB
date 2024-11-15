@@ -66,7 +66,8 @@ public class MapPlacing : MonoBehaviour
     [SerializeField]
     public List<Transform> rooms;
     public bool bossRoomOpened = false;
-    
+    public Transform StoreKeeper;
+
     [SerializeField]
     float GridSize = 19.5f;
 
@@ -156,13 +157,12 @@ public class MapPlacing : MonoBehaviour
                         door2.transform.parent = rooms[cnt].transform;
                     }
                 }
-                /* 체크 포인트 룸 프리팹 완성되면 
+                //체크 포인트 룸 프리팹 완성되면 
                 if (Map[i, j] == roomNumInfo.check)
                 {
-                    Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
-                    Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                    Instantiate(StoreKeeper, rooms[cnt].position, Quaternion.identity);
                 }
-                */
+                
                 if (Map[i, j] == roomNumInfo.aisle)
                 {
                     if (i < Height - 2)
