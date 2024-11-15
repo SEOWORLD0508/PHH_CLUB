@@ -445,7 +445,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.4, y: 1.4}
   m_EdgeRadius: 0
 --- !u!114 &5541361895887253814
 MonoBehaviour:
@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1b3aeaea6374f47a5d5c3678a0e64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 7011293985828662607}
   maxSpeed: 0.01
   accel: 0.05
   dashable: 1
@@ -487,8 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb47855fb6d59d4099f60cdbd91537e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 0}
-  leftRot: {x: 0, y: 0, z: 0}
+  mesh: {fileID: 7121163159020781301}
+  leftRot: {x: 0, y: -180, z: 0}
   rightRot: {x: 0, y: 0, z: 0}
   health: 0
   maxHp: 100
@@ -762,7 +763,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3898096406118406198}

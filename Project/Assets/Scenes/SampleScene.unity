@@ -2555,6 +2555,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2938272058040811599, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938272058040811599, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: popUpText
       value: 
@@ -2667,6 +2675,14 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1279185602}
+    - target: {fileID: 7121163159020781301, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121163159020781301, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: mesh
       value: 
