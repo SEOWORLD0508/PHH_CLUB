@@ -119,8 +119,7 @@ public class MapPlacing : MonoBehaviour
             }
         }
 
-        //Map[Height - 3, Width] = roomNumInfo.check;
-        Map[Height - 1, 0] = roomNumInfo.check;
+        //Map[Height - 1, 0] = roomNumInfo.check;
         Map[Height - 3, Width] = roomNumInfo.boss;
         Map[Height - 3, Width - 1] = roomNumInfo.boss;
         RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
