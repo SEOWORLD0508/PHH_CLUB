@@ -22,7 +22,7 @@ public class GameStart : MonoBehaviour
     void Start()
     {
        //ettingMenu.SetActive(false);
-        SettingMenu.SetActive(true);
+        SettingMenu.SetActive(false);
     }
    
 
