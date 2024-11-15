@@ -22,7 +22,7 @@ public class RoomEvent : MonoBehaviour
     bool[,] MapMobSpawned = new bool[Height, Width];
     GameObject player;
     public bool bossRoomAble = false;
-
+    int clearRoomNum;
     void Start()
     {
         player = GameObject.Find("Player");
@@ -40,6 +40,7 @@ public class RoomEvent : MonoBehaviour
         k = 0;
         int l;
         int doorDis = 3;
+        clearRoomNum = 0;
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
@@ -119,6 +120,14 @@ public class RoomEvent : MonoBehaviour
                                 }
                             }
                         }
+                    }
+                    if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
+                    {
+                        clearRoomNum++;
+                    }
+                    if(clearRoomNum == 6) //방 갯수
+                    {
+                        bossRoomAble = true;
                     }
                 }
                 k++;

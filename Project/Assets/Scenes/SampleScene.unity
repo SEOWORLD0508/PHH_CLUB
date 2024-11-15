@@ -1871,6 +1871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1627961421165116823, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 360
+      objectReference: {fileID: 0}
     - target: {fileID: 1685713705978591189, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1990,6 +1994,14 @@ PrefabInstance:
     - target: {fileID: 3678046211672675486, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686552101005732589, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3686552101005732589, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4113763847040000710, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
       propertyPath: m_AnchorMax.y
