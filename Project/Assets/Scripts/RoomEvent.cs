@@ -18,14 +18,16 @@ public class RoomEvent : MonoBehaviour
     [SerializeField]
     public Transform enemies;
 
+
     int i, j, k;
     bool[,] MapMobSpawned = new bool[Height, Width];
+    [SerializeField]
     GameObject player;
     public bool bossRoomAble = false;
     int clearRoomNum;
     void Start()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
@@ -132,13 +134,14 @@ public class RoomEvent : MonoBehaviour
                 }
                 if(MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss)
                 {
+                    /*
                     if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
                         if (Input.GetKey(KeyCode.E))
                         {
                             //보스 입장
                         }
-                    }
+                    }*/
                 }
                 k++;
             }

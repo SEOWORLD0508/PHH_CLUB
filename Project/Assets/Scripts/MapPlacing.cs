@@ -66,7 +66,8 @@ public class MapPlacing : MonoBehaviour
     [SerializeField]
     public List<Transform> rooms;
     public bool bossRoomOpened = false;
-    
+    public Transform StoreKeeper;
+
     [SerializeField]
     float GridSize = 19.5f;
 
@@ -80,6 +81,8 @@ public class MapPlacing : MonoBehaviour
         3 : 체크 포인트
         4 : 복도(플레이어가 이동하는 곳)
         */
+
+        EnemyPerRoom = 0;
         int i, j, k;
         int cnt = 0;
         MapSize mapSize;
@@ -154,13 +157,12 @@ public class MapPlacing : MonoBehaviour
                         door2.transform.parent = rooms[cnt].transform;
                     }
                 }
-                /* 체크 포인트 룸 프리팹 완성되면 
+                //체크 포인트 룸 프리팹 완성되면 
                 if (Map[i, j] == roomNumInfo.check)
                 {
-                    Destroy(rooms[cnt].GetChild(1).Find("TestWall").gameObject);
-                    Destroy(rooms[cnt].GetChild(1).Find("TestWall (2)").gameObject);
+                    Instantiate(StoreKeeper, rooms[cnt].position, Quaternion.identity);
                 }
-                */
+                
                 if (Map[i, j] == roomNumInfo.aisle)
                 {
                     if (i < Height - 2)
@@ -245,8 +247,8 @@ public class MapPlacing : MonoBehaviour
                     cntt++;
                 }
             }
-            Transform door = Instantiate(Door, new Vector3(rooms[cntt].GetChild(1).Find("TestWall (3)").position.x + 0.25f, rooms[cnt].GetChild(1).Find("TestWall (1)").position.y, 0), Quaternion.identity);
-            door.transform.parent = rooms[cnt].transform;
+            Transform door = Instantiate(Door, new Vector3(rooms[cntt].GetChild(1).Find("TestWall (3)").position.x + 0.25f, rooms[cntt].GetChild(1).Find("TestWall (1)").position.y, 0), Quaternion.identity);
+            door.transform.parent = rooms[cntt].transform;
             //rooms[cnt].GetChild(1).Find("TestWall (1)").position.y rooms[cntt].GetChild(1).Find("TestWall (1)").position
         }
     }
