@@ -18,14 +18,16 @@ public class RoomEvent : MonoBehaviour
     [SerializeField]
     public Transform enemies;
 
+
     int i, j, k;
     bool[,] MapMobSpawned = new bool[Height, Width];
+    [SerializeField]
     GameObject player;
     public bool bossRoomAble = false;
     int clearRoomNum;
     void Start()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
