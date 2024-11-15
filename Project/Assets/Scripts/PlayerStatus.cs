@@ -91,6 +91,7 @@ public class PlayerStatus : Creature
 
         base.RefreshImage();
         staminaBar.fillAmount = (float)stamina / maxStamina;
+        VampBar.fillAmount = (float)Vamp;
     }
 
     // Update is called once per frame
