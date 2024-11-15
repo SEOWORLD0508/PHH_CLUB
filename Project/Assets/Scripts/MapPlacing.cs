@@ -124,7 +124,7 @@ public class MapPlacing : MonoBehaviour
         }
 
         Map[Height - 1, 0] = roomNumInfo.check;
-        Map[Height - 3, Width] = roomNumInfo.boss;
+        Map[Height - 3, Width] = roomNumInfo.boss + 1;
         Map[Height - 3, Width - 1] = roomNumInfo.boss;
         RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
         PblcMap = Map;
@@ -136,7 +136,7 @@ public class MapPlacing : MonoBehaviour
             {
                 result = result + Map[i, j] + " ";
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
-                if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check && RoomInfo[i, j].RoomKind != roomNumInfo.boss)
+                if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check && RoomInfo[i, j].RoomKind != roomNumInfo.boss && RoomInfo[i, j].RoomKind != roomNumInfo.boss + 1)
                 {
                     //Debug.Log(RoomInfo[i, j].DoorDirection);
                     if (RoomInfo[i, j].DoorDirection == "Right")
@@ -247,7 +247,7 @@ public class MapPlacing : MonoBehaviour
                     cntt++;
                 }
             }
-            Transform door = Instantiate(Door, new Vector3(rooms[cntt].GetChild(1).Find("TestWall (3)").position.x + 0.25f, rooms[cntt].GetChild(1).Find("TestWall (1)").position.y, 0), Quaternion.identity);
+            Transform door = Instantiate(Door, rooms[cntt].GetChild(1).Find("TestWall (1)").position + new Vector3(9, 0, 0), Quaternion.identity);
             door.transform.parent = rooms[cntt].transform;
             //rooms[cnt].GetChild(1).Find("TestWall (1)").position.y rooms[cntt].GetChild(1).Find("TestWall (1)").position
         }
