@@ -65,7 +65,8 @@ public class MapPlacing : MonoBehaviour
     public int[,] PblcMap;
     [SerializeField]
     public List<Transform> rooms;
-
+    public bool bossRoomOpened = false;
+    
     [SerializeField]
     float GridSize = 19.5f;
 
@@ -119,7 +120,7 @@ public class MapPlacing : MonoBehaviour
             }
         }
 
-        //Map[Height - 1, 0] = roomNumInfo.check;
+        Map[Height - 1, 0] = roomNumInfo.check;
         Map[Height - 3, Width] = roomNumInfo.boss;
         Map[Height - 3, Width - 1] = roomNumInfo.boss;
         RoomInfo = CreateMapStr(PblcWidth, Height, roomNumInfo, Map);
@@ -229,6 +230,27 @@ public class MapPlacing : MonoBehaviour
         nav.BuildNavMesh();
     }
 
+    private void Update()
+    {
+        if(RoomEvent.instance.bossRoomAble == true && bossRoomOpened == false)
+        {
+            //보스방 오픈 코드
+            bossRoomOpened = true;
+            int cntt = 0;
+            int i, j;
+            for(i = 0; i < PblcHeight - 3; i++)
+            {
+                for(j = 0; j < PblcWidth / 2; j++)
+                {
+                    cntt++;
+                }
+            }
+            Transform door = Instantiate(Door, new Vector3(rooms[cntt].GetChild(1).Find("TestWall (3)").position.x + 0.25f, rooms[cnt].GetChild(1).Find("TestWall (1)").position.y, 0), Quaternion.identity);
+            door.transform.parent = rooms[cnt].transform;
+            //rooms[cnt].GetChild(1).Find("TestWall (1)").position.y rooms[cntt].GetChild(1).Find("TestWall (1)").position
+        }
+    }
+    
     //방 정보 배열 생성 함수
     public static RoomStr[,] CreateMapStr(int Width, int Height, RoomNumInfo roomNumInfo, int[,] MapArr)
     {
