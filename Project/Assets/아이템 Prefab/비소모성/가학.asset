@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: "\uAC00\uD559"
   ItemDescription: "(\uC801 \uD53C\uACA9 \uC2DC \uCCB4\uB825 \uD68C\uBCF5) \uD53C\uACA9
     \uB2F9 +3%"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 8995b43541f736f4cb2740e1915729fd, type: 3}
   values:
   - 10
   - 0.1

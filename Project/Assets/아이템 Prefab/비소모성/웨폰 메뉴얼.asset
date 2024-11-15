@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemName: "\uC6E8\uD3F0 \uBA54\uB274\uC5BC"
   ItemDescription: "(\uBB34\uAE30 \uACF5\uACA9\uB825 \uC99D\uAC00) +50%"
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c4be6c6c233bc2f4bab7d4b29e07e327, type: 3}
   values:
   - 10
   - 0.1
