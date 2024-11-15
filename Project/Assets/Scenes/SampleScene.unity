@@ -1155,6 +1155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd9ee06ed2d8164fa0c2e4766ecb959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1279185602 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7011293985828662607, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+  m_PrefabInstance: {fileID: 8726958145526663429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1318841831 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8259905626699607166, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
@@ -2658,6 +2663,10 @@ PrefabInstance:
       propertyPath: weaponSlots.Array.data[1]
       value: 
       objectReference: {fileID: 1002267087}
+    - target: {fileID: 5541361895887253814, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1279185602}
     - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: mesh
       value: 

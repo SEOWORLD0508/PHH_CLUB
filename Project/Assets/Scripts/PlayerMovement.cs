@@ -7,6 +7,7 @@ using UnityEngine.Playables;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public Animator animator;
 
     [Header("Movement")]
     float currentSpeed;
@@ -75,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
         if(currentDashT < dashC - invincibleTime)
         {
             invincible = false;
+
+            animator.SetBool("Dash", false);
         }
 
         status.immune = invincible;
@@ -82,26 +85,31 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveDir != Vector2.zero)
         {
+            animator.SetBool("Walk", true);
             if (currentSpeed < targetS)
                 currentSpeed += accel * Time.deltaTime;
             else currentSpeed = targetS;
+            if (moveDir.x > 0) status.rotateMesh(true); else if (moveDir.x < 0) status.rotateMesh(false);
         }
         else
+        {
             currentSpeed = 0;
+            animator.SetBool("Walk", false);
+        }
 
         //rb.AddForce(moveDir * currentSpeed);
        
         transform.Translate(moveDir * currentSpeed);
 
 
-        if (Input.GetKeyDown(DashKey) && currentDashT <= 0 && dashable)
+        if (Input.GetKeyDown(DashKey) && currentDashT <= 0 && dashable && status.stamina - 10 >= 0)
         {
 
-            
+            animator.SetBool("Dash", true);
             lineRenderer.gameObject.SetActive(true);
             currentDashT = dashC;
             invincible = true;
-            //status.currentStamina -= 10;
+            status.stamina -= 10;
             transform.position = checkWall(dashAmount);
 
         }
