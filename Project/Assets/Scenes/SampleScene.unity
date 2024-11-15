@@ -725,7 +725,8 @@ MonoBehaviour:
   - {fileID: 4348073876357642783, guid: ae2522391d4fca5488f923246e900943, type: 3}
   - {fileID: 4348073876357642783, guid: 242f24fab521a7d47b378e1426a6876d, type: 3}
   - {fileID: 4348073876357642783, guid: 347e141ad835d2849acc41cd7d963cc8, type: 3}
-  - {fileID: 4348073876357642783, guid: 099bc35fd0afc8b4e8b914bc26f6f557, type: 3}
+  - {fileID: 4348073876357642783, guid: 625384e1462d8944b98fa4c4f702bd26, type: 3}
+  - {fileID: 4348073876357642783, guid: f5a8009c4c2cb5b4d9cc71ffaab9ba11, type: 3}
   Door: {fileID: 4849825124166782470, guid: abd5a816108c85a4da35772724d0d7e1, type: 3}
   result: 
   EnemyPblc: 5
