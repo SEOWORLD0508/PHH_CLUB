@@ -81,10 +81,13 @@ public class Inventory : MonoBehaviour
                 {
                     slots[i].item = equipments[i].item;
                     slots[i].count = equipments[i].count;
+                    print(equipments[i].item.sprite);
+                    slots[i].image.sprite = equipments[i].item.sprite;
                 }
                 else
                 {
                     slots[i].item = null;
+                    slots[i].image.sprite = null;
                     slots[i].count = 0;
                 }
                 if (slots[i].count == 0)
@@ -104,11 +107,13 @@ public class Inventory : MonoBehaviour
                 {
                     weaponSlots[i].item = weapons[i].item;
                     weaponSlots[i].count = weapons[i].count;
+                    weaponSlots[i].image.sprite = weapons[i].item.sprite;
                 }
                 else
                 {
                     weaponSlots[i].item = null;
                     weaponSlots[i].count = 0;
+                    weaponSlots[i].image.sprite = null;
                 }
                 if (weaponSlots[i].count == 0)
                 {
