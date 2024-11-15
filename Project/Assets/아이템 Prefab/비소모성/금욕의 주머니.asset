@@ -15,7 +15,7 @@ MonoBehaviour:
   ItemName: "\uAE08\uC695\uC758 \uC8FC\uBA38\uB2C8"
   ItemDescription: "(\uC544\uC774\uD15C \uCE78 \uC99D\uAC00, \uACE8\uB4DC \uB4DC\uB78D
     x0.75)"
-  sprite: {fileID: 21300026, guid: 87efaf20c96bd46b2a6e7bf4d4d3fd57, type: 3}
+  sprite: {fileID: 21300000, guid: 06fce16c7818eae40bef8ee6495066d0, type: 3}
   values:
   - 10
   - 0.1
