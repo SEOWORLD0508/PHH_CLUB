@@ -82,7 +82,7 @@ public class MapPlacing : MonoBehaviour
         4 : 복도(플레이어가 이동하는 곳)
         */
 
-        EnemyPerRoom = 0;
+        //EnemyPerRoom = 0;
         int i, j, k;
         int cnt = 0;
         MapSize mapSize;

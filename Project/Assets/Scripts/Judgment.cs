@@ -137,7 +137,7 @@ public class Judgment : MonoBehaviour{
                     }
                     else
                     {
-                        Player_.Vamp += 3;
+                        Player_.Vamp += 2;
                         creature.Die();
                         if (Player_.heal_by_enemy_kill)
                         {
