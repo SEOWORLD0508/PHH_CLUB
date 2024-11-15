@@ -45,6 +45,7 @@ public class Creature : MonoBehaviour
         
     }
 
+
     public void rotateMesh(bool _right)
     {
         Vector3 targetR = _right ? rightRot : leftRot;

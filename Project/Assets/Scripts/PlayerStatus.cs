@@ -31,6 +31,9 @@ public class PlayerStatus : Creature
     Image staminaBar;
 
     [SerializeField]
+    Image VampBar;
+
+    [SerializeField]
     PlayerMovement playerMovement;
 
     // Start is called before the first frame update
@@ -40,6 +43,7 @@ public class PlayerStatus : Creature
 
         healthBar.fillAmount = 1.0f;
         staminaBar.fillAmount = 1.0f;
+        VampBar.fillAmount = 1.0f;
         Vamp = 0;
         maxVamp = 100;
         maxHp = 100;
@@ -87,6 +91,7 @@ public class PlayerStatus : Creature
 
         base.RefreshImage();
         staminaBar.fillAmount = (float)stamina / maxStamina;
+        VampBar.fillAmount = (float)Vamp / maxVamp;
     }
 
     // Update is called once per frame

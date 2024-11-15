@@ -17,7 +17,7 @@ MonoBehaviour:
     \uB2F9 +15%"
   sprite: {fileID: 21300000, guid: b2b26440c0f3a8341969f43f87ae4fe0, type: 3}
   values:
-  - 10
+  - 200
   - 0.1
   - 0.5
   - 2

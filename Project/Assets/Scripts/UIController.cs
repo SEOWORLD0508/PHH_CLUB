@@ -9,13 +9,13 @@ public class UIController : MonoBehaviour
 
     [Header("Bars")]
     [SerializeField]
-    Image healthBar, staminaBar,goldDiplayer;
+    Image healthBar, staminaBar, goldDiplayer, VampBar;
 
 
     [SerializeField]
     float barSpeed;
 
-    public float targetH, targetS; // (currentValue/MaxValue)
+    public float targetH, targetS, targetV; // (currentValue/MaxValue)
 
     [Space]
 
@@ -35,6 +35,7 @@ public class UIController : MonoBehaviour
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, targetH, barSpeed);
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, targetS, barSpeed);
+        VampBar.fillAmount = Mathf.Lerp(VampBar.fillAmount, targetV, barSpeed);
         //goldDiplayer.fillAmount = Mathf.Lerp(goldDiplayer.fillAmount, targetS, barSpeed);
         pauseBase.gameObject.SetActive(GameManager.Instance.Pause);    
 
