@@ -122,7 +122,7 @@ public class Judgment : MonoBehaviour{
                     }
                 }
                 else
-                {
+                {   
                     if (Player_.immune)
                     {
                         creature.health += attacker.damage;
@@ -137,6 +137,7 @@ public class Judgment : MonoBehaviour{
                     }
                     else
                     {
+                        Player_.Vamp += 3;
                         creature.Die();
                         if (Player_.heal_by_enemy_kill)
                         {

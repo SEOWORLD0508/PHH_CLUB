@@ -256,8 +256,8 @@ MonoBehaviour:
   - Name: attack1
     val:
     - 0
-    - 0.5
-    - 1
+    - 0.1
+    - 0.1
   obs:
   - {x: -1.930022, y: -1}
   navmesh: {fileID: 4915110985494678234}
