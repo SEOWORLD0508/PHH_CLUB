@@ -132,13 +132,14 @@ public class RoomEvent : MonoBehaviour
                 }
                 if(MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss)
                 {
+                    /*
                     if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
                         if (Input.GetKey(KeyCode.E))
                         {
                             //보스 입장
                         }
-                    }
+                    }*/
                 }
                 k++;
             }

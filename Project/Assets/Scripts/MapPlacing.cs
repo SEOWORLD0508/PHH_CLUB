@@ -80,6 +80,8 @@ public class MapPlacing : MonoBehaviour
         3 : 체크 포인트
         4 : 복도(플레이어가 이동하는 곳)
         */
+
+        EnemyPerRoom = 0;
         int i, j, k;
         int cnt = 0;
         MapSize mapSize;
@@ -245,8 +247,8 @@ public class MapPlacing : MonoBehaviour
                     cntt++;
                 }
             }
-            Transform door = Instantiate(Door, new Vector3(rooms[cntt].GetChild(1).Find("TestWall (3)").position.x + 0.25f, rooms[cnt].GetChild(1).Find("TestWall (1)").position.y, 0), Quaternion.identity);
-            door.transform.parent = rooms[cnt].transform;
+            Transform door = Instantiate(Door, new Vector3(rooms[cntt].GetChild(1).Find("TestWall (3)").position.x + 0.25f, rooms[cntt].GetChild(1).Find("TestWall (1)").position.y, 0), Quaternion.identity);
+            door.transform.parent = rooms[cntt].transform;
             //rooms[cnt].GetChild(1).Find("TestWall (1)").position.y rooms[cntt].GetChild(1).Find("TestWall (1)").position
         }
     }

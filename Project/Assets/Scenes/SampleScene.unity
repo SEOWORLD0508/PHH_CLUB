@@ -426,6 +426,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8fe80abb5875014f9a77b22adf049ee, type: 3}
+--- !u!4 &334775489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7121163159020781301, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+  m_PrefabInstance: {fileID: 8726958145526663429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &425376186 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7764719752655725623, guid: eeb04d341de07234d89e01882dcde2c7, type: 3}
@@ -743,6 +748,7 @@ MonoBehaviour:
   PblcHeight: 4
   MaxEnemyRoom: 2
   rooms: []
+  bossRoomOpened: 0
   GridSize: 19
   nav: {fileID: 287608236}
 --- !u!114 &671901330
@@ -2506,10 +2512,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1776805385}
     - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: slots.Array.size
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: slots.Array.data[0]
       value: 
       objectReference: {fileID: 2939642744401844755}
@@ -2606,18 +2608,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1154303996}
     - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: slots.Array.data[24]
-      value: 
-      objectReference: {fileID: 1078171982}
-    - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: slots.Array.data[25]
-      value: 
-      objectReference: {fileID: 1002267087}
-    - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: weaponSlots.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4619127771990904328, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: weaponSlots.Array.data[0]
       value: 
       objectReference: {fileID: 1078171982}
@@ -2625,22 +2615,22 @@ PrefabInstance:
       propertyPath: weaponSlots.Array.data[1]
       value: 
       objectReference: {fileID: 1002267087}
-    - target: {fileID: 5541361895887253814, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: reverseOffset
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5541361895887253814, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: invincibleTime
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 5541361895887253814, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
-      propertyPath: wallLayer.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
+    - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: mesh
+      value: 
+      objectReference: {fileID: 334775489}
     - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 847735858}
+    - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: leftRot.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
+      propertyPath: rightRot.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7949127987129803956, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: staminaBar
       value: 
