@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\uC724\uD68C"
   m_EditorClassIdentifier: 
   ItemName: "\uC724\uD68C"
-  ItemDescription: "(\uCCB4\uB825 1\uB85C \uBD80\uD65C, 1\uCD08 \uBB34\uC801)"
+  ItemDescription: .
   sprite: {fileID: 0}
   values:
   - 10
