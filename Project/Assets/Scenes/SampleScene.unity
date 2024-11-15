@@ -359,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105801853993443951, guid: a8fe80abb5875014f9a77b22adf049ee, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: Enemy1
       objectReference: {fileID: 0}
     - target: {fileID: 8926872799658415383, guid: a8fe80abb5875014f9a77b22adf049ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2648,7 +2648,7 @@ PrefabInstance:
       objectReference: {fileID: 1002267087}
     - target: {fileID: 5541361895887253814, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: reverseOffset
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5541361895887253814, guid: 231f7aedaeae3304ba3720256d2cef4f, type: 3}
       propertyPath: invincibleTime
