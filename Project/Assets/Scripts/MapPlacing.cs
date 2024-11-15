@@ -225,7 +225,7 @@ public class MapPlacing : MonoBehaviour
             }
             //result = result + "\n";
         }
-        Debug.Log(result);
+        //Debug.Log(result);
         nav.BuildNavMesh();
     }
 
