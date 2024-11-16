@@ -16,8 +16,8 @@ public class RoomEvent : MonoBehaviour
     static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
 
     [SerializeField]
-    public Transform enemies;
-
+    public List<Transform> enemies;
+    public Transform boss;
 
     int i, j, k;
     bool[,] MapMobSpawned = new bool[Height, Width];
@@ -61,7 +61,7 @@ public class RoomEvent : MonoBehaviour
                             //적 생성 코드
                             for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
                             {
-                                Transform enemy = Instantiate(enemies, MapPlacing.instance.rooms[k].position + new Vector3(Random.Range(-8, 8), Random.Range(-8, 8), 0), Quaternion.identity);
+                                Transform enemy = Instantiate(enemies[Random.Range(0, 3)], MapPlacing.instance.rooms[k].position + new Vector3(Random.Range(-8, 8), Random.Range(-8, 8), 0), Quaternion.identity);
                                 enemy.eulerAngles = new Vector3(-90, 0, 0);
                             }
                             MapMobSpawned[i, j] = true;
@@ -123,23 +123,36 @@ public class RoomEvent : MonoBehaviour
                             }
                         }
                     }
-                    if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
+                    if (MapPlacing.instance.RoomInfo[i, j].isCleared == true)
                     {
                         clearRoomNum++;
                     }
-                    if(clearRoomNum == 6) //방 갯수
+                    if (clearRoomNum == 6) //방 갯수
                     {
                         bossRoomAble = true;
                     }
                 }
-                if(MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss && MapPlacing.instance.bossRoomOpened == true)
+                if (MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss + 1 && MapPlacing.instance.bossRoomOpened == true)
                 {
-                    
-                    if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
-                        {
+
+                    if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(4).position, player.transform.position) < doorDis)
+                    {
                         if (Input.GetKey(KeyCode.E))
                         {
-                            //보스 입장
+                            if (MapPlacing.instance.RoomInfo[i, j].isEntered == false)
+                            {
+                                //보스 입장
+                                player.transform.position = MapPlacing.instance.rooms[k].position;
+                                Debug.Log("Boss Room");
+                                Transform Boss = Instantiate(boss, MapPlacing.instance.rooms[k - 1].position, Quaternion.identity);
+                                Boss.eulerAngles = new Vector3(-90, 0, 0);
+                                MapPlacing.instance.RoomInfo[i, j].isEntered = true;
+                            }
+                            else
+                            {
+                                player.transform.position = MapPlacing.instance.rooms[k + 5].position  + new Vector3(9.5f, 4.5f, 0);
+                                MapPlacing.instance.RoomInfo[i, j].isEntered = false;
+                            }
                         }
                     }
                 }

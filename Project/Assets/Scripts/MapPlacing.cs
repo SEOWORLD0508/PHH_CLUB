@@ -240,15 +240,17 @@ public class MapPlacing : MonoBehaviour
             bossRoomOpened = true;
             int cntt = 0;
             int i, j;
-            for(i = 0; i < PblcHeight - 3; i++)
+            /*
+            for(i = 0; i < PblcHeight - 4; i++)
             {
                 for(j = 0; j < PblcWidth / 2; j++)
                 {
                     cntt++;
                 }
             }
-            Transform door = Instantiate(Door, rooms[cntt].GetChild(1).Find("TestWall (1)").position + new Vector3(9, 0, 0), Quaternion.identity);
-            door.transform.parent = rooms[cntt].transform;
+            */
+            Transform door = Instantiate(Door, rooms[9].GetChild(1).Find("TestWall (1)").position + new Vector3(-9.5f, 0, 0), Quaternion.identity);
+            door.transform.parent = rooms[9].transform;
             //rooms[cnt].GetChild(1).Find("TestWall (1)").position.y rooms[cntt].GetChild(1).Find("TestWall (1)").position
         }
     }
