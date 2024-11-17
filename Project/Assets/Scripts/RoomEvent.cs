@@ -61,7 +61,7 @@ public class RoomEvent : MonoBehaviour
                             //적 생성 코드
                             for (l = 0; l < MapPlacing.instance.EnemyPblc; l++)
                             {
-                                Transform enemy = Instantiate(enemies[Random.Range(0, 3)], MapPlacing.instance.rooms[k].position + new Vector3(Random.Range(-8, 8), Random.Range(-8, 8), 0), Quaternion.identity);
+                                Transform enemy = Instantiate(enemies[Random.Range(0, 4)], MapPlacing.instance.rooms[k].position + new Vector3(Random.Range(-8, 8), Random.Range(-8, 8), 0), Quaternion.identity);
                                 enemy.eulerAngles = new Vector3(-90, 0, 0);
                             }
                             MapMobSpawned[i, j] = true;

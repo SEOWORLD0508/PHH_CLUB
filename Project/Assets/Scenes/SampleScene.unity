@@ -752,9 +752,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 8926872799658415383, guid: a8fe80abb5875014f9a77b22adf049ee, type: 3}
+  - {fileID: 8926872799658415383, guid: a72b02e739cc73f4db8dcc118be6b676, type: 3}
   - {fileID: 8926872799658415383, guid: 2a1a151dc7a8a9344aedaaed4cdcc1ba, type: 3}
   - {fileID: 8926872799658415383, guid: dcdd984a1ac3d97439c5f886fa046de5, type: 3}
-  boss: {fileID: 8926872799658415383, guid: a72b02e739cc73f4db8dcc118be6b676, type: 3}
+  boss: {fileID: 8926872799658415383, guid: 9c738f8b56ea1704eaa1cea39663bef3, type: 3}
   player: {fileID: 456096636}
   bossRoomAble: 0
 --- !u!114 &687830467 stripped
