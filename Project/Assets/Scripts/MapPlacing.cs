@@ -78,11 +78,15 @@ public class MapPlacing : MonoBehaviour
     {
         /*방 종류
         0~2 : 랜덤으로 배치되는 방(상자방, 몬스터 방 etc..)
-        3 : 체크 포인트
+        3 : 상점?
         4 : 복도(플레이어가 이동하는 곳)
-        */
 
-        //EnemyPerRoom = 0;
+        test wall
+            0
+        3       2
+            1
+
+        */
         int i, j, k;
         int cnt = 0;
         MapSize mapSize;
@@ -110,7 +114,6 @@ public class MapPlacing : MonoBehaviour
         {
             for (j = 0; j < Width; j++)
             {
-                Debug.Log(j);
                 Map[i, j] = hfMap1[i, j];
             }
         }
@@ -138,7 +141,6 @@ public class MapPlacing : MonoBehaviour
                 rooms.Add(Instantiate(roomPrefabs[Map[i, j]], new Vector2(j * GridSize, -1 * i * GridSize), Quaternion.identity));
                 if (RoomInfo[i, j].RoomKind != roomNumInfo.aisle && RoomInfo[i, j].RoomKind != roomNumInfo.check && RoomInfo[i, j].RoomKind != roomNumInfo.boss && RoomInfo[i, j].RoomKind != roomNumInfo.boss + 1)
                 {
-                    //Debug.Log(RoomInfo[i, j].DoorDirection);
                     if (RoomInfo[i, j].DoorDirection == "Right")
                     {
                         Transform door = Instantiate(Door, rooms[cnt].GetChild(1).Find("TestWall (2)").position, Quaternion.identity);
@@ -226,9 +228,7 @@ public class MapPlacing : MonoBehaviour
                 }
                 cnt++;
             }
-            //result = result + "\n";
         }
-        //Debug.Log(result);
         nav.BuildNavMesh();
     }
 
@@ -240,18 +240,8 @@ public class MapPlacing : MonoBehaviour
             bossRoomOpened = true;
             int cntt = 0;
             int i, j;
-            /*
-            for(i = 0; i < PblcHeight - 4; i++)
-            {
-                for(j = 0; j < PblcWidth / 2; j++)
-                {
-                    cntt++;
-                }
-            }
-            */
             Transform door = Instantiate(Door, rooms[9].GetChild(1).Find("TestWall (1)").position + new Vector3(-9.5f, 0, 0), Quaternion.identity);
             door.transform.parent = rooms[9].transform;
-            //rooms[cnt].GetChild(1).Find("TestWall (1)").position.y rooms[cntt].GetChild(1).Find("TestWall (1)").position
         }
     }
     
@@ -277,7 +267,7 @@ public class MapPlacing : MonoBehaviour
                     {
                         roomStr[i, j].DoorDirection = "Left";
                     }
-                    else if (j == (Width / 2)/* || j == (Width / 2)*/)
+                    else if (j == (Width / 2))
                     {
                         roomStr[i, j].DoorDirection = "Both";
                     }
@@ -443,7 +433,6 @@ public class MapPlacing : MonoBehaviour
                 MapArr[j, i] = roomNumInfo.aisle;
             }
         }
-        //MapArr[height - 3, width - 1] = roomNumInfo.boss;
         return MapArr;
     }
 

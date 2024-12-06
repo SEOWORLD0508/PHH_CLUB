@@ -27,7 +27,6 @@ public class RoomEvent : MonoBehaviour
     int clearRoomNum;
     void Start()
     {
-        //player = GameObject.Find("Player");
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
@@ -71,7 +70,6 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
-                            //Debug.Log("room");
                             if (Input.GetKey(KeyCode.E))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
@@ -90,7 +88,6 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
-                            //Debug.Log("room");
                             if (Input.GetKey(KeyCode.E))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
@@ -105,7 +102,6 @@ public class RoomEvent : MonoBehaviour
                         }
                         else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < doorDis)
                         {
-                            //Debug.Log("room");
                             if (Input.GetKey(KeyCode.E))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j - 1].isEntered == true)
@@ -150,7 +146,7 @@ public class RoomEvent : MonoBehaviour
                             }
                             else
                             {
-                                player.transform.position = MapPlacing.instance.rooms[k + 5].position  + new Vector3(9.5f, 4.5f, 0);
+                                player.transform.position = MapPlacing.instance.rooms[k + 5].position + new Vector3(9.5f, 4.5f, 0);
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = false;
                             }
                         }
@@ -222,8 +218,7 @@ public class RoomEvent : MonoBehaviour
                 }
             }
         }
-        int[] noPlayer = new int[1];
-        noPlayer[0] = -1;
-        return noPlayer;
+        result[0] = -1;
+        return result;
     }
 }
