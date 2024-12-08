@@ -13,7 +13,7 @@ public class RoomEvent : MonoBehaviour
         }
     }
     static int Width = 6;//MapPlacing.instance.PblcWidth; //맵의 가로
-    static int Height = 4;//MapPlacing.instance.PblcHeight; //맵의 세로
+    static int Height = 3;//MapPlacing.instance.PblcHeight; //맵의 세로
 
     [SerializeField]
     public List<Transform> enemies;
@@ -34,6 +34,7 @@ public class RoomEvent : MonoBehaviour
                 MapMobSpawned[i, j] = false;
             }
         }
+        MapPlacing.instance.RoomInfo[Height - 1, 0].isCleared = true;
     }
 
     void Update()
@@ -80,7 +81,6 @@ public class RoomEvent : MonoBehaviour
                                 {
                                     GetInRoom(i, j, MapPlacing.instance.RoomInfo[i, j].DoorDirection, k);
                                 }
-                                Debug.Log(MapPlacing.instance.RoomInfo[i, j].isEntered);
                             }
                         }
                     }
@@ -126,6 +126,23 @@ public class RoomEvent : MonoBehaviour
                     if (clearRoomNum == 6) //방 갯수
                     {
                         bossRoomAble = true;
+                    }
+                }
+                if (MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.check)
+                {
+                    if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
+                    {
+                        if (Input.GetKey(KeyCode.E))
+                        {
+                            if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
+                            {
+                                GetOutRoom(i, j, "Right", k);
+                            }
+                            else
+                            {
+                                GetInRoom(i, j, "Right", k);
+                            }
+                        }
                     }
                 }
                 if (MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss + 1 && MapPlacing.instance.bossRoomOpened == true)
@@ -177,15 +194,18 @@ public class RoomEvent : MonoBehaviour
     //방 나가기
     public void GetOutRoom(int y, int x, string Direction, int k)
     {
-        if (Direction == "Right")
+        if (MapPlacing.instance.RoomInfo[i, j].isCleared == true)
         {
-            player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
+            if (Direction == "Right")
+            {
+                player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
+            }
+            else if (Direction == "Left")
+            {
+                player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(-3, 0, 0);
+            }
+            MapPlacing.instance.RoomInfo[i, j].isEntered = false;
         }
-        else if (Direction == "Left")
-        {
-            player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(-3, 0, 0);
-        }
-        MapPlacing.instance.RoomInfo[i, j].isEntered = false;
     }
 
     //방 들어가기
