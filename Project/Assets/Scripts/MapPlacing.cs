@@ -162,7 +162,8 @@ public class MapPlacing : MonoBehaviour
                 //체크 포인트 룸 프리팹 완성되면 
                 if (Map[i, j] == roomNumInfo.check)
                 {
-                    Instantiate(StoreKeeper, rooms[cnt].position, Quaternion.identity);
+                    Transform storekeeper = Instantiate(StoreKeeper, rooms[cnt].position, Quaternion.identity);
+                    storekeeper.gameObject.SetActive(true);
                 }
                 
                 if (Map[i, j] == roomNumInfo.aisle)

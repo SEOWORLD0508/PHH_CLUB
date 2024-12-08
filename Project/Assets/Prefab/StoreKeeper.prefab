@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a84554a23243b41be99e85304470c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 100
+  interactionDistance: 20
   StaticItemForSaleList:
   - item: {fileID: 11400000, guid: dc313dae718262742ad8f82b0a40134d, type: 2}
     count: 0
@@ -54,13 +54,13 @@ MonoBehaviour:
     count: 0
   - item: {fileID: 11400000, guid: 256112c442f02b3459613b3995d42854, type: 2}
     count: 0
-  - item: {fileID: 11400000, guid: a5b5632636f1ec74a829d0b5850e0576, type: 2}
+  - item: {fileID: 11400000, guid: c848e34a69a729e48be5f199a3ce0c9a, type: 2}
     count: 0
   - item: {fileID: 11400000, guid: 858f75821ccbaf04d918811db4fc5683, type: 2}
     count: 0
   - item: {fileID: 11400000, guid: a2e9166c6a00ee147899bc1fe3e757a2, type: 2}
     count: 0
-  - item: {fileID: 11400000, guid: c848e34a69a729e48be5f199a3ce0c9a, type: 2}
+  - item: {fileID: 11400000, guid: a5b5632636f1ec74a829d0b5850e0576, type: 2}
     count: 0
   DynamicItemForSaleList:
   - item: {fileID: 11400000, guid: 9148abc79b02a2849a41d83ff15945ff, type: 2}
