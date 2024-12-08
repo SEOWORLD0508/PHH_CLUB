@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public Transform DescriptionBase;
     public TMP_Text NameText;
     public TMP_Text DescriptionText;
+    public Image ItemSprite;
     public KeyCode InventoryKey = KeyCode.Tab;
     private static GameManager _instance;
 

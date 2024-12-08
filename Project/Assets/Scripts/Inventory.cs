@@ -81,7 +81,7 @@ public class Inventory : MonoBehaviour
                 {
                     slots[i].item = equipments[i].item;
                     slots[i].count = equipments[i].count;
-                    print(equipments[i].item.sprite);
+                    //print(equipments[i].item.sprite);
                     slots[i].image.sprite = equipments[i].item.sprite;
                 }
                 else
@@ -213,7 +213,7 @@ public class Inventory : MonoBehaviour
                 if (closestSlot.item != null)
                 {
 
-                    print(closestSlot);
+                    //print(closestSlot);
                     DescriptionOn = true;
                     desSlot = closestSlot;
 
@@ -292,6 +292,7 @@ public class Inventory : MonoBehaviour
 
             GameManager.Instance.NameText.text = desSlot.item.ItemName;
             GameManager.Instance.DescriptionText.text = desSlot.item.ItemDescription;
+            GameManager.Instance.ItemSprite.sprite = desSlot.item.sprite;
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 DropItem(desSlot.item);
@@ -299,7 +300,7 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 UseItem(desSlot.item);
-                print(desSlot.item.ItemName + "is Used");
+                //print(desSlot.item.ItemName + "is Used");
                 if (desSlot.item.itemType == ItemType.Etc)
                 { 
                     RemoveItem(equipments, desSlot.item, 1);

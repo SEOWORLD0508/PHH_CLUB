@@ -31,11 +31,13 @@ public class Shopping : MonoBehaviour
         if (dis < interactionDistance)
         {
             // E 키를 눌러 상점과 상호작용
-            if (Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.T))
             {   // 상점 UI 열기 / 닫기
                 //OpenShopUI(); 
                 print("Shop Opened");
                 GameManager.Instance.ShopOnOff = !GameManager.Instance.ShopOnOff;
+                print(GameManager.Instance.ShopOnOff);
+                
             }
         }
         
