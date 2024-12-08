@@ -266,6 +266,9 @@ public class Inventory : MonoBehaviour
                             break;
                         case ItemType.Weapon:
                             AddItem(weapons, closest.item);
+                            
+                            GetComponent<PlayerStatus>().UpdateStatus();
+                            //print("Update Weapon");
                             break;
                     }
                     closest.DecreaseAmount(1);
@@ -296,6 +299,10 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 DropItem(desSlot.item);
+                if(desSlot.item.itemType == ItemType.Weapon) {
+                    GetComponent<PlayerStatus>().UpdateStatus();
+                    //print("Update Weapon");
+                }
             }
             if (Input.GetKeyDown(KeyCode.E))
             {

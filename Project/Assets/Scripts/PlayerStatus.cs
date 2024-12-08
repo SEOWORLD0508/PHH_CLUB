@@ -60,12 +60,23 @@ public class PlayerStatus : Creature
         
     }
 
-    void UpdateStatus()
+    public void UpdateStatus()
     {
         RefreshImage();
-        Item item = inventory.weapons[0].item; // 플레이어 아이템 받아옴
-        weaponDamage = item.values[2] * weaponDamageCoeff; // 무기 데미지
-        attackRange = item.values[3]; // 무기 사거리  
+        if(inventory.weapons.Count == 0)
+        {
+            item = null;
+            weaponDamage = 0;
+            attackRange = 5;
+        }
+        else
+        {
+            Item item_ = inventory.weapons[0].item; // 플레이어 아이템 받아옴
+            item = item_; // item 은 creature 의 item 속성
+            weaponDamage = item_.values[2] * weaponDamageCoeff; // 무기 데미지
+            attackRange = item_.values[3]; // 무기 사거리
+        }
+          
         maxHp = 100;
         damage = 20; // 기본 데미지
         //maxStamina = 100 + Vamp * 1.5f;
