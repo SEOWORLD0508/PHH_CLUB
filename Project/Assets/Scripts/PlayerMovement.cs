@@ -98,8 +98,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //rb.AddForce(moveDir * currentSpeed);
-       
-        transform.Translate(moveDir * currentSpeed);
+        if(status.attack)
+        transform.Translate(moveDir * currentSpeed * Time.deltaTime);
 
 
         if (Input.GetKeyDown(DashKey) && currentDashT <= 0 && dashable && status.stamina - 10 >= 0)

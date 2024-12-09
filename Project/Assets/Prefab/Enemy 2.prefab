@@ -257,7 +257,7 @@ MonoBehaviour:
     val:
     - 0
     - 0.5
-    - 1
+    - 2
   obs:
   - {x: -1.930022, y: -1}
   navmesh: {fileID: 4915110985494678234}

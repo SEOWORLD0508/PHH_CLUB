@@ -22,6 +22,7 @@ public class GameStart : MonoBehaviour
     void Start()
     {
        //ettingMenu.SetActive(false);
+       if(SettingMenu)
         SettingMenu.SetActive(false);
     }
    
@@ -48,6 +49,7 @@ public class GameStart : MonoBehaviour
             case ButtonType.SettingQuit:
                 print("asdf");
                 SettingMenu.SetActive(false);
+                Application.Quit();
                 break;
         }
     }

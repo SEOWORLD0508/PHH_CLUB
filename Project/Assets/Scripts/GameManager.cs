@@ -32,6 +32,20 @@ public class GameManager : MonoBehaviour
 
     [Header("ReBirth")]
     public bool rebirth = false;
+
+    
+
+   
+
+    [Header("DeathScreen")]
+    float PlayTime = 0;
+    bool playing = false;
+    public int mobcount = 0;
+    public Transform ScreenBase;
+    public TMP_Text MoneyT;
+    public TMP_Text KillT;
+    public TMP_Text TimeT;
+
     public float GetGold()
     { 
         return Gold;
@@ -86,10 +100,21 @@ public class GameManager : MonoBehaviour
         {
             InventoryBool = !InventoryBool;
         }
+
+        if(playing && !Pause)
+        {
+            PlayTime += Time.deltaTime;
+        }
     }
     
     public void MoveScene(int _num){
         SceneManager.LoadScene(_num);
+        if (_num == 1)
+        {
+            playing = true;
+            mobcount = 0;
+            ScreenBase.gameObject.SetActive(false);
+        }
 
     }
     public void GameOver()
@@ -104,9 +129,18 @@ public class GameManager : MonoBehaviour
         else
         {
             print("GameOver");
+            ShowScreen();
+
             // 게임 오버 구현 해야함
         }
 
     }
 
+    private void ShowScreen()
+    {
+        ScreenBase.gameObject.SetActive(true);
+        MoneyT.text = "Gold Earned : " + Gold;
+        TimeT.text = "Play Time : " + PlayTime;
+        KillT.text = "Monster Killed : " + mobcount;
+    }
 }

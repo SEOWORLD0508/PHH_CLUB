@@ -129,11 +129,12 @@ public class PlayerStatus : Creature
     IEnumerator Attack()
     {
         attack = false;
+        playerMovement.animator.SetTrigger("Attack");
         yield return new WaitForSeconds(delaytime1); // 선딜
         Debug.Log("Attack");
         Judgment.Attack(this);
-        
-        
+        playerMovement.animator.SetTrigger("Hit");
+
 
         yield return new WaitForSeconds(delaytime2); //후딜
         attack = true;

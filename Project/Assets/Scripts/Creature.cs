@@ -38,6 +38,7 @@ public class Creature : MonoBehaviour
         {
             RoomEvent.instance.MinusEnemy(pRoom[0], pRoom[1]);
         }
+        GameManager.Instance.mobcount += 1;
     }
     public virtual void RefreshImage()
     {
