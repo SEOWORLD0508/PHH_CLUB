@@ -104,13 +104,13 @@ public class RoomEvent : MonoBehaviour
                         {
                             if (Input.GetKey(KeyCode.E))
                             {
-                                if (MapPlacing.instance.RoomInfo[i, j - 1].isEntered == true)
+                                if (MapPlacing.instance.RoomInfo[i, j - 1].isEntered == true && MapPlacing.instance.RoomInfo[i, j - 1].isCleared == true)
                                 {
                                     MapPlacing.instance.RoomInfo[i, j - 1].isEntered = false;
                                     MapPlacing.instance.RoomInfo[i, j].isEntered = true;
                                     player.transform.position = MapPlacing.instance.rooms[k].GetChild(7).position + new Vector3(3, 0, 0);
                                 }
-                                else
+                                else if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
                                 {
                                     MapPlacing.instance.RoomInfo[i, j - 1].isEntered = true;
                                     MapPlacing.instance.RoomInfo[i, j].isEntered = false;
