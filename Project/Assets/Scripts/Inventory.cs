@@ -298,7 +298,10 @@ public class Inventory : MonoBehaviour
             GameManager.Instance.ItemSprite.sprite = desSlot.item.sprite;
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if(desSlot.item.itemType == ItemType.Weapon) {
+                if(desSlot.item.itemType == ItemType.Weapon) 
+                {
+                    Refresh();
+                    if (weapons.Count == 1) return;
                     GetComponent<PlayerStatus>().UpdateStatus();
                     //print("Update Weapon");
                 }
