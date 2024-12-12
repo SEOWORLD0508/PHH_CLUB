@@ -24,7 +24,6 @@ public class RoomEvent : MonoBehaviour
     [SerializeField]
     GameObject player;
     public bool bossRoomAble = false;
-    public bool gameClear = false;
     int clearRoomNum;
     void Start()
     {
@@ -160,25 +159,15 @@ public class RoomEvent : MonoBehaviour
                                 Debug.Log("Boss Room");
                                 Transform Boss = Instantiate(boss, MapPlacing.instance.rooms[k - 1].position, Quaternion.identity);
                                 Boss.eulerAngles = new Vector3(-90, 0, 0);
-                                MapPlacing.instance.RoomInfo[i, j].EnemyAmount = 1;
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = true;
                             }
-                            else if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
+                            else
                             {
                                 player.transform.position = MapPlacing.instance.rooms[k + 5].position + new Vector3(9.5f, 4.5f, 0);
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = false;
                             }
                         }
                     }
-                }
-                if(MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss + 1 && MapPlacing.instance.RoomInfo[i, j].isCleared == true && MapPlacing.instance.RoomInfo[i, j].isEntered == false)
-                {
-                    gameClear = true;
-                    Debug.Log("Game Clear");
-                }
-                if(MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss + 1 && MapPlacing.instance.RoomInfo[i, j].isCleared == false && MapPlacing.instance.RoomInfo[i, j].isEntered == true && MapPlacing.instance.RoomInfo[i, j].EnemyAmount == 0)
-                {
-                    RoomClear(i ,j);
                 }
                 k++;
             }
