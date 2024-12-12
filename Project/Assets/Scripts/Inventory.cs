@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using JetBrains.Annotations;
-using static UnityEditor.Progress;
-
 public enum ItemType
 {
     Weapon,
