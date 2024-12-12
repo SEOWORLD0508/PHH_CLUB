@@ -25,8 +25,11 @@ public class RoomEvent : MonoBehaviour
     GameObject player;
     public bool bossRoomAble = false;
     int clearRoomNum;
+
+    public Transform b;
     void Start()
     {
+        b = transform;
         for (i = 0; i < Height; i++)
         {
             for (j = 0; j < Width; j++)
@@ -159,6 +162,7 @@ public class RoomEvent : MonoBehaviour
                                 Debug.Log("Boss Room");
                                 Transform Boss = Instantiate(boss, MapPlacing.instance.rooms[k - 1].position, Quaternion.identity);
                                 Boss.eulerAngles = new Vector3(-90, 0, 0);
+                                b = Boss;
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = true;
                             }
                             else
@@ -172,6 +176,9 @@ public class RoomEvent : MonoBehaviour
                 k++;
             }
         }
+
+        if(b == null)
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 
     //적 수 차감
