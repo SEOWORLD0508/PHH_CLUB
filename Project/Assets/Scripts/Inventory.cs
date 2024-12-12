@@ -145,7 +145,11 @@ public class Inventory : MonoBehaviour
         {
             s.inven = this;
         }
+       
+        desSlot = weaponSlots[0];
+
         SelectWeapon(weapons[0].item);
+
     }
 
     public void AddItem(List<ItemHolder> _itemHolder, Item _target)
@@ -369,6 +373,7 @@ public class Inventory : MonoBehaviour
     void SelectWeapon(Item _target){
         player.item = _target;
         player.UpdateStatus();
+        Refresh();
         for(int i = 0; i < weaponSlots.Length;i++){
             highlights[i].gameObject.SetActive((weaponSlots[i].item) && weaponSlots[i].item == _target);
                
