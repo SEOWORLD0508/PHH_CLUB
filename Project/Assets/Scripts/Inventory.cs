@@ -145,8 +145,7 @@ public class Inventory : MonoBehaviour
         {
             s.inven = this;
         }
-        player.item = weapons[0].item;
-        player.UpdateStatus();
+        SelectWeapon(weapons[0].item);
     }
 
     public void AddItem(List<ItemHolder> _itemHolder, Item _target)
@@ -323,8 +322,7 @@ public class Inventory : MonoBehaviour
                 {
                     Refresh();
                     if (weapons.Count == 1) return;
-                    player.item = weapons[0].item;
-                    player.UpdateStatus();
+                    SelectWeapon(weaponSlots[0].item);
                     //print("Update Weapon");
                 }
                 DropItem(desSlot.item);
@@ -352,8 +350,7 @@ public class Inventory : MonoBehaviour
     {
 
         if(_item.itemType == ItemType.Weapon){
-            player.item = _item;
-            player.UpdateStatus();
+            SelectWeapon(_item);
         }
 
         PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
@@ -368,5 +365,17 @@ public class Inventory : MonoBehaviour
             Player_.Vamp += _item.values[2];
         }
     }
+
+    void SelectWeapon(Item _target){
+        player.item = _target;
+        player.UpdateStatus();
+        for(int i = 0; i < weaponSlots.Length;i++){
+            highlights[i].gameObject.SetActive((weaponSlots[i].item) && weaponSlots[i].item == _target);
+               
+        }
+    }
+
+    [SerializeField]
+    Transform[] highlights;
 
 }
