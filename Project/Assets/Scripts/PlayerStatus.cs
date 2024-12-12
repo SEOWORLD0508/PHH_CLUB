@@ -35,6 +35,8 @@ public class PlayerStatus : Creature
 
     [SerializeField]
     PlayerMovement playerMovement;
+    [SerializeField]
+    Item currentWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -72,12 +74,13 @@ public class PlayerStatus : Creature
         }
         else
         {
-            Item item_ = inventory.weapons[0].item; // 플레이어 아이템 받아옴
-            item = item_; // item 은 creature 의 item 속성
-            weaponDamage = item_.values[2] * weaponDamageCoeff; // 무기 데미지
-            attackRange = item_.values[3]; // 무기 사거리
-            delaytime1 = item_.values[5];
-            delaytime2 = item_.values[6];
+            //Item item_ = inventory.weapons[0].item; // 플레이어 아이템 받아옴
+           
+            //item = item_; // item 은 creature 의 item 속성
+            weaponDamage = item.values[2] * weaponDamageCoeff; // 무기 데미지
+            attackRange = item.values[3]; // 무기 사거리
+            delaytime1 = item.values[5];
+            delaytime2 = item.values[6];
         }
           
         maxHp = 100;

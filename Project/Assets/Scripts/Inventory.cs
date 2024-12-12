@@ -52,6 +52,10 @@ public class Inventory : MonoBehaviour
 
     bool DescriptionOn = false;
 
+    public bool popUpInMouse;
+
+    public PlayerStatus player;
+
     void Refresh()
     {
         //if (equipments.Count == 0) return;
@@ -129,6 +133,9 @@ public class Inventory : MonoBehaviour
             DescriptionOn = false;
             GameManager.Instance.DescriptionBase.gameObject.SetActive(DescriptionOn);
         }
+
+
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -138,6 +145,8 @@ public class Inventory : MonoBehaviour
         {
             s.inven = this;
         }
+        player.item = weapons[0].item;
+        player.UpdateStatus();
     }
 
     public void AddItem(List<ItemHolder> _itemHolder, Item _target)
@@ -205,17 +214,17 @@ public class Inventory : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (equipments.Count + weapons.Count > 0 && closestSlot != null)
+            if ((equipments.Count + weapons.Count > 0) && (closestSlot != null || popUpInMouse))
             {
-                if (closestSlot.item != null)
+                if (closestSlot && closestSlot.item != null)
                 {
-
                     //print(closestSlot);
                     DescriptionOn = true;
                     desSlot = closestSlot;
 
+
                 }
-                else
+                else if(!popUpInMouse)
                     DescriptionOn = false;
             }
             else
@@ -264,7 +273,7 @@ public class Inventory : MonoBehaviour
                         case ItemType.Weapon:
                             AddItem(weapons, closest.item);
                             
-                            GetComponent<PlayerStatus>().UpdateStatus();
+                            player.UpdateStatus();
                             //print("Update Weapon");
                             break;
                     }
@@ -295,31 +304,39 @@ public class Inventory : MonoBehaviour
             GameManager.Instance.ItemSprite.sprite = desSlot.item.sprite;
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                if(desSlot.item.itemType == ItemType.Weapon) 
-                {
-                    Refresh();
-                    if (weapons.Count == 1) return;
-                    GetComponent<PlayerStatus>().UpdateStatus();
-                    //print("Update Weapon");
-                }
-                DropItem(desSlot.item);
+               QPress();
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                UseItem(desSlot.item);
+         
+                EPress();
+            }
+
+        }
+        Refresh();
+      
+
+    }
+
+    public void QPress(){
+         if(desSlot.item.itemType == ItemType.Weapon) 
+                {
+                    Refresh();
+                    if (weapons.Count == 1) return;
+                    player.item = weapons[0].item;
+                    player.UpdateStatus();
+                    //print("Update Weapon");
+                }
+                DropItem(desSlot.item);
+    }
+
+    public void EPress(){
+               UseItem(desSlot.item);
                 //print(desSlot.item.ItemName + "is Used");
                 if (desSlot.item.itemType == ItemType.Etc)
                 { 
                     RemoveItem(equipments, desSlot.item, 1);
                 }
-                
-            }
-
-        }
-        Refresh();
-        
-
-
     }
 
     public void DropItem(Item _item)
@@ -333,6 +350,12 @@ public class Inventory : MonoBehaviour
     }
     public void UseItem(Item _item)
     {
+
+        if(_item.itemType == ItemType.Weapon){
+            player.item = _item;
+            player.UpdateStatus();
+        }
+
         PlayerStatus Player_ = FindObjectOfType<PlayerStatus>();
         // 회복량 %
         if(_item.specialIndex == 1)
