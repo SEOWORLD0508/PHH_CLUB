@@ -298,11 +298,11 @@ public class Inventory : MonoBehaviour
             GameManager.Instance.ItemSprite.sprite = desSlot.item.sprite;
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                DropItem(desSlot.item);
                 if(desSlot.item.itemType == ItemType.Weapon) {
                     GetComponent<PlayerStatus>().UpdateStatus();
                     //print("Update Weapon");
                 }
+                DropItem(desSlot.item);
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
