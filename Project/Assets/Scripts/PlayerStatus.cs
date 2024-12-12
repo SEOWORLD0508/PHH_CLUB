@@ -113,7 +113,7 @@ public class PlayerStatus : Creature
     {
         base.Update();
         dir = playerMovement.moveDir;
-
+        UpdateStatus();
         RefreshImage();
 
         if (health > maxHp)
