@@ -48,7 +48,9 @@ public class GameManager : MonoBehaviour
 
 
 
-   
+    public bool tabOn = false;
+    public Transform[] tabs;
+
 
     public float GetGold()
     { 
@@ -96,13 +98,28 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(PauseKey))
         {
-            Pause = !Pause;
-            Time.timeScale  = Pause?0:1;
+            if (tabOn)
+            {
+                tabOn = false;
+                
+                InventoryBool = false;
+                ShopOnOff = false;
+                foreach (var item in tabs)
+                {
+                    item.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                Pause = !Pause;
+                Time.timeScale = Pause ? 0 : 1;
+            }
         }
 
         if (Input.GetKeyDown(InventoryKey))
         {
             InventoryBool = !InventoryBool;
+            tabOn = InventoryBool;
         }
 
         if(playing && !Pause)

@@ -16,11 +16,13 @@ MonoBehaviour:
   ItemDescription: 
   sprite: {fileID: 21300000, guid: b299aacb5dc45354ebcad99b27526a08, type: 3}
   values:
-  - 10
-  - 0.1
-  - 0.5
-  - 2
-  - 10
+  - 55
+  - 0
+  - 20
+  - 3
+  - 60
+  - 0.2
+  - 0.2
   itemType: 0
   prefab: {fileID: 2487813913936123887, guid: 00fc93f38382bd84fac72cdb863f1a01, type: 3}
   useAble: 0

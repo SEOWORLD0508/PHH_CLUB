@@ -62,6 +62,7 @@ public class PlayerStatus : Creature
 
     public void UpdateStatus()
     {
+        
         RefreshImage();
         if(inventory.weapons.Count == 0)
         {
@@ -75,6 +76,8 @@ public class PlayerStatus : Creature
             item = item_; // item 은 creature 의 item 속성
             weaponDamage = item_.values[2] * weaponDamageCoeff; // 무기 데미지
             attackRange = item_.values[3]; // 무기 사거리
+            delaytime1 = item_.values[5];
+            delaytime2 = item_.values[6];
         }
           
         maxHp = 100;
@@ -110,7 +113,7 @@ public class PlayerStatus : Creature
     {
         base.Update();
         dir = playerMovement.moveDir;
-
+        UpdateStatus();
         RefreshImage();
 
         if (health > maxHp)

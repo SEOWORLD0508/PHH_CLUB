@@ -16,8 +16,11 @@ public class NewButtonController : MonoBehaviour
 
     void SwitchObjects()
     {
+        if (GameManager.Instance.Pause == true) return;
         parentObject.SetActive(false); // 버튼이 포함된 오브젝트 숨기기
         targetObject.SetActive(true); // 다른 오브젝트 나타내기
+        GameManager.Instance.tabOn = true;
+
 
         // 오브젝트를 플레이어 시점 위치로 이동
         targetObject.transform.position = playerView.position;
