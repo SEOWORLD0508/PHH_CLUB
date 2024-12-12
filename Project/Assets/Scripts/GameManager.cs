@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
     public TMP_Text KillT;
     public TMP_Text TimeT;
 
+
+
+   
+
     public float GetGold()
     { 
         return Gold;
