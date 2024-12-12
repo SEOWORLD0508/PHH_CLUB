@@ -9,6 +9,7 @@ public class PlayerStatus : Creature
     
     public double statIncrease = 1.02; // 레벨 당 체력, 공격력 증가량 102%
     public float stamina,maxStamina; // 현재 스테미나 / 최대 스테미나
+    public float staminaSpeed;
     public float Vamp,maxVamp; // 뱀파이어 진행도 / 최대 진행도
     // public float weaponDamage; // 무기 공격력 Creature 에서 관리
     // public float damage; // 기본 공격력 Creature 에서 관리
@@ -37,6 +38,8 @@ public class PlayerStatus : Creature
     PlayerMovement playerMovement;
     [SerializeField]
     Item currentWeapon;
+    [SerializeField]
+    CameraShake c;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +59,6 @@ public class PlayerStatus : Creature
         Debug.Log(maxHp + "/" + maxStamina + "/" + health + "/" + stamina);
         
         UpdateStatus(); //스텟 재정의 함수 // 인벤토리 무기 교체시 호출 부탁 드려요~
-        StartCoroutine(timerCoroutine());
-
         
         
     }
@@ -101,6 +102,11 @@ public class PlayerStatus : Creature
             damage = damage * (1 + ratio);
         }
 
+        if (stamina < maxStamina)
+            stamina += Time.deltaTime * staminaSpeed;
+        else
+            stamina = maxStamina;
+
     }
 
     public override void RefreshImage()
@@ -115,7 +121,7 @@ public class PlayerStatus : Creature
     public override void Update()
     {
         base.Update();
-        dir = playerMovement.moveDir;
+        //dir = playerMovement.moveDir;
         UpdateStatus();
         RefreshImage();
 
@@ -131,12 +137,17 @@ public class PlayerStatus : Creature
         {
             GameManager.Instance.GameOver(); // 최대 침식도 넘었을 떄 게임 오버
         }
+
+        Vector3 t = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        t.z = 0;
+        dir = (t - transform.position).normalized;
     }
     IEnumerator Attack()
     {
         attack = false;
         playerMovement.animator.SetTrigger("Attack");
         yield return new WaitForSeconds(delaytime1); // 선딜
+        c.ShakeStart();
         Debug.Log("Attack");
         Judgment.Attack(this);
         playerMovement.animator.SetTrigger("Hit");
@@ -146,19 +157,6 @@ public class PlayerStatus : Creature
         attack = true;
     }
 
-    IEnumerator timerCoroutine() 
-    {
-        while(true)
-        {
-            stamina += 50f;
-            if (stamina > maxStamina)
-            {
-                stamina = maxStamina;
-            }
 
-            yield return new WaitForSeconds(1f);
-        }
-       
-    }
    
 }

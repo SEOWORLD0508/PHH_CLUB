@@ -20,9 +20,9 @@ MonoBehaviour:
   - 0
   - 3
   - 2
-  - 60
-  - 0
-  - 0
+  - 80
+  - 0.1
+  - 0.1
   itemType: 0
   prefab: {fileID: 450419828189372215, guid: f613ffd456f760c4fa2b7ef8505c4270, type: 3}
   useAble: 0

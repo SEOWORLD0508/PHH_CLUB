@@ -9,10 +9,12 @@ using UnityEngine;
 
 public class Judgment : MonoBehaviour{
 
+
     void Start()
     {
         //Player_ = FindObjectOfType<PlayerStatus>();
        // print(Player_.heal_by_enemy_attack);
+     
     }
     public List<Creature> get_enemy_list(Creature attacker)
     {
@@ -41,7 +43,7 @@ public class Judgment : MonoBehaviour{
         facing_vec.z = 0;
         var cos_sim = (Vector2.Dot(direction_vec, facing_vec)) / (direction_vec.magnitude * facing_vec.magnitude);
         bool standing = (facing_vec.x == 0 && facing_vec.y == 0 && facing_vec.z == 0);
-        if (cos_sim <= 1 && cos_sim >= minimum || standing)
+        if (cos_sim <= 1 && cos_sim >= minimum)/*standing)*/
         {
 
             // 가만히 서서 때리면 걍 다 맞게 해둠
@@ -126,7 +128,10 @@ public class Judgment : MonoBehaviour{
                     if (Player_.immune)
                     {
                         creature.health += attacker.damage;
+                        
                     }
+                   
+                    GameManager.Instance.i.makeRed(attacker.damage);
                 }
                 if (creature.health <= 0 )
 

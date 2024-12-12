@@ -375,6 +375,7 @@ public class Inventory : MonoBehaviour
         player.UpdateStatus();
         Refresh();
         for(int i = 0; i < weaponSlots.Length;i++){
+            print(weaponSlots[i].item);
             highlights[i].gameObject.SetActive((weaponSlots[i].item) && weaponSlots[i].item == _target);
                
         }

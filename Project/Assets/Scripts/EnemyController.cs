@@ -79,6 +79,7 @@ public class EnemyController : Creature
         animator.SetBool("isWalk", false);
         animator.SetBool("isIdle", true);
         */
+        Warning.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

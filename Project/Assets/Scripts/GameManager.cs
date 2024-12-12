@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
     public bool tabOn = false;
     public Transform[] tabs;
 
+    public bool inRoom = false;
+   
+    public Indicator i;
 
     public float GetGold()
     { 

@@ -41,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     PlayerStatus status;
+
+   
+    public Transform popUpPos;
     
 
 
@@ -98,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //rb.AddForce(moveDir * currentSpeed);
-        if(status.attack)
+        if (!status.attack) currentSpeed *= 0.5f;
         transform.Translate(moveDir * currentSpeed * Time.deltaTime);
 
 

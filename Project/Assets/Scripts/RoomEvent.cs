@@ -27,6 +27,9 @@ public class RoomEvent : MonoBehaviour
     int clearRoomNum;
 
     public Transform b;
+ 
+
+
     void Start()
     {
         b = transform;
@@ -38,6 +41,7 @@ public class RoomEvent : MonoBehaviour
             }
         }
         MapPlacing.instance.RoomInfo[Height - 1, 0].isCleared = true;
+       
     }
 
     void Update()
@@ -74,6 +78,7 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
+                         
                             if (Input.GetKey(KeyCode.F))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
@@ -91,6 +96,8 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
+                           
+                            print("b4");
                             if (Input.GetKey(KeyCode.F))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
@@ -105,6 +112,7 @@ public class RoomEvent : MonoBehaviour
                         }
                         else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < doorDis)
                         {
+                           
                             if (Input.GetKey(KeyCode.F))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j - 1].isEntered == true && MapPlacing.instance.RoomInfo[i, j - 1].isCleared == true)
@@ -113,14 +121,14 @@ public class RoomEvent : MonoBehaviour
                                     MapPlacing.instance.RoomInfo[i, j].isEntered = true;
                                     player.transform.position = MapPlacing.instance.rooms[k].GetChild(7).position + new Vector3(3, 0, 0);
                                 }
-                                else if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
+                                else if (MapPlacing.instance.RoomInfo[i, j].isCleared == true)
                                 {
                                     MapPlacing.instance.RoomInfo[i, j - 1].isEntered = true;
                                     MapPlacing.instance.RoomInfo[i, j].isEntered = false;
                                     player.transform.position = MapPlacing.instance.rooms[k].GetChild(7).position + new Vector3(-3, 0, 0);
                                 }
                             }
-                        }
+                        } 
                     }
                     if (MapPlacing.instance.RoomInfo[i, j].isCleared == true)
                     {
@@ -135,6 +143,7 @@ public class RoomEvent : MonoBehaviour
                 {
                     if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                     {
+                        
                         if (Input.GetKey(KeyCode.F))
                         {
                             if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
@@ -147,12 +156,14 @@ public class RoomEvent : MonoBehaviour
                             }
                         }
                     }
+                   
                 }
                 if (MapPlacing.instance.PblcMap[i, j] == MapPlacing.instance.roomNumInfo.boss + 1 && MapPlacing.instance.bossRoomOpened == true)
                 {
 
                     if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(4).position, player.transform.position) < doorDis)
                     {
+                      
                         if (Input.GetKey(KeyCode.F))
                         {
                             if (MapPlacing.instance.RoomInfo[i, j].isEntered == false)
@@ -165,20 +176,24 @@ public class RoomEvent : MonoBehaviour
                                 b = Boss;
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = true;
                             }
-                            else  if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
+                            else if (MapPlacing.instance.RoomInfo[i, j].isCleared == true)
                             {
                                 player.transform.position = MapPlacing.instance.rooms[k + 5].position + new Vector3(9.5f, 4.5f, 0);
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = false;
                             }
                         }
+                      
                     }
                 }
                 k++;
             }
         }
 
-        if(b == null)
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        if (b == null)
+            UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+
+
+      
     }
 
     //적 수 차감
@@ -212,7 +227,9 @@ public class RoomEvent : MonoBehaviour
                 player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(-3, 0, 0);
             }
             MapPlacing.instance.RoomInfo[i, j].isEntered = false;
+            GameManager.Instance.inRoom = false;
         }
+
     }
 
     //방 들어가기
@@ -227,6 +244,7 @@ public class RoomEvent : MonoBehaviour
             player.transform.position = MapPlacing.instance.rooms[k].GetChild(6).position + new Vector3(3, 0, 0);
         }
         MapPlacing.instance.RoomInfo[i, j].isEntered = true;
+        GameManager.Instance.inRoom = true;
     }
 
     public int[] FindPlayerRoom()

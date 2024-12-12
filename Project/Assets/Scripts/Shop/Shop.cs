@@ -15,20 +15,23 @@ public class Shopping : MonoBehaviour
 
 
 
-    private GameObject player;
+    private PlayerMovement player;
+    [SerializeField]
+    Transform popUpT;
 
 
    
     void Start()
     {
-        player = FindObjectOfType<PlayerMovement>().gameObject;
+        player = FindObjectOfType<PlayerMovement>();
         //playerInventory = FindObjectOfType<Inventory>();
+        popUpT.GetComponentInChildren<TMPro.TMP_Text>().text = "<color=yellow>T</color>를 눌러 상점과 상호작용";
     }
 
     void Update()
     {
         float dis = Vector3.Distance(player.transform.position, transform.position);
-        if (dis < interactionDistance && GameManager.Instance.Pause == false)
+        if (dis < interactionDistance && GameManager.Instance.Pause == false && GameManager.Instance.inRoom)
         {
             // E 키를 눌러 상점과 상호작용
             if (Input.GetKeyDown(KeyCode.T))
@@ -38,9 +41,14 @@ public class Shopping : MonoBehaviour
                 GameManager.Instance.ShopOnOff = !GameManager.Instance.ShopOnOff;
                 GameManager.Instance.tabOn = true;
                 print(GameManager.Instance.ShopOnOff);
-                
+                    
             }
+            popUpT.gameObject.SetActive(!GameManager.Instance.ShopOnOff);
+            
         }
+        else popUpT.gameObject.SetActive(false);
+
+        if (popUpT.gameObject.activeSelf) popUpT.position = player.popUpPos.position;
         
 
     }
