@@ -26,6 +26,8 @@ public class Item : ScriptableObject
     2.damage / 혹은 회복량 % / 혹은 침식도 +
     3.range
     4.angle
+    5.선딜
+    6.후딜
     */
 
    

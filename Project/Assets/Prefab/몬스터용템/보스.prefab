@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2447346511394895697}
   - component: {fileID: 88270446364867743}
   m_Layer: 9
-  m_Name: Enemy 4
+  m_Name: "\uBCF4\uC2A4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,15 +235,15 @@ MonoBehaviour:
   mesh: {fileID: 10613289409939816}
   leftRot: {x: 0, y: 0, z: 0}
   rightRot: {x: 0, y: 180, z: 0}
-  health: 100
-  maxHp: 100
+  health: 500
+  maxHp: 500
   healthBar: {fileID: 7588188938126345219}
   damage: 0
   attackRange: 0.5
   weaponDamage: 0
   weaponAngle: 0
   entity_name: Enemy1
-  item: {fileID: 11400000, guid: a5b5632636f1ec74a829d0b5850e0576, type: 2}
+  item: {fileID: 11400000, guid: e263311075c0091478010f326d98c185, type: 2}
   dir: {x: 0, y: 0, z: 0}
   lastPos: {x: 0, y: 0, z: 0}
   collideLayer:
@@ -256,7 +256,7 @@ MonoBehaviour:
   - Name: attack1
     val:
     - 0
-    - 0.1
+    - 1
     - 1
   obs:
   - {x: -1.930022, y: -1}
