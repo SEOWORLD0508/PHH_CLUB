@@ -165,7 +165,7 @@ public class RoomEvent : MonoBehaviour
                                 b = Boss;
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = true;
                             }
-                            else
+                            else  if(MapPlacing.instance.RoomInfo[i, j].isCleared == true)
                             {
                                 player.transform.position = MapPlacing.instance.rooms[k + 5].position + new Vector3(9.5f, 4.5f, 0);
                                 MapPlacing.instance.RoomInfo[i, j].isEntered = false;
