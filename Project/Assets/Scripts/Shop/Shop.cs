@@ -28,7 +28,7 @@ public class Shopping : MonoBehaviour
     void Update()
     {
         float dis = Vector3.Distance(player.transform.position, transform.position);
-        if (dis < interactionDistance)
+        if (dis < interactionDistance && GameManager.Instance.Pause == false)
         {
             // E 키를 눌러 상점과 상호작용
             if (Input.GetKeyDown(KeyCode.T))
@@ -36,6 +36,7 @@ public class Shopping : MonoBehaviour
                 //OpenShopUI(); 
                 print("Shop Opened");
                 GameManager.Instance.ShopOnOff = !GameManager.Instance.ShopOnOff;
+                GameManager.Instance.tabOn = true;
                 print(GameManager.Instance.ShopOnOff);
                 
             }

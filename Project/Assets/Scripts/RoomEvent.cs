@@ -71,7 +71,7 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
-                            if (Input.GetKey(KeyCode.E))
+                            if (Input.GetKey(KeyCode.F))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
                                 {
@@ -88,7 +88,7 @@ public class RoomEvent : MonoBehaviour
                     {
                         if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                         {
-                            if (Input.GetKey(KeyCode.E))
+                            if (Input.GetKey(KeyCode.F))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
                                 {
@@ -102,7 +102,7 @@ public class RoomEvent : MonoBehaviour
                         }
                         else if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(7).position, player.transform.position) < doorDis)
                         {
-                            if (Input.GetKey(KeyCode.E))
+                            if (Input.GetKey(KeyCode.F))
                             {
                                 if (MapPlacing.instance.RoomInfo[i, j - 1].isEntered == true && MapPlacing.instance.RoomInfo[i, j - 1].isCleared == true)
                                 {
@@ -132,7 +132,7 @@ public class RoomEvent : MonoBehaviour
                 {
                     if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(6).position, player.transform.position) < doorDis)
                     {
-                        if (Input.GetKey(KeyCode.E))
+                        if (Input.GetKey(KeyCode.F))
                         {
                             if (MapPlacing.instance.RoomInfo[i, j].isEntered == true)
                             {
@@ -150,7 +150,7 @@ public class RoomEvent : MonoBehaviour
 
                     if (Vector2.Distance(MapPlacing.instance.rooms[k].GetChild(4).position, player.transform.position) < doorDis)
                     {
-                        if (Input.GetKey(KeyCode.E))
+                        if (Input.GetKey(KeyCode.F))
                         {
                             if (MapPlacing.instance.RoomInfo[i, j].isEntered == false)
                             {
