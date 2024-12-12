@@ -32,6 +32,7 @@ public class Creature : MonoBehaviour
     }
     public void Die()
     {
+        
         Destroy(this.gameObject);
         int[] pRoom = RoomEvent.instance.FindPlayerRoom();
         if (pRoom[0] != -1)
